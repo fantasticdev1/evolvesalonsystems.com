@@ -1,0 +1,35 @@
+---
+name: salon_owner_signup
+resource: User
+return_to: '/sign-in'
+configuration:
+  email:
+  password:
+  first_name:
+    validation: { presence: true }
+  profiles:
+    salon_owner:
+      enabled:
+        property_options:
+          default: true
+          readonly: true
+      validation:
+        presence: true
+    validation:
+      presence: true
+---
+{% form_for form, url: '/api/users', method: 'post' %}
+
+	{% input first_name %}
+	{% input email, as: email %}
+	{% input password, as: password %}
+
+	{% fields_for profiles %}
+		{% fields_for salon_owner, form: profiles %}
+			{% input enabled, as: hidden, form: salon_owner %}
+		{% endfields_for %}
+	{% endfields_for %}
+
+	{% submit Create %}
+
+{% endform_for %}

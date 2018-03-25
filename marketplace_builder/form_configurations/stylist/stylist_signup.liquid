@@ -1,0 +1,36 @@
+---
+name: stylist_signup
+resource: User
+return_to: '/sign-in'
+configuration:
+  email:
+  password:
+  first_name:
+    validation: 
+      presence: true
+  profiles:
+    stylist:
+      enabled:
+        property_options:
+          default: true
+          readonly: true
+      validation:
+        presence: true
+    validation:
+      presence: true
+---
+{% form_for form, url: '/api/users', method: 'post' %}
+
+	{% input first_name %}
+	{% input email, as: email %}
+	{% input password, as: password %}
+
+	{% fields_for profiles %}
+		{% fields_for stylist, form: profiles %}
+			{% input enabled, as: hidden, form: stylist %}
+		{% endfields_for %}
+	{% endfields_for %}
+
+	{% submit Create %}
+
+{% endform_for %}
