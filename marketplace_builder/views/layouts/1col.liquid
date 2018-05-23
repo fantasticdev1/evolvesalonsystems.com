@@ -1,0 +1,28 @@
+{%- include 'layout/constants' -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%- include 'layout/head' -%}
+</head>
+<body class="grid-y">
+	<header role="banner" id="pageheader" class="cell shrink">
+		{%- include 'layout/header' -%}
+	</header>
+	<main role="main" id="pagecontent" class="cell auto">
+		<div class="grid-x grid-padding-x grid-padding-y grid-frame">
+			<div class="cell">
+				{% if page.metadata.title and page.metadata.title != '' -%}<h1>{{page.metadata.title}}</h1>{% endif -%}
+				{{content_for_layout}}
+			</div>
+		</div>
+	</main>
+	<footer role="contentinfo" id="pagefooter" class="cell shrink">
+		<div class="grid-x grid-padding-x grid-padding-y">
+			<div class="cell">
+				{%- include 'layout/footer' -%}
+			</div>
+		</div>
+	</footer>
+	{%- include 'layout/foot' -%}
+</body>
+</html>

@@ -1,0 +1,11 @@
+---
+slug: account/profile
+layout_name: 1col
+metadata:
+  title: My Profile
+---
+{%- comment -%}'{% if user %}1col{% else %}2col{% endif %}'{%- endcomment -%}
+{%- include 'layout/constants' -%}
+{%- if user -%}{% render_form 'profile', method: 'put' %}
+{%- else -%}{%- include 'forms/authenticate' -%}
+{%- endif -%}

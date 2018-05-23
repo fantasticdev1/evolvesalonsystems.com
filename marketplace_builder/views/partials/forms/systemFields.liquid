@@ -1,0 +1,1 @@
+{% for field in fields -%}<input type="hidden" name="{{field[0]}}" value="{%- if field[0] == '_method' and method -%}{{method}}{%- else -%}{{field[1]}}{%- endif -%}">{% endfor -%}

@@ -1,0 +1,11 @@
+{% assign unique = 'today' | date: '%N' -%}
+<label for="{{field.name}}{{unique}}" class="validation-group{% if field.validation.errors.size > 0 %} error{% endif %}">{{label}}
+	{% if type == 'textarea' -%}
+		<textarea id="{{field.name}}{{unique}}" name="{{field.name}}">{{value | default: field.value}}</textarea>
+	{% elsif type == 'select' -%}
+		<select id="{{field.name}}{{unique}}" name="{{field.name}}"></select>
+	{% else -%}
+		<input type="{{type}}" id="{{field.name}}{{unique}}" name="{{field.name}}" value="{{value | default: field.value}}">
+	{% endif -%}
+	{% include 'forms/validation', errors: field.validation.errors -%}
+</label>

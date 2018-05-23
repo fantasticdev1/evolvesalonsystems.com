@@ -1,0 +1,8 @@
+---
+name: Support
+custom_attributes:
+- name: name
+  attribute_type: string
+- name: scope
+  attribute_type: array
+---

@@ -1,0 +1,10 @@
+---
+name: account_logout
+resource: Session
+---
+{% assign f = form_builder -%}
+
+<form action="{{f.action}}" method="{{f.method}}" data-posdk-submit="{% if submitMode == 'ajax' -%}submitMode:ajax;{% endif -%}">
+	{% include 'forms/systemFields', fields: f.system_fields, method: 'delete' -%}
+	<a type="submit">Logout</a>
+</form>

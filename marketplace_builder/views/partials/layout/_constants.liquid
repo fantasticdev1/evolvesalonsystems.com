@@ -1,0 +1,6 @@
+{%- capture desc %}{%- yield 'meta_desc' %}{%- endcapture %}
+{%- capture pagetitle -%}{%- yield 'pagetitle' -%}{%- endcapture -%}
+{% capture aside -%}{%- yield 'aside' -%}{% endcapture -%}
+{% query_graph current_user, result_name: g %}
+{% assign user = g.current_user -%}
+<script>console.log('user:',{{user|json}})</script>

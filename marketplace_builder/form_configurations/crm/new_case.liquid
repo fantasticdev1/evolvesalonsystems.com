@@ -1,0 +1,22 @@
+---
+name: case
+resource: User
+configuration:
+  email:
+  password:
+  first_name:
+    validation: { presence: true }
+---
+{% assign form = form_builder -%}
+
+<form action="{{form.action}}" method="{{form.method}}" data-posdk-formmagic>
+	{% include 'forms/fieldGroup', field: form.fields.first_name, type: 'text', label: 'First Name' -%}
+	{% include 'forms/fieldGroup', field: form.fields.email, type: 'email', label: 'Email' -%}
+	{% include 'forms/fieldGroup', field: form.fields.password, type: 'password', label: 'Password' -%}
+	{% include 'forms/systemFields', fields: form.system_fields -%}
+	<input type="submit" class="button">
+</form>
+
+<script>console.log({{form|json}})</script>
+
+

@@ -1,0 +1,9 @@
+mutation user_session_create($email: String!, $password: String!) {
+  user_session_create(
+    form_configuration_name: "login" # must match with `name` of your form
+    email: $email
+    password: $password
+  ) {
+    email
+  }
+}

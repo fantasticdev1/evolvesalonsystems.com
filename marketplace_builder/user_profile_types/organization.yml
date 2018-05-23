@@ -1,0 +1,4 @@
+name: organization
+custom_attributes:
+- name: organization
+  attribute_type: string

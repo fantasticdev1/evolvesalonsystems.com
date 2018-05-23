@@ -1,0 +1,12 @@
+<!-- Read https://polyfill.io/ for guide on how add other polyfills. -->
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch,Element.prototype.closest,IntersectionObserver"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js" integrity="sha256-JU8TVk3s2PcAUi+nTnc2+k/o+I1QtXNQ6wMMTR3bCkk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+<script>$(document).foundation();</script>
+<script src="{{'scripts/vendor.js' | asset_url}}"></script>
+<script src="{{'scripts/posdk.js' | asset_url}}"></script>
+<script src="{{'scripts/submit.js' | asset_url}}"></script>
+<script src="{{'scripts/app.js' | asset_url}}"></script>
+<script>console.log('context:',{{context|json}})</script>
+{%- comment -%}<script>console.log('page:',{{page|json}})</script>{%- endcomment -%}

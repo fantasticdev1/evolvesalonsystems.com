@@ -1,0 +1,8 @@
+query get_user {
+  people {
+    results {
+      first_name
+      email
+    }
+  }
+}

@@ -1,0 +1,20 @@
+---
+name: gallery_item
+resource: Customization
+resource_owner: anyone
+configuration:
+  properties:
+    title:
+      validation:
+        presence: true
+    description:
+---
+{% assign f = form_builder -%}
+<form action="{{f.action}}" method="{{f.method}}">
+	{% include 'forms/fieldGroup', field: f.fields.properties.title, type: 'text', label: 'Title' -%}
+	{% include 'forms/fieldGroup', field: f.fields.properties.description, type: 'textarea', label: 'Description' -%}
+	{% include 'forms/systemFields', fields: f.system_fields -%}
+	<input type="submit" class="button">
+</form>
+
+<script>console.log({{form|json}})</script>

@@ -1,0 +1,49 @@
+html {height: auto;} /*needed for flexbox to work correctly*/
+body {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	min-height: 100vh;
+	-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		-ms-flexbox-direction: column;
+			flex-direction: column;}
+:focus {outline: none;}
+
+.grid-container {width: 100%;}
+
+.validation-group .validation-message {
+	margin-top: -15px;
+	margin-bottom: 15px;
+	display: block;}
+.validation-group.error .validation-message {color: red;}
+.validation-group.error input,
+.validation-group.error select,
+.validation-group.error textarea {background-color: rgba(255,0,0,.05);}
+
+
+#pageheader .header-logo {padding: 0;}
+#pageheader .header-logo img {max-height: 50px;}
+#pageheader .title-bar,
+#pageheader .top-bar,
+#pageheader .top-bar ul,
+#pageheader .top-bar li {background-color: #ccc}
+#pageheader .top-bar a {color: #000;}
+#pageheader .top-bar .is-dropdown-submenu-parent>a:after {border-color: #333 transparent transparent;}
+#pageheader .top-bar .is-drilldown-submenu-parent>a:after {border-color: transparent transparent transparent #333;}
+#pageheader .top-bar .js-drilldown-back>a:before {border-color: transparent #333 transparent transparent;}
+#pageheader .title-bar .menu-bars {cursor: pointer;}
+
+#pagecontent {
+	position: relative;
+	-webkit-flex: 1;
+		-ms-flex: 1;
+		-ms-flexbox: 1;
+			flex: 1 1 auto;
+	min-width: 0;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	padding: 15px 0;}

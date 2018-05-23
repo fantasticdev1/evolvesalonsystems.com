@@ -1,0 +1,28 @@
+---
+name: profile
+resource: User
+configuration:
+  first_name:
+    validation:
+      presence: true
+  last_name:
+    validation:
+      presence: true
+  email:
+  profiles:
+    organization:
+      properties:
+        organization:
+---
+{%- include 'layout/constants' -%}
+{% assign f = form_builder -%}
+{% assign method = method | default: 'post' -%}
+<form action="{{f.action}}{% if method == 'put' -%}/{{user.id}}{% endif -%}" method="{{f.method}}" data-posdk-submit="{% if submitMode == 'ajax' -%}submitMode:ajax;{% endif -%}">
+	{% include 'forms/fieldGroup', field: f.fields.first_name, type: 'text', label: 'First Name', value: user.first_name -%}
+	{% include 'forms/fieldGroup', field: f.fields.last_name, type: 'text', label: 'Last Name', value: user.last_name -%}
+	{% include 'forms/fieldGroup', field: f.fields.email, type: 'email', label: 'Email', value: user.email -%}
+	{% include 'forms/fieldGroup', field: f.fields.profiles.organization.properties.organization, type: 'text', label: 'Organization', value: user.profile.property -%}
+	{% include 'forms/systemFields', fields: f.system_fields, method: method -%}
+	<button type="submit" class="button">{% if method == 'put' -%}Update{% else -%}Create{% endif -%}</button>
+</form>
+<script>console.log('form: ',{{f|json}})</script>

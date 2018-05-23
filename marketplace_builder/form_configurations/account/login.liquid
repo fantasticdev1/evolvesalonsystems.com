@@ -1,0 +1,13 @@
+---
+name: login
+resource: Session
+---
+{% assign f = form_builder -%}
+
+<form action="{{f.action}}" method="{{f.method}}" data-posdk-submit="{% if submitMode == 'ajax' -%}submitMode:ajax;{% endif -%}">
+	{% include 'forms/fieldGroup', field: f.fields.email, type: 'email', label: 'Email' -%}
+	{% include 'forms/fieldGroup', field: f.fields.password, type: 'password', label: 'Password' -%}
+	{% include 'forms/systemFields', fields: f.system_fields -%}
+	<button type="submit" class="button">Login</button>
+	<p><small><a href="/account/forgot-password">Forgot your password?</a></small></p>
+</form>
