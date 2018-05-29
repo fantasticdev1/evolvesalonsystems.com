@@ -1,0 +1,13 @@
+query gallery_items {
+	customizations(
+    name: "gallery_item",
+    sort: {
+      property_name: "index"
+    }
+  ){
+    results {
+      id
+      properties
+    }
+  }
+}
