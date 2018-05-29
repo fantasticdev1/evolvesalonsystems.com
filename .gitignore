@@ -1,4 +1,17 @@
-# Created by .ignore support plugin (hsz.mobi)
-/docs/
-/node_modules/
-/.marketplace-kit
+*.log
+*.sublime-*
+.DS_Store
+.Spotlight-V100
+.Trashes
+._*
+.cache-loader/
+.env
+.idea
+.marketplace-kit
+.ruby-gemset
+.vscode/
+marketplace_builder/assets/*.css
+marketplace_builder/assets/*.js
+marketplace_builder/assets/*.map
+node_modules/
+tmp/

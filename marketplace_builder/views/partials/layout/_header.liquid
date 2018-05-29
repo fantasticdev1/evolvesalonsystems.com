@@ -3,7 +3,7 @@
 		<div class="grid-container full">
 			<div class="grid-x">
 				<div class="cell shrink">
-					<a href="/" class="header-logo"><img src="{{'images/brand/ONE-header-logo.png' | asset_url}}" alt="ONE Creative home page"></a>
+					<a href="/" class="header-logo"><img src="{{'images/brand/logo.png' | asset_url}}" alt="ONE Creative home page"></a>
 				</div>
 				<div class="cell auto"></div>
 				<div class="cell shrink">
@@ -13,29 +13,32 @@
 		</div>
 	</div>
 	<div id="top-bar" class="top-bar">
-		<div class="top-bar-left show-for-medium">
-			<ul class="menu">
-				<li class="menu-text"><a href="/" class="header-logo"><img src="{{'images/brand/ONE-header-logo.png' | asset_url}}" alt="ONE Creative home page"></a></li>
-			</ul>
-		</div>
-		<div class="top-bar-right">
-			<ul class="vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
-				<li class="{% if page.slug == 'blog' -%}is-active{% endif -%}"><a href="/blog">Blog</a></li>
-				<li class="{% if page.slug == 'learning' -%}is-active{% endif -%}"><a href="/learning">Learning</a></li>
-				<li class="{% if page.slug == 'products' -%}is-active{% endif -%}"><a href="/products">Products</a></li>
-				<li class="{% if page.slug == 'contact' -%}is-active{% endif -%}"><a href="/contact">Contact</a></li>
-				<li class="{% if page.slug == 'account' -%}is-active{% endif %}"><a href="/account" title="Account"><span class="fas fa-user-circle show-for-medium"></span><span class="hide-for-medium"> Account</span></a>
-					<ul class="menu vertical">
-						{% if user -%}
-							<li class="{% if page.slug == 'account/profile' -%}is-active{% endif -%}"><a href="/account/profile">Profile</a></li>
-							<li>{% render_form 'account_logout' %}</li>
-						{% else -%}
-							<li><a href="/account/profile" data-open="loginModal">Login</a>
-							<li><a href="/account/profile" data-open="createAccountModal">Create Account</a>
-						{% endif -%}
-					</ul>
-				</li>
-			</ul>
+		<div class="container">
+			<div class="top-bar-left show-for-medium">
+				<ul class="menu">
+					<li class="menu-text"><a href="/" class="header-logo"><img src="{{'images/brand/logo.png' | asset_url}}" alt="ONE Creative home page"></a></li>
+				</ul>
+			</div>
+			<div class="top-bar-right">
+				<ul class="vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
+					<li class="{% if page.slug == 'products' -%}is-active{% endif -%}"><a href="/products">PRODUCTS</a></li>
+					<li class="{% if page.slug == 'promotions' -%}is-active{% endif -%}"><a href="/promotions">PROMOTIONS</a></li>
+					<li class="{% if page.slug == 'business-systems' -%}is-active{% endif -%}"><a href="/business-systems">BUSINESS SYSTEMS</a></li>
+					<li class="{% if page.slug == 'salon-software' -%}is-active{% endif -%}"><a href="/salon-software">SALON SOFTWARE</a></li>
+					<li class="{% if page.slug == 'education' -%}is-active{% endif -%}"><a href="/education">EDUCATION</a></li>
+					<li class="{% if page.slug == 'account' -%}is-active{% endif %}"><a href="/account" title="Account"><span class="fas fa-user-circle show-for-medium"></span><span class="hide-for-medium"> Account</span></a>
+						<ul class="menu vertical">
+							{% if user -%}
+								<li class="{% if page.slug == 'account/profile' -%}is-active{% endif -%}"><a href="/account/profile">Profile</a></li>
+								<li>{% render_form 'account_logout' %}</li>
+							{% else -%}
+								<li><a href="/account/profile" data-open="loginModal">Login</a>
+								<li><a href="/account/profile" data-open="createAccountModal">Create Account</a>
+							{% endif -%}
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </nav>
