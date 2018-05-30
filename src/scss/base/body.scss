@@ -1,0 +1,13 @@
+// Push footer to the bottom if content is very short
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  &:not(.page-home) {
+    padding: 40px 0;
+  }
+}
