@@ -1,0 +1,7 @@
+query get_gallery_items {
+  customizations(name: "gallery_item", sort: { property_name: "index" }) {
+    results {
+      properties
+    }
+  }
+}
