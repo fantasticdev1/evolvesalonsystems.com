@@ -1,6 +1,12 @@
 name: gallery_item
 custom_attributes:
+- name: image_url
+  attribute_type: string
 - name: title
   attribute_type: string
 - name: description
   attribute_type: text
+- name: detail_link
+  attribute_type: string
+- name: index
+  attribute_type: integer
