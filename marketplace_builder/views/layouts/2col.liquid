@@ -4,28 +4,22 @@
 <head>
 	{%- include 'layout/head' -%}
 </head>
-<body class="grid-y">
-	<header role="banner" id="pageheader" class="cell shrink">
+<body>
+	<header role="banner">
 		{%- include 'layout/header' -%}
 	</header>
-	<section id="pagecontent" class="cell auto">
-		<div class="grid-x small-grid-y grid-frame">
-			<main role="main" class="cell auto">
-				<div class="grid-x grid-padding-x grid-padding-y">
-					<div class="cell">
-						{% if page.metadata.title and page.metadata.title != '' -%}<h1>{{page.metadata.title}}</h1>{% endif -%}
-						{{content_for_layout}}
-					</div>
-				</div>
-			</main>
-			<aside id="aside" role="navigation" class="cell medium-4 hide-for-small-only">
-				<div class="grid-x grid-padding-x grid-padding-y">
-					<div class="cell">
-						{{aside | html_safe}}
-					</div>
-				</div>
-			</aside>
+	<section>
+		<div class="content">
+			{% if page.metadata.title and page.metadata.title != '' -%}<h1>{{page.metadata.title}}</h1>{% endif -%}
+			{{content_for_layout}}
 		</div>
+		<aside id="aside" role="navigation" class="cell medium-4 hide-for-small-only">
+			<div class="grid-x grid-padding-x grid-padding-y">
+				<div class="cell">
+					{{aside | html_safe}}
+				</div>
+			</div>
+		</aside>
 	</section>
 	<footer role="contentinfo" id="pagefooter" class="cell shrink">
 		<div class="grid-x grid-padding-x grid-padding-y">

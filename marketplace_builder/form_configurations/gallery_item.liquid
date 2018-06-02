@@ -13,14 +13,13 @@ configuration:
     index:
 ---
 {% assign f = form_builder -%}
-<form action="{{f.action}}" method="{{f.method}}">
+{% form -%}
 	{% include 'forms/fieldGroup', field: f.fields.properties.image_url, type: 'text', label: 'ImageURL' -%}
   {% include 'forms/fieldGroup', field: f.fields.properties.title, type: 'text', label: 'Title' -%}
   {% include 'forms/fieldGroup', field: f.fields.properties.description, type: 'textarea', label: 'Description' -%}
 	{% include 'forms/fieldGroup', field: f.fields.properties.detail_link, type: 'text', label: 'Detail Link' -%}
-  {% include 'forms/fieldGroup', field: f.fields.properties.index, type: 'text', label: 'Index' -%}
-	{% include 'forms/systemFields', fields: f.system_fields -%}
+  {% include 'forms/fieldGroup', field: f.fields.properties.index, type: 'number', label: 'Index' -%}
 	<input type="submit" class="button">
-</form>
+{% endform -%}
 
 <script>console.log({{form|json}})</script>

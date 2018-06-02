@@ -5,6 +5,7 @@ header {
   right: 0;
 
   .top-bar {
+    background-color: transparent;
     .container {
       display: flex;
       align-items: center;
@@ -15,12 +16,12 @@ header {
     .top-bar-right {
       ul {
         a {
-          color: $primary-color;
+          color: $primary-heavy;
           font-size: $font-size-default;
         }
         .is-active {
           a {
-            color: $primary-color;
+            color: $primary-heavy;
             text-decoration: underline;
           }
         }

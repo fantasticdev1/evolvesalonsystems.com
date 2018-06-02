@@ -11,5 +11,9 @@
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 
-// Compomnents
+// Components
 @import 'scss/components/navbar.scss';
+@import 'scss/components/buttons';
+
+// Pages
+@import 'scss/pages/home';
