@@ -4,8 +4,7 @@ layout_name: 2col
 metadata:
 ---
 {%- query_graph 'get_gallery_items', result_name: 'g' -%}
-<script>console.log({{g|json}})</script>
-{%- assign data = g.customizations.results[3].properties -%}
+{%- assign data = g.customizations.results[0].properties -%}
 <div class="homepage__top-gallery">
   <div class="left-section">
     <div class="bg-circle"></div>
@@ -18,7 +17,9 @@ metadata:
       <div class="index">{{data.index}}</div>
       <div class="title">{{data.title}}</div>
       <div class="description">{{data.description}}</div>
-      <button class="medium">Details</button>
+      <div class="button-row">
+        <button class="medium">Details</button>
+      </div>
     </div>
     <div class="dots">
       {%- for page in (1..4) -%}

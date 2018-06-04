@@ -36,6 +36,7 @@
 
   .right-section {
     flex: 1;
+    padding-right: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,16 +51,18 @@
     .index {
       opacity: 0.25;
       font-size: 5rem;
-      line-height: 0.5;
+      line-height: 1;
       transform: translateX(-10px);
     }
     .title {
       font-size: 3.6rem;
+      line-height: 1.2;
     }
     .description {
+      margin-top: 15px;
       font-size: 1.6rem;
     }
-    button {
+    .button-row {
       margin-top: 50px;
     }
     .dots {
@@ -88,8 +91,12 @@
     .left-section {
       width: 0;
     }
-    button {
-      margin: 80px auto;
+    .text-section {
+      max-width: initial !important;
+    }
+    .button-row {
+      margin-top: 80px;
+      text-align: center;
     }
   }
 }
