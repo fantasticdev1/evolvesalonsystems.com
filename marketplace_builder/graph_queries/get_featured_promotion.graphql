@@ -1,0 +1,7 @@
+query get_featured_promotion {
+  customizations(name: "promotions", sort: { name: "featured" }, per_page: 1) {
+    results {
+      properties
+    }
+  }
+}
