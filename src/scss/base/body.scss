@@ -8,3 +8,9 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
