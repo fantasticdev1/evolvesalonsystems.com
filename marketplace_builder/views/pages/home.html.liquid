@@ -2,31 +2,12 @@
 slug: /
 layout_name: 2col
 metadata:
+  eventSection:
+    title: Education and Events
+    description: Education is a major focus for Evolve. We believe it can inspire stylist to reach their potential, enlighten them to make a change, or validate how great they already are at their careers
+    tableHeading: Upcoming Events
+    viewAllEvents: View All Upcoming Education Events
 ---
-{%- query_graph 'get_gallery_items', result_name: 'g' -%}
-{%- assign data = g.customizations.results[0].properties -%}
-<div class="homepage__top-gallery">
-  <div class="left-section">
-    <div class="bg-circle"></div>
-    <div class="img-wrapper">
-      <img src="{{data.image_url}}">
-    </div>
-  </div>
-  <div class="right-section">
-    <div class="text-section">
-      <div class="index">{{data.index}}</div>
-      <div class="title">{{data.title}}</div>
-      <div class="description">{{data.description}}</div>
-      <div class="button-row">
-        <button class="medium">Details</button>
-      </div>
-    </div>
-    <div class="dots">
-      {%- for page in (1..4) -%}
-        <div class="dot" onclick="dosomething();"></div>
-      {%- endfor -%}
-    </div>
-  </div>
-</div>
 
-{% render_form 'gallery_item', resource_type: 'gallery_item' %}
+{% include 'home/top-gallery' %}
+{% include 'home/events', meta: page.metadata.eventSection %}

@@ -1,0 +1,28 @@
+{%- query_graph 'get_gallery_items', result_name: g -%}
+{%- assign data = g.customizations.results[0].properties -%}
+
+<div class="homepage__top-gallery">
+  <div class="left-section">
+    <div class="bg-circle"></div>
+    <div class="img-wrapper">
+      <img src="{{data.image_url}}">
+    </div>
+  </div>
+  <div class="right-section">
+    <div class="text-section">
+      <div class="index">{{data.index}}</div>
+      <div class="title">{{data.title}}</div>
+      <div class="description">{{data.description}}</div>
+      <div class="button-row">
+        <button class="medium">Details</button>
+      </div>
+    </div>
+    <div class="dots">
+      {%- for page in (1..4) -%}
+        <div class="dot" onclick="dosomething();"></div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% comment %} {% render_form 'gallery_item', resource_type: 'gallery_item' %} {% endcomment %}
