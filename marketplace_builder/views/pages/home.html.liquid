@@ -14,9 +14,15 @@ metadata:
   socialSection:
     title: Follow Us!
     description: Connect with us on social media to keep us with the latest news, offers and updates
+  endingSection:
+    qaName: Craig Michaud
+    description: The blueprint to Salon Success Series
+    imageUrl: https://marketplace.canva.com/MACB5G7TBAg/2/0/thumbnail_large/canva-brown-building-business-book-cover-MACB5G7TBAg.jpg
+    videoLink: https://youtube.com
 ---
 
 {% include 'home/top-gallery' %}
 {% include 'home/events', meta: page.metadata.eventsSection %}
 {% include 'home/videos', meta: page.metadata.videosSection %}
 {% include 'home/social', meta: page.metadata.socialSection %}
+{% include 'home/ending', meta: page.metadata.endingSection %}
