@@ -1,0 +1,7 @@
+query get_videos($page: Int, $per_page: Int) {
+  customizations(name: "video", page: $page, per_page: $per_page) {
+    results {
+      properties
+    }
+  }
+}

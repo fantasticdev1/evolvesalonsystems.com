@@ -2,12 +2,17 @@
 slug: /
 layout_name: 2col
 metadata:
-  eventSection:
+  eventsSection:
     title: Education and Events
     description: Education is a major focus for Evolve. We believe it can inspire stylist to reach their potential, enlighten them to make a change, or validate how great they already are at their careers
     tableHeading: Upcoming Events
     viewAllEvents: View All Upcoming Education Events
+  videosSection:
+    id: 5789
+    bgImageUrl: http://dogwood.photography/images/photography-school.jpg
+    viewAllFeaturedVideos: View All Featured Videos
 ---
 
 {% include 'home/top-gallery' %}
-{% include 'home/events', meta: page.metadata.eventSection %}
+{% include 'home/events', meta: page.metadata.eventsSection %}
+{% include 'home/videos', meta: page.metadata.videosSection %}

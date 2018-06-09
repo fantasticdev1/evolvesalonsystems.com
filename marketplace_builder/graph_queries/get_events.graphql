@@ -1,7 +1,9 @@
 query get_events($page: Int!, $per_page: Int!) {
-  customizations(name: "event", page: $page, per_page: $per_page) # TODO: need sort for upcoming events
-  # sort: { property_name: "start_date" }
-  {
+  customizations(
+    name: "event"
+    page: $page
+    per_page: $per_page # TODO: need sort for upcoming events sort: { property_name: "start_date" }
+  ) {
     results {
       properties
     }

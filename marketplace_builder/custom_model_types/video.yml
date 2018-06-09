@@ -1,0 +1,10 @@
+name: video
+custom_attributes:
+- name: title
+  attribute_type: string
+- name: description
+  attribute_type: text
+- name: link
+  attribute_type: string
+- name: featured
+  attribute_type: boolean

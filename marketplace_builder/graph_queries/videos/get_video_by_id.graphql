@@ -1,0 +1,7 @@
+query get_video_by_id($id: ID) {
+  customizations(name: "video", id: $id) {
+    results {
+      properties
+    }
+  }
+}
