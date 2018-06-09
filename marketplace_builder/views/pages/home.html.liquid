@@ -11,8 +11,12 @@ metadata:
     id: 5789
     bgImageUrl: http://dogwood.photography/images/photography-school.jpg
     viewAllFeaturedVideos: View All Featured Videos
+  socialSection:
+    title: Follow Us!
+    description: Connect with us on social media to keep us with the latest news, offers and updates
 ---
 
 {% include 'home/top-gallery' %}
 {% include 'home/events', meta: page.metadata.eventsSection %}
 {% include 'home/videos', meta: page.metadata.videosSection %}
+{% include 'home/social', meta: page.metadata.socialSection %}
