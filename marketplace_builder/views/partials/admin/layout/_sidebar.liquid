@@ -1,0 +1,80 @@
+<div class="sidebar" data-color="brown" data-active-color="danger">
+	<!-- Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow" -->
+	<div class="logo">
+		<a href="http://www.creative-tim.com" class="simple-text logo-mini">
+			<div class="logo-image-small">
+				<img src="{{'admin/images/logo-small.png' | asset_url}}">
+			</div>
+		</a>
+		<a href="/admin/dashboard" class="simple-text logo-normal">
+			Admin
+			{%- comment -%}<div class="logo-image-big">
+				<img src="{{'admin/images/logo-big.png' | asset_url}}">
+			</div>{%- endcomment -%}
+		</a>
+	</div>
+	<div class="sidebar-wrapper">
+		<div class="user">
+			<div class="photo">
+				<img src="{{'admin/images/faces/ayo-ogunseinde-2.jpg' | asset_url}}" />
+			</div>
+			<div class="info">
+				<a data-toggle="collapse" href="#collapseExample" class="collapsed">
+					<span>{{user.first_name}} {{user.last_name}}<b class="caret"></b></span>
+				</a>
+				<div class="clearfix"></div>
+				<div class="collapse" id="collapseExample">
+					<ul class="nav">
+						<li>
+							<a href="#">
+								<span class="sidebar-mini-icon">I</span>
+								<span class="sidebar-normal">Inbox</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="sidebar-mini-icon">MP</span>
+								<span class="sidebar-normal">My Profile</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="sidebar-mini-icon">S</span>
+								<span class="sidebar-normal">Settings</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<ul class="nav">
+			{% for page in admin.nav.items -%}
+				<li{% if page.slug == thisPage.slug %} class="active"{% endif -%}>
+					{% if page.nested.items.size > 0 -%}
+						<a data-toggle="collapse" href="#{{page.name}}_nav"{% if page.slug == context.location.pathname %} aria-expanded="true"{% endif -%}>
+							<i class="{{page.icon}}"></i>
+							<p>{{page.name}}<b class="caret"></b></p>
+						</a>
+						<div class="collapse{% if page.slug == context.location.pathname %} show{% endif -%}" id="{{page.name}}_nav">
+							<ul class="nav">
+								{% for nested in page.nested.items -%}
+									<li{% if nested.slug == thisPage.slug %} class="active"{% endif -%}>
+										<a href="{{nested.slug}}">
+											<span class="sidebar-mini-icon"><i class="fal fa-angle-right"></i></span>
+											<span class="sidebar-normal">{{nested.name}}</span>
+										</a>
+									</li>
+								{% endfor -%}
+							</ul>
+						</div>
+					{% else -%}
+						<a href="{{page.slug}}">
+							<i class="{{page.icon}}"></i>
+							<p>{{page.name}}</p>
+						</a>
+					{% endif -%}
+				</li>
+			{% endfor -%}
+		</ul>
+	</div>
+</div>

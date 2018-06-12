@@ -1,0 +1,23 @@
+---
+slug: admin/model/records
+layout_name:
+format: json
+---
+{% include 'admin/models/all_fields' -%}
+{% include 'admin/models/all_records' -%}
+{%- if records -%}
+{"data":[
+{%- for record in records -%}
+	{
+		{%- comment -%}{%- endcomment -%}
+		"id":{{record.id|json}}
+		{%- for field in fields -%}
+			{%- if forloop.first -%},{%- endif -%}
+			{{field.name|json}}:{{record.properties[field.name] | json | default: 'null'}}{%- unless forloop.last -%},{%- endunless -%}
+		{%- endfor -%}
+	}{%- unless forloop.last -%},{%- endunless -%}
+{% endfor -%}
+]}
+{%- else -%}
+{"error": "No model with that name was found."}
+{%- endif -%}

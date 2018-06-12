@@ -1,0 +1,21 @@
+---
+slug: admin/crm/records
+layout_name:
+format: json
+---
+{% include 'admin/crm/all_fields' -%}
+{% include 'admin/crm/records' -%}
+{%- if records -%}
+{"data":[
+{%- for record in records -%}
+	{
+		{%- comment -%}{%- endcomment -%}
+		{%- for part in record -%}
+			"{{part[0]}}":{{part[1] | json | default: 'null'}}{%- unless forloop.last -%},{%- endunless -%}
+		{%- endfor -%}
+	}{%- unless forloop.last -%},{%- endunless -%}
+{% endfor -%}
+]}
+{%- else -%}
+{"error": "No user with that id was found."}
+{%- endif -%}

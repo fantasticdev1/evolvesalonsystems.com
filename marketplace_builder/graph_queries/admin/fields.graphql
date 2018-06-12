@@ -1,0 +1,7 @@
+query fields($type: CMSItemType!) {
+  cms_items(type: $type) {
+    results {
+      data
+    }
+  }
+}

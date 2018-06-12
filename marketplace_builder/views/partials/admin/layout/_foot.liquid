@@ -1,0 +1,51 @@
+<script src="{{'admin/scripts/core/jquery.min.js' | asset_url}}"></script>
+<script src="{{'admin/scripts/core/popper.min.js' | asset_url}}"></script>
+<script src="{{'admin/scripts/core/bootstrap.min.js' | asset_url}}"></script>
+<script src="{{'admin/scripts/plugins/perfect-scrollbar.jquery.min.js' | asset_url}}"></script>
+<script src="{{'admin/scripts/plugins/moment.min.js' | asset_url}}"></script>
+{%- comment -%}Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/bootstrap-switch.js' | asset_url}}"></script>
+{%- comment -%}Plugin for Sweet Alert {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/sweetalert2.min.js' | asset_url}}"></script>
+{%- comment -%}Forms Validations Plugin {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/jquery.validate.min.js' | asset_url}}"></script>
+{%- comment -%}Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/jquery.bootstrap-wizard.js' | asset_url}}"></script>
+{%- comment -%}Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/bootstrap-selectpicker.js' | asset_url}}"></script>
+{%- comment -%}Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/bootstrap-datetimepicker.js' | asset_url}}"></script>
+{%- comment -%}DataTables.net Plugin, full documentation here: https://datatables.net/ {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/datatables.min.js' | asset_url}}"></script>
+{%- comment -%}Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/bootstrap-tagsinput.js' | asset_url}}"></script>
+{%- comment -%}Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/jasny-bootstrap.min.js' | asset_url}}"></script>
+{%- comment -%}Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/fullcalendar.min.js' | asset_url}}"></script>
+{%- comment -%}Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/jquery-jvectormap.js' | asset_url}}"></script>
+{%- comment -%}Plugin for the Bootstrap Table {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/nouislider.min.js' | asset_url}}"></script>
+{%- comment -%}Google Maps Plugin {%- endcomment -%}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGgM6LhnJsTKGaYYnlRWVSoCd06ETpa-w"></script>
+{%- comment -%}Chart JS {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/chartjs.min.js' | asset_url}}"></script>
+{%- comment -%}Notifications Plugin {%- endcomment -%}
+<script src="{{'admin/scripts/plugins/bootstrap-notify.js' | asset_url}}"></script>
+{%- comment -%}Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc {%- endcomment -%}
+<script src="{{'admin/scripts/paper-dashboard.min.js' | asset_url}}"></script>
+<script src="{{'admin/scripts/posdk.js' | asset_url}}"></script>
+<script src="{{'admin/scripts/dtables.js' | asset_url}}"></script>
+<script src="{{'admin/scripts/app.js' | asset_url}}"></script>
+<script>
+$(document).ready(function() {
+	// Javascript method's body can be found in assets/js/demos.js
+	// demo.initDashboardPageCharts();
+	// demo.initVectorMap();
+});
+</script>
+<script>console.log('thisPage:',{{thisPage|json}})</script>
+<script>console.log('user:',{{user|json}})</script>
+<script>console.log('context:',{{context|json}})</script>
+<script>console.log('admin:',{{admin|json}})</script>
