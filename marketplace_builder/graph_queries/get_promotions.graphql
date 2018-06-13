@@ -1,0 +1,7 @@
+query get_promotions($featured: String) {
+  customizations(name: "promotion", properties: { name: "featured", value: $featured }) {
+    results {
+      properties
+    }
+  }
+}
