@@ -1,0 +1,51 @@
+{%- query_graph 'fields', type:'CustomModelType', result_name: g -%}
+{%- assign models = g.cms_items.results -%}
+{%- for model in models -%}
+	{%- capture modelIndexBy -%}{{modelIndexBy}}
+			"/admin/models?name={{model.data.name}}":{{forloop.index0}}{%- unless forloop.last -%},{%- endunless -%}
+	{%- endcapture -%}
+	{%- capture modelItems -%}{{modelItems}}
+		{
+			"name": "{{model.data.name}}",
+			"slug": "/admin/models?name={{model.data.name}}"
+		}{%- unless forloop.last -%},{%- endunless -%}
+	{%- endcapture -%}
+{%- endfor -%}
+{
+	"name": "Admin",
+	"nav": {
+		"indexBy": {
+			"slug": {
+				"/admin/dashboard": 0,
+				"/admin/pages": 1,
+				"/admin/crm": 2,
+				"/admin/models": 3
+			}
+		},
+		"items": [{
+			"name": "Dashboard",
+			"icon": "fal fa-chart-pie fa-fw",
+			"slug": "/admin/dashboard"
+		}, {
+			"name": "Pages",
+			"icon": "fal fa-file fa-fw",
+			"slug": "/admin/pages"
+		}, {
+			"name": "CRM",
+			"icon": "fal fa-address-card fa-fw",
+			"slug": "/admin/crm"
+		}, {
+			"name": "models",
+			"icon": "fal fa-box-full fa-fw",
+			"slug": "/admin/models",
+			"nested": {
+				"indexBy": {
+					"slug": {
+						{{modelIndexBy}}
+					}
+				},
+				"items": [{{modelItems}}]
+			}
+		}]
+	}
+}

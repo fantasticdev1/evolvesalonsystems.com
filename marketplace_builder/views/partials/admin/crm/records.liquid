@@ -1,0 +1,7 @@
+{%- if context.location.search.id -%}
+	{%- query_graph 'crm_record', id: context.location.search.id, result_name: g -%}
+	{%- assign records = g.people.results -%}
+{%- else -%}
+	{%- query_graph 'crm_records', result_name: g -%}
+	{%- assign records = g.people.results -%}
+{%- endif -%}

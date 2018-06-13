@@ -1,0 +1,10 @@
+query crm_records {
+  people {
+    results {
+      id
+      email
+      first_name
+      last_name
+    }
+  }
+}

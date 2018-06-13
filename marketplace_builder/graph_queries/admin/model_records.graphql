@@ -1,0 +1,8 @@
+query model_records($name: String!, $id: ID = null) {
+  customizations(name: $name, id: $id) {
+    results {
+      id
+      properties
+    }
+  }
+}
