@@ -1,0 +1,12 @@
+name: promotions
+custom_attributes:
+- name: image_url
+  attribute_type: string
+- name: title
+  attribute_type: string
+- name: date
+  attribute_type: date
+- name: detail_link
+  attribute_type: string
+- name: featured
+  attribute_type: bool
