@@ -1,0 +1,12 @@
+
+{%- query_graph 'get_promotions', result_name: 'g' -%}
+
+{% for event in g.customizations.results %}
+  {%- assign properties = event.properties  -%}
+  <div>
+    <img src="{{properties.image_url}}" style="width:100px;height:100px;">
+    <h2>{{properties.title}}</h2>
+    <h2>{{properties.date}}</h2>
+    <button class="medium">View</button>
+  </div>
+{% endfor %}
