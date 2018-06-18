@@ -4,47 +4,22 @@ layout_name: admin/panel
 ---
 {% include 'admin/layout/constants' -%}
 {% include 'admin/crm/records' -%}
+{% include 'admin/crm/all_fields' -%}
 {%- if context.location.search.name -%}
-	{% include 'admin/crm/all_fields' -%}
-	<div class="card">
-		<div class="card-header">
-			<h4 class="card-title">Records</h4>
-		</div>
-		<div class="card-body">
-			<div class="toolbar">
-				<!-- Here you can write extra buttons/actions for the toolbar -->
-			</div>
-			<table class="table table-striped table-bordered" cellspacing="0" width="100%" data-posdk-dtables="parent:{{context.location.search.name}}; fields:/admin/crm/fields.json?name={{context.location.search.name}}; records:/admin/crm/records.json?name={{context.location.search.name}}; form:/admin/crm/form.json?name={{context.location.search.name}};">
-				<caption><a href="#" class="btn btn-success btn-md add_record">New Record <i class="fas fa-plus add_record"></i></a></caption>
-				<tbody></tbody>
-			</table>
-		</div>
-	</div>
+	user detail
 {%- else -%}
-{{records|json}}
 	<div class="card">
 		<div class="card-header">
 			<h4 class="card-title">Users</h4>
 		</div>
 		<div class="card-body">
-			<div class="table-responsive">
-				<table class="table">
-					<thead>
-						<th>Name</th>
-						<th class="text-right">Actions</th>
-					</thead>
-					<tbody>
-						{% for user in records -%}
-							<tr>
-								<td>{{user.name}}</td>
-								<td class="text-right">
-									<a href="{{user.slug}}" class="btn btn-warning btn-link btn-icon btn-md edit"><i class="fas fa-edit"></i></a>
-								</td>
-							</tr>
-						{% endfor -%}
-					</tbody>
-				</table>
+			<div class="toolbar">
+				<!-- Here you can write extra buttons/actions for the toolbar -->
 			</div>
+			<table class="table table-striped table-bordered" cellspacing="0" width="100%" data-posdk-dtables="resource:model; parent:{{context.location.search.name}}; fields:/admin/crm/fields.json?name={{context.location.search.name}}; records:/admin/crm/records.json?name={{context.location.search.name}}; form:/admin/crm/form.json?name={{context.location.search.name}};">
+				<caption><a href="#" class="btn btn-success btn-md add_record">New Record <i class="fas fa-plus add_record"></i></a></caption>
+				<tbody></tbody>
+			</table>
 		</div>
 	</div>
 {%- endif -%}
