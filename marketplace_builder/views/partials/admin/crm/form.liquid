@@ -1,0 +1,7 @@
+{%- query_graph 'form_configurations', result_name: g -%}
+{%- for config in g.cms_items.results -%}
+	{%- if config.data.name == context.location.search.name -%}
+		{%- assign thisConfig = config.data | json -%}
+		{%- break -%}
+	{%- endif -%}
+{%- endfor -%}

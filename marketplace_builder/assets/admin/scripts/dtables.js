@@ -38,7 +38,7 @@ posdk.extensions.tricks.dtables = function(selector,options) {
 			const editor = new $.fn.dataTable.Editor( {
 				ajax:  {
 					create: function(method, url, data, success, error) {
-						posdk[settings.resource].item.save({
+						posdk[settings.resource].record.save({
 							form: form.name,
 							parent: settings.parent,
 							fields: data.data[0] || {}
@@ -50,15 +50,15 @@ posdk.extensions.tricks.dtables = function(selector,options) {
 							}else throw new Error(response.text());
 						})
 						.then(data=> {
-							let id = data.id;
-							return fetch(settings.records+'&id='+id).then(response => response.json());
+							let record = (settings.records.indexOf('?') > -1) ? settings.records + '&id='+data.id : settings.records + '?id='+data.id;
+							return fetch(record).then(response => response.json());
 						})
 						.then(data=>success(data))
 						.catch(data=>error(data));
 					},
 					edit: function(method, url, data, success, error) {
 						let id = Object.getOwnPropertyNames(data.data)[0];
-						posdk[settings.resource].item.save({
+						posdk[settings.resource].record.save({
 							id: id,
 							form: form.name,
 							parent: settings.parent,
@@ -67,7 +67,8 @@ posdk.extensions.tricks.dtables = function(selector,options) {
 						.then((response)=>{
 							// console.log(response);
 							if (response.ok === true) {
-								return fetch(settings.records+'&id='+id).then(response => response.json());
+								let record = (settings.records.indexOf('?') > -1) ? settings.records + '&id='+id : settings.records + '?id='+id;
+								return fetch(record).then(response => response.json());
 							}else throw new Error(response.text());
 						})
 						.then(data=>success(data))
@@ -75,7 +76,7 @@ posdk.extensions.tricks.dtables = function(selector,options) {
 					},
 					remove: function(method, url, data, success, error) {
 						let id = Object.getOwnPropertyNames(data.data)[0];
-						posdk[settings.resource].item.delete({
+						posdk[settings.resource].record.delete({
 							id: id,
 							form: form.name
 						})
@@ -93,15 +94,17 @@ posdk.extensions.tricks.dtables = function(selector,options) {
 				fields: fields
 			});
 
-			let columns = [{
-				title: '&nbsp;&nbsp;&nbsp;',
-                data: null,
-                defaultContent: '',
-                className: 'select-box',
-                orderable: false,
-                searchable: false
-            }];
-			for (let field in form.configuration.properties) columns.push({title:field, name:field, data:field, defaultContent:''});
+			let columns = [];
+			// {
+			// 	title: '&nbsp;&nbsp;&nbsp;',
+   //              data: null,
+   //              defaultContent: '',
+   //              className: 'select-box',
+   //              orderable: false,
+   //              searchable: false
+   //          }
+   			if (typeof form.configuration.properties === 'undefined') for (let field in form.configuration) columns.push({title:field, name:field, data:field, defaultContent:''});
+			else for (let field in form.configuration.properties) columns.push({title:field, name:field, data:field, defaultContent:''});
 
 			const table = selector.DataTable({
 				ajax: settings.records,
@@ -116,16 +119,18 @@ posdk.extensions.tricks.dtables = function(selector,options) {
 				],
 				select: {
 					blurable: true,
-					selector: 'td:first-child',
+					// selector: 'td:first-child',
+					selector: 'tr',
 					style: 'os'
 				},
-				colReorder: {
-					fixedColumnsLeft: 1
-				},
+				// colReorder: {
+				// 	fixedColumnsLeft: 1
+				// },
+				colReorder: true,
 				scrollX: true,
-				fixedColumns: {
-					leftColumns: 1
-				},
+				// fixedColumns: {
+				// 	leftColumns: 1
+				// },
 				language: {
 					search: '_INPUT_',
 					searchPlaceholder: 'Search records',

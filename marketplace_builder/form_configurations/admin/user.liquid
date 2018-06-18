@@ -1,0 +1,16 @@
+---
+name: user
+resource: User
+configuration:
+  email:
+  first_name:
+  last_name:
+  slug:
+---
+{% assign f = form_builder -%}
+{% form method:'PUT' -%}
+	{% include 'forms/fieldGroup', field: f.fields.email, type: 'text', label: 'Email' -%}
+  {% include 'forms/fieldGroup', field: f.fields.first_name, type: 'text', label: 'First Name' -%}
+  {% include 'forms/fieldGroup', field: f.fields.last_name, type: 'textarea', label: 'Last Name' -%}
+	<input type="submit" class="button">
+{% endform -%}

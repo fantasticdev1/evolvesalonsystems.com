@@ -1,7 +1,0 @@
-{%- query_graph 'fields', type: 'User', result_name: g -%}
-{%- for item in g.cms_items.results -%}
-	{%- if item.data.name == context.location.search.name -%}
-		{%- assign fields = item.data.custom_attributes -%}
-		{%- break -%}
-	{%- endif -%}
-{%- endfor -%}
