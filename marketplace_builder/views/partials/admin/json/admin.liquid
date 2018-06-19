@@ -19,7 +19,8 @@
 				"/admin/dashboard": 0,
 				"/admin/pages": 1,
 				"/admin/crm": 2,
-				"/admin/models": 3
+				"/admin/models": 3,
+				"/admin/orders": 4
 			}
 		},
 		"items": [{
@@ -45,6 +46,18 @@
 					}
 				},
 				"items": [{{modelItems}}]
+			}
+		}, {
+			"name": "orders",
+			"icon": "fal fa-shopping-cart fa-fw",
+			"slug": "/admin/orders",
+			"nested": {
+				"indexBy": {
+					"slug": {
+						{{orderIndexBy}}
+					}
+				},
+				"items": [{{orderItems}}]
 			}
 		}]
 	}

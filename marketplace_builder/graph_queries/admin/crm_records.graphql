@@ -1,5 +1,5 @@
-query crm_records($user: QueryUser) {
-  people(user: $user) {
+query crm_records($id: ID) {
+  people(user: { id: $id }) {
     results {
       id
       email
