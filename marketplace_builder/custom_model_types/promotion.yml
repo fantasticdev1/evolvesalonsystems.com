@@ -5,7 +5,7 @@ custom_attributes:
 - name: title
   attribute_type: string
 - name: description
-  attribute_type: string 
+  attribute_type: text 
 - name: date
   attribute_type: date
 - name: detail_link
