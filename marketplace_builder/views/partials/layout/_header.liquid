@@ -1,4 +1,4 @@
-<nav id="primary">
+{% comment %} <nav id="primary">
 	<div class="title-bar" data-responsive-toggle="top-bar" data-hide-for="medium">
 		<div class="grid-container full">
 			<div class="grid-x">
@@ -55,4 +55,188 @@
 		{% render_form 'profile' %}
 		<button class="close-button" data-close aria-label="Close modal" type="button"><span aria-hidden="true" class="fal fa-times"></span></button>
 	</div>
-{%- endunless -%}
+{%- endunless -%} {% endcomment %}
+<div id="sideMenu" class="sidenav">
+	<a href="#sideclose" class="closebtn">&times;</a>
+	<a href="/">HOME</a>
+	<a href="/promotions.html">PROMOTIONS</a>
+	<a href="/products.html">PRODUCTS</a>
+	<a href="/business.html">BUSINESS SYSTEMS</a>
+	<a href="/videos.html">VIDEOS</a>
+	<a href="/education.html">EDUCATION</a>
+	<a href="/about.html">ABOUT US</a>
+	<a href="/contact.html">CONTACT US</a>
+</div>
+	<nav class="navbar">
+		<a class="navbar-brand" href="/"><img src="{{'images/brand/logo.svg' | asset_url}}" ></a>
+		<div class="right-section">
+			{% if user -%} 
+				<a href="/account">
+					userName
+				</a>
+			{% else -%}
+				<a data-toggle="modal" data-target="#login-modal">
+					My Account
+				</a>
+			{% endif -%}
+			<a data-toggle="modal" data-target="#cart-modal">Cart (2)</a>
+			<a class="button-collapse" href="#sideMenu"><i class="fas fa-bars"></i></a>
+		</div>
+	</nav>
+{% unless user -%}
+<!-- Modal login -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h1 class="title">Log into EvolveSystem</h1>
+							<h5 class="instructions">Enter your login details below</h5>
+							<form>
+								<input type="text" name="email" placeholder="EMAIL ADDRESS">
+								<input type="password" name="password" placeholder="PASSWORD">
+								<a href="#" data-toggle="modal" data-target="#forgot-pass-modal" data-dismiss="modal">FORGOT YOUR PASSWORD?</a>
+								<button class="button-wide" type="submit">SIGN IN</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<span><a href="#">Don't have an accout?</a><button class="button-wide" data-toggle="modal" data-target="#signup-modal" data-dismiss="modal">CREATE ACCOUNT</button></span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal forgot password -->
+<div class="modal fade" id="forgot-pass-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h1 class="title">Forgot password?</h1>
+							<h5 class="instructions">We'll send you a link to reset it</h5>
+							<form>
+								<input type="text" name="email" placeholder="REGISTERED EMAIL">
+								<button class="button-wide" type="submit">RESET</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<span><a href="#">Know your password?</a><button class="button-wide" data-toggle="modal" data-target="#login-modal" data-dismiss="modal">LOGIN</button></span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Register Modal -->
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h1 class="title">Log into EvolveSystem</h1>
+							<h5 class="instructions">Enter your login details below</h5>
+							<form>
+								<input type="text" name="full-name" placeholder="YOURNAME">
+								<input type="text" name="email" placeholder="EMAIL ADDRESS">
+								<input type="password" name="password" placeholder="PASSWORD">
+								<span><input class="checkbox" type="checkbox" name="terms" value="agreement"><a href="#">I agree to the terms</a></span>
+								<button class="button-wide" type="submit">SIGN UP</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<span><a href="#">Have an account?</a><button class="button-wide" data-toggle="modal" data-target="#login-modal" data-dismiss="modal">LOGIN</button></span>
+			</div>
+		</div>
+	</div>
+</div>
+{% endunless -%}
+<!-- cart Modal -->
+<div class="modal fade" id="cart-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title font-gothamMedium">Your cart</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body container">
+				<div class="product row">
+					<div class="remove-btn">&times;</div>
+					<div class="image-wrapper">
+						<img src="./img/first-event.png">
+					</div>
+					<div class="description">
+						<div class="title">COURSE</div>
+						<div class="name font-gothamPro">Top hair color trends of 2018</div>
+					</div>
+					<div class="price">$49</div>
+				</div>
+				<div class="total row">
+					<div>Total:</div>
+					<div class="value">$812763</div>
+				</div>
+				<div class="button row">
+					<button class="button-wide font-gothamMedium">CHECKOUT</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Policies modal -->
+<div class="modal fade" id="return-shipping-policies" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="title">Read our policies</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="long-text">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo vehicula leo nec faucibus. Aliquam ac ultrices nulla. Donec nec gravida metus. Aenean bibendum felis consectetur dolor facilisis, eget congue est tempus. Nunc eu erat ac justo vehicula hendrerit vel sed purus. Sed in laoreet dolor, et scelerisque nunc. Proin odio libero, laoreet sed metus sit amet, pharetra efficitur diam. Integer fringilla ex rutrum, sollicitudin magna sed, maximus felis.
+
+						Suspendisse potenti. Cras eu urna laoreet tortor rutrum condimentum congue id nunc. Donec ut purus et lacus feugiat mattis. Proin at enim vestibulum, facilisis enim rutrum, varius felis. Nullam metus ante, sollicitudin sed leo vel, maximus convallis arcu. Quisque vel molestie libero, quis placerat sem. Proin quis nisl id ante malesuada semper. Etiam pharetra ex nec tortor feugiat, nec pharetra diam porta. Vestibulum sed magna aliquam, congue elit eu, fermentum dolor. Maecenas lacinia vehicula turpis, sed blandit libero volutpat non. Curabitur nec lobortis mi. Vestibulum est mauris, congue vitae neque in, interdum maximus risus. Suspendisse potenti.
+
+						Phasellus nec nisl sapien. Pellentesque vel neque nec urna euismod bibendum nec id leo. Nulla eget sagittis orci, ut accumsan sem. Vestibulum eu egestas turpis. Nullam eget augue justo. Nulla facilisis sed odio id vestibulum. Integer varius, augue sit amet aliquet bibendum, lectus nulla finibus leo, vitae tincidunt augue justo nec nibh. Sed consequat in purus non cursus. Mauris pretium lorem nunc, sed varius sem faucibus ac. Duis tempus a nisl aliquam efficitur.
+
+						Nam venenatis metus sit amet metus accumsan, quis convallis ante aliquet. Proin nunc nisl, pharetra sit amet odio at, pretium interdum lacus. Nam quis ligula nec dui tristique sollicitudin. Sed dignissim, ante volutpat elementum ultricies, velit eros fringilla ante, eleifend ultricies enim urna nec purus. Nam tortor metus, dictum sed mi ac, efficitur congue velit. Integer sed lacus justo. Nulla a malesuada diam, vitae blandit turpis. Nulla porttitor molestie mi ac luctus. Duis sed tellus et mauris tristique rhoncus elementum vel turpis. Suspendisse et nulla et tortor convallis blandit sed nec elit. Proin a lobortis dolor, id dictum dolor. Fusce in aliquet magna. Praesent placerat vulputate condimentum. Suspendisse nibh elit, hendrerit ut odio vitae, dapibus faucibus ipsum. Curabitur sagittis ligula eget ante auctor, vel congue dui condimentum. Suspendisse suscipit, elit id ullamcorper elementum, neque leo dignissim magna, non sollicitudin mauris est a dui.
+
+						Proin malesuada, risus vel egestas dapibus, ligula arcu porta elit, et facilisis erat turpis sollicitudin tortor. Donec vulputate massa nec interdum maximus. Cras justo justo, rutrum eget pharetra non, tincidunt non massa. Morbi molestie neque id enim suscipit volutpat. Vestibulum ac mi leo. Nunc faucibus iaculis elit, eu vulputate nisl pharetra vel. Quisque iaculis, nisl quis blandit eleifend, arcu risus dignissim justo, eget commodo eros sem non nulla. Donec ultricies rhoncus luctus.
+					</div>
+				</div>
+				<div class="button row">
+					<button type="button" class="button-wide" data-dismiss="modal" data-toggle="modal" data-target="#cart-modal">RETURN</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

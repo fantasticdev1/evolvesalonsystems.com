@@ -1,0 +1,45 @@
+.business__page {
+  /* bg: */
+  background: rgba(75, 78, 117, 0.03);
+  .business-section {
+    overflow-x: hidden;
+    padding: 4%;
+    #desktop-view {
+      background: none;
+      max-width: 100%;
+      transition: all 2s;
+      .side-bar {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
+    .container {
+      padding: 0;
+      .row {
+        margin: 0;
+      }
+    }
+    .references {
+      position: relative;
+      max-width: 100%;
+      display: none;
+      a {
+        .anchor-button {
+          width: 100%;
+          outline: none;
+          @media (max-width: $tablet) {
+            width: 100%;
+          }
+        }
+      }
+      @media (max-width: $tablet) {
+        display: block;
+      }
+    }
+  }
+}

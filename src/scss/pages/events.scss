@@ -1,0 +1,98 @@
+.events__page {
+  .show-details {
+    width: 100%;
+    border-radius: 15px;
+    padding: 5%;
+    background: rgba(75, 78, 117, 0.03);
+    .close-btn {
+      padding: 10px;
+      font-size: 32px;
+      text-decoration: none;
+      color: $primary-heavy;
+    }
+    .description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        font-family: 'gothamLight';
+        font-size: 34px;
+        letter-spacing: 0;
+        padding-bottom: 15px;
+        align-self: flex-start;
+      }
+      p {
+        font-family: Helvetica;
+        font-size: 14px;
+        color: #9a9ab2;
+        letter-spacing: 0;
+        line-height: 26px;
+        padding-bottom: 3%;
+      }
+    }
+    .button-wide {
+      background: rgba(199, 197, 220, 0.3);
+      border-radius: 100px;
+      align-self: center;
+      margin: 0;
+      font-family: 'gothamMedium';
+      font-size: 10px;
+      color: #616386;
+      letter-spacing: 0;
+      text-align: center;
+      &:hover {
+        background-color: $primary-heavy;
+        color: $primary-light;
+        border: 2px solid $primary-light;
+      }
+    }
+  }
+  .register-section {
+    background: #53557b;
+    padding: 5%;
+    h5 {
+      font-family: 'gothamLight';
+      font-size: 34px;
+      color: #ffffff;
+      letter-spacing: 0;
+      text-align: center;
+    }
+    .sub-label {
+      font-family: 'gothamMedium';
+      font-size: 14px;
+      color: #9a9ab2;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 26px;
+    }
+    form {
+      text-align: center;
+      input {
+        width: 220px;
+        height: 50px;
+        border: none;
+        background: #eeedf4;
+        border-radius: 5px;
+        outline: none;
+        padding: 15px;
+      }
+      .first-input {
+        margin-right: 1rem;
+        @media (max-width: $phone) {
+          margin-right: 0;
+        }
+      }
+    }
+    .button-column {
+      display: flex;
+      justify-content: center;
+      .button-wide {
+        background: none;
+        outline: none;
+        border: 2px solid #ffffff;
+        border-radius: 100px;
+        color: #ffffff;
+      }
+    }
+  }
+}

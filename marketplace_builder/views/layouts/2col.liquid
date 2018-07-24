@@ -9,7 +9,7 @@
 		{%- include 'layout/header' -%}
 	</header>
 	<section>
-		<div class="content">
+		<div class="{{page.metadata.key}} container-fluid p-0">
 			{% if page.metadata.title and page.metadata.title != '' -%}<h1>{{page.metadata.title}}</h1>{% endif -%}
 			{{content_for_layout}}
 		</div>

@@ -1,0 +1,103 @@
+.card {
+  height: 360px;
+  display: flex;
+  padding: 0;
+  margin-bottom: 30px;
+  .card-img-top {
+    width: 100%;
+    height: 203px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &.product {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      div {
+        width: 100%;
+        height: 85%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-bottom: 1px solid rgba(199, 197, 220, 0.3);
+      }
+    }
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      font-family: 'gothamMedium';
+      font-size: 18px;
+      color: #5c5f83;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 24px;
+    }
+    .location {
+      width: 100%;
+      h5 {
+        font-family: Helvetica;
+        font-size: 11px;
+        color: #5c5f83;
+        letter-spacing: 0;
+        line-height: 24px;
+
+        .fas.fa-map-marker {
+          color: #c7c5dc;
+          padding-right: 5px;
+        }
+      }
+      .address {
+        opacity: 0.5;
+        font-family: Helvetica;
+        font-size: 11px;
+        color: #4b4e75;
+        letter-spacing: 0;
+        line-height: 16px;
+        text-align: start;
+        padding-left: 11px;
+      }
+    }
+    .time {
+      width: 100%;
+      p {
+        font-family: 'gothamMedium';
+        font-size: 11px;
+        color: #4b4e75;
+        letter-spacing: 0;
+        text-align: start;
+      }
+      .far.fa-clock {
+        padding-right: 5px;
+      }
+    }
+    .more-details {
+      font-family: 'gothamProBold';
+      font-size: 10px;
+      color: #616386;
+      letter-spacing: 0;
+      text-align: center;
+      text-decoration: underline;
+    }
+    .btn.btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'gothamMedium';
+      font-size: 10px;
+      color: #616386;
+      letter-spacing: 0;
+      text-align: center;
+      width: 100px;
+      height: 36px;
+      background: #c7c5dc;
+      border-radius: 100px;
+      border: none;
+      &:hover {
+        background: $primary-medium;
+        color: white;
+      }
+    }
+  }
+}

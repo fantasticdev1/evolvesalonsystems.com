@@ -1,0 +1,158 @@
+.video-top-section {
+  background-image: url(../img/home-page-top-image.png);
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  .container {
+    position: absolute;
+    top: 35%;
+    bottom: 35%;
+    left: 15%;
+    margin: 0;
+    background: #ffffff;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 450px;
+    .text-section {
+      width: 100%;
+      padding: 50px;
+      padding-bottom: 0;
+      h1 {
+        font-family: 'gothamLight';
+        font-size: 34px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 40px;
+        width: 75%;
+      }
+      .description {
+        font-family: 'gothamPro';
+        font-size: 14px;
+        color: #9a9ab2;
+        letter-spacing: 0;
+        line-height: 26px;
+        width: 100%;
+      }
+      .bottom-link {
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        a {
+          text-decoration: underline; /* view all featured vi: */
+          font-family: 'gothamMedium';
+          font-size: 12px;
+          color: #4b4e75;
+          letter-spacing: 0;
+        }
+      }
+      button {
+        position: absolute;
+        right: -30px;
+        top: 35%;
+        background: #4b4e75;
+        border-radius: 50%;
+        border: none;
+        width: 80px;
+        height: 80px;
+        outline: none;
+      }
+    }
+  }
+  @media (max-width: $tablet) {
+    .container {
+      top: 25%;
+      bottom: 25%;
+      left: 5%;
+      max-width: 325px;
+      height: fit-content;
+    }
+  }
+  @media (max-width: $phone) {
+    .video-top-section {
+      overflow-x: hidden;
+    }
+    .container {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      max-width: 100%;
+      margin: 3%;
+      padding: 0;
+      .text-section {
+        width: 100%;
+        button {
+          position: absolute;
+          top: -50%;
+          left: 40%;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+.summary {
+  padding: 4%;
+  .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 50%;
+      }
+    }
+  }
+}
+.motto-section {
+  background: $primary-extra-light;
+  padding: 5%;
+  .left-section {
+  }
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+    }
+  }
+}
+.creators-bio {
+  padding: 5%;
+  .creator {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .portrait {
+      img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .name {
+      font-family: 'gothamMedium';
+      font-size: 18px;
+      color: $primary-heavy;
+    }
+    .role {
+      font-family: 'gothamProBold';
+      font-size: 12px;
+      color: $primary-medium;
+    }
+  }
+}

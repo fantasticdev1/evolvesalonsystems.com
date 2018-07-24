@@ -1,16 +1,11 @@
-// Push footer to the bottom if content is very short
 html {
-  font-size: 25px; // 1rem
+  font-size: 10px; // 1rem
 }
 
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  overflow-x: hidden;
 }
