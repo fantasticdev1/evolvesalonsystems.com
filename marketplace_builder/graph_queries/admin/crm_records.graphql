@@ -1,10 +1,11 @@
-query crm_records {
-  people {
+query crm_records($id: ID) {
+  people(user: { id: $id }) {
     results {
       id
       email
       first_name
       last_name
+      slug
     }
   }
 }

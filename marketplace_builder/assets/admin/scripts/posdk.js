@@ -5,7 +5,7 @@ window.posdk = {
 	},
 	token: document.querySelector('meta[name="csrf-token"]').content || null,
 	model: {
-		item: {
+		record: {
 			save: function(params) {
 				if (typeof params === 'undefined') params = {};
 				params = {
@@ -15,28 +15,12 @@ window.posdk = {
 					fields: params.fields || {}
 				};
 
-				let method = 'POST';
-				let url = '/api/user/customizations';
-				if (params.id !== null) {
-					method = 'PUT';
-					url += '/'+params.id;
-				}
-				return fetch(url,{
-					method: method,
-					headers: {
-						'Accept': 'application/json',
-						'Content-Type': 'application/json',
-						'X-Requested-With': 'XMLHttpRequest'
-					},
-					body: JSON.stringify({
-						form_configuration_name: params.form,
-						parent_resource_id: params.parent,
-						form: {
-							properties: params.fields
-						},
-						authenticity_token: posdk.token
-					}),
-					credentials: 'same-origin'
+				return posdk.utils.fetch({
+					method: (params.id === null) ? 'POST' : 'PUT',
+					url: (params.id === null) ? '/api/user/customizations' : '/api/user/customizations/'+params.id,
+					form: params.form,
+					parent: params.parent,
+					fields: {properties:params.fields}
 				});
 			},
 			delete: function(params) {
@@ -46,25 +30,113 @@ window.posdk = {
 					form: params.form
 				};
 
-				let method = 'DELETE';
-				let url = '/api/user/customizations/'+params.id;
-				return fetch(url,{
-					method: method,
-					headers: {
-						'Accept': 'application/json',
-						'Content-Type': 'application/json',
-						'X-Requested-With': 'XMLHttpRequest'
-					},
-					body: JSON.stringify({
-						form_configuration_name: params.form,
-						authenticity_token: posdk.token
-					}),
-					credentials: 'same-origin'
+				return posdk.utils.fetch({
+					method: 'DELETE',
+					url: '/api/user/customizations/'+params.id,
+					form: {properties:params.form}
 				});
 			}
 		}
 	},
+	user: {
+		record: {
+			save: function(params) {
+				if (typeof params === 'undefined') params = {};
+				params = {
+					id: params.id || null,
+					form: params.form || null,
+					fields: params.fields || null
+				};
+
+				if (params.fields === null || typeof params.fields !== 'object' || [undefined,null,''].indexOf(params.fields) > -1) throw new Error('User "email" field is missing from request.');
+
+				return posdk.utils.fetch({
+					method: (params.id === null) ? 'POST' : 'PUT',
+					url: (params.id === null) ? '/api/users' : '/api/users/'+params.id,
+					form: params.form,
+					fields: params.fields
+				});
+			},
+			delete: function(params) {
+				if (typeof params === 'undefined') params = {};
+				params = {
+					id: params.id || null,
+					form: params.form || null
+				};
+
+				if (params.id === null) throw new Error('An "id" is required to delete a user.');
+
+				return posdk.utils.fetch({
+					method: 'DELETE',
+					url: '/api/users/'+params.id,
+					form: params.form
+				});
+			}
+		}
+	},
+	session: {
+		create: function(params) {
+			if (typeof params === 'undefined') params = {};
+			params = {
+				form: params.form || null,
+				fields: params.fields || null
+			};
+
+			if (params.fields === null || typeof params.fields !== 'object' || [undefined,null,''].indexOf(params.fields) > -1) throw new Error('User "email and password" fields are missing from request.');
+			if ([undefined,null,''].indexOf(params.fields.email) > -1) throw new Error('User "email" field is missing from request.');
+			if ([undefined,null,''].indexOf(params.fields.password) > -1) throw new Error('User "password" field is missing from request.');
+
+			return posdk.utils.fetch({
+				method: 'POST',
+				url: '/api/sessions',
+				form: params.form,
+				fields: params.fields
+			});
+		},
+		delete: function(params) {
+			if (typeof params === 'undefined') params = {};
+			params = {
+				form: params.form || null
+			};
+
+			return posdk.utils.fetch({
+				method: 'DELETE',
+				url: '/api/sessions',
+				form: params.form
+			});
+		}
+	},
 	utils: {
+		fetch: function(params) {
+			if (typeof params === 'undefined') params = {};
+			params = {
+				method: params.method || 'POST',
+				url: params.url || null,
+				form: params.form || null,
+				parent: params.parent || null,
+				fields: params.fields || null
+			};
+
+			if ([params.url,params.form].indexOf(null) > -1) throw new Error('Missing essential parameters for fetch in poSDK.');
+
+			let body = {
+				form_configuration_name: params.form,
+				authenticity_token: posdk.token
+			};
+			if (params.parent !== null) body.parent_resource_id = params.parent;
+			if (params.fields !== null) body.form = params.fields;
+
+			return fetch(params.url,{
+				method: params.method,
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+					'X-Requested-With': 'XMLHttpRequest'
+				},
+				credentials: 'same-origin',
+				body: JSON.stringify(body)
+			});
+		},
 		locationPathArray: function () {return location.pathname.toLowerCase().split(/(?=\/#?[a-zA-Z0-9])/g);},
 		locationParamArray: function () {return location.search.split(/(?=&#?[a-zA-Z0-9])/g);},
 		escape: function (str) {
@@ -95,7 +167,7 @@ window.posdk = {
 			posdk.utils.jsonify.comma.square = /,(\s*)]/g;
 
 			// Wrap with '{}' if not JavaScript object literal
-			str = $.trim(str);
+			str = str.trim();
 			if (posdk.utils.jsonify.brace.test(str) === false) str = '{' + str + '}';
 
 			// Fix trailing commas
@@ -103,7 +175,7 @@ window.posdk = {
 
 			// Retrieve token and convert to JSON
 			return str.replace(posdk.utils.jsonify.token, function (a) {
-				a = $.trim(a);
+				a =a.trim();
 				// Keep some special strings as they are
 				if ('' === a || 'true' === a || 'false' === a || 'null' === a || (!isNaN(parseFloat(a)) && isFinite(a))) return a;
 				// For string literal: 1. remove quotes at the top end; 2. escape double quotes in the middle; 3. wrap token with double quotes
@@ -116,19 +188,6 @@ window.posdk = {
 		decode: function (str) {
 			return decodeURIComponent(str.replace(/\+/g, " "));
 		},
-		guid: function () {
-			function s4() {
-				return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-			}
-
-			return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-		},
-		isElement: function (object) {
-			return (
-				typeof HTMLElement === 'object' ? object instanceof HTMLElement : //DOM2
-					object && typeof object === 'object' && object !== null && object.nodeType === 1 && typeof object.nodeName === 'string'
-			);
-		},
 		serializeObject: function (object) {
 			let o = '', boolFalse, a, i;
 			if (object instanceof jQuery) {
@@ -137,15 +196,15 @@ window.posdk = {
 				else a = object.find('input,select,textarea').serializeArray();
 				boolFalse = object.find('[type=checkbox]').filter(function () {return $(this).prop('checked') === false;});
 				for (i = 0; i < boolFalse.length; i++) {
-					a.push({name: $(boolFalse[i]).attr('name'), value: null});
+					a.push({name: boolFalse[i].getAttribute('name'), value: null});
 				}
-			} else if ($.isArray(object) && typeof object[0].name !== 'undefined' && typeof object[0].value !== 'undefined') {
+			}else if (Array.isArray(object) && typeof object[0].name !== 'undefined' && typeof object[0].value !== 'undefined') {
 				a = object;
-			} else if ($.isPlainObject(object) && typeof object.name !== 'undefined' && typeof object.value !== 'undefined') {
+			}else if ($.isPlainObject(object) && typeof object.name !== 'undefined' && typeof object.value !== 'undefined') {
 				a = [object];
-			} else if ($.isPlainObject(object)) {
+			}else if ($.isPlainObject(object)) {
 				o = object;
-			} else {
+			}else {
 				console.log('Malformed object passed to posdk.utils.serializeObject method.');
 				a = [];
 			}
@@ -161,83 +220,19 @@ window.posdk = {
 			}
 			return o;
 		},
-		closestChildren: function (data, depricatedMatch, depricatedFindAll) {
-			let depricatedSelector;
-			if (data instanceof jQuery) depricatedSelector = data; // for backwards compatibility
-
-			data = {
-				selector: data.selector || depricatedSelector || null,
-				match: data.match || depricatedMatch || null,
-				findAll: data.findAll || depricatedFindAll || false,
-				results: data.results || null // the results property is used internally by the method
-			};
-
-			let children = (data.selector instanceof jQuery) ? data.selector.children() : $(data.selector).children();
-			if (children.length === 0) {
-				if (data.results !== null) return data.results;
-				else return $();
-			}
-			if (data.results !== null) data.results = data.results.add(children.filter(data.match));
-			else data.results = children.filter(data.match);
-
-			if (data.findAll !== true) return (data.results.length > 0) ? data.results : posdk.utils.closestChildren({
-				selector: children,
-				match: data.match
-			});
-			else return posdk.utils.closestChildren({
-				selector: children.not(data.results),
-				match: data.match,
-				findAll: data.findAll,
-				results: data.results
-			});
-		},
-		searchArray: function (array, value) {
-			// Best for large arrays. For tiny arrays, use indexOf.
-			for (let i = 0; i < array.length; i++) if (array[i] === value) return i;
-			return -1;
-		},
-		xml2json: function (xml) {
-			let obj = {};
-
-			if (xml.nodeType == 1) { // element
-				// do attributes
-				if (xml.attributes.length > 0) {
-					obj['@attributes'] = {};
-					for (let j = 0; j < xml.attributes.length; j++) {
-						let attribute = xml.attributes.item(j);
-						obj['@attributes'][attribute.nodeName] = attribute.nodeValue;
-					}
-				}
-			} else if (xml.nodeType == 3) { // text
-				obj = xml.nodeValue;
-			}
-
-			// do children
-			if (xml.hasChildNodes()) {
-				for (let i = 0; i < xml.childNodes.length; i++) {
-					let item = xml.childNodes.item(i);
-					let nodeName = item.nodeName;
-					if (typeof(obj[nodeName]) === 'undefined') {
-						obj[nodeName] = posdk.utils.xml2json(item);
-					} else {
-						if (typeof(obj[nodeName].push) === 'undefined') {
-							let old = obj[nodeName];
-							obj[nodeName] = [];
-							obj[nodeName].push(old);
-						}
-						obj[nodeName].push(posdk.utils.xml2json(item));
-					}
-				}
-			}
-			return obj;
-		},
 		isJson: function (str) {
 			try {
 				JSON.parse(str);
-			} catch (e) {
+			}catch (e) {
 				return false;
 			}
 			return true;
+		},
+		isElement: function (object) {
+			return (
+				typeof HTMLElement === 'object' ? object instanceof HTMLElement : //DOM2
+					object && typeof object === 'object' && object !== null && object.nodeType === 1 && typeof object.nodeName === 'string'
+			);
 		},
 		makeSlug: function (string) {
 			let output = '',
@@ -289,79 +284,25 @@ window.posdk = {
 				day: 'numeric'
 			}).replace(/\//g, '-');
 		},
-		executeCallback: function (data, depricatedCallback, depricatedData, depricatedStatus, depricatedXhr) {
-			function parameter(selector, settings, callback, data, status, xhr) {
-				let deferred = $.Deferred();
-				deferred.resolve(callback({
-					selector: selector || null,
-					settings: settings || null,
-					content: data || null,
-					status: status || null,
-					xhr: xhr || null
-				}));
-				return deferred.promise();
-			}
+		extend: function(params) {
+			params = params || {};
 
-			let depricatedSelector;
-			if (data instanceof jQuery) depricatedSelector = data;
-			data = {
-				selector: data.selector || depricatedSelector || null,
-				settings: data.settings || null,
-				callback: data.callback || depricatedCallback || null,
-				content: data.content || depricatedData || null,
-				status: data.status || depricatedStatus || null,
-				xhr: data.xhr || depricatedXhr || null
-			};
-			if ([undefined, null, ''].indexOf(data.callback) === -1 && typeof data.callback === 'string' && typeof window[data.callback] === 'function') {
-				return $.when(parameter(data.selector, data.settings, window[data.callback], data.content, data.status, data.xhr));
-			}
-		},
-		ajax: function (options) {
-			let settings = options || {};
-			settings.url = options.url || '';
+			for (let i = 1; i < arguments.length; i++) {
+			  let obj = arguments[i];
 
-			settings.method = options.type || options.method || 'POST';
-			settings.method = settings.method.toUpperCase();
-			if (settings.method === 'GET') settings.cache = false;
+			  if (!obj) continue;
 
-			settings.contentType = (options.contentType !== false) ? options.contentType || 'application/json' : false;
-
-
-			if (typeof settings.data !== 'undefined' && typeof settings.dataType === 'undefined' && posdk.utils.isJson(settings.data)) settings.dataType = 'application/json';
-			else if (typeof settings.data === 'undefined' && typeof settings.dataType !== 'undefined' && ['binary', 'arraybuffer', 'blob'].indexOf(settings.dataType.toLowerCase()) === -1) delete settings.dataType;
-			if (typeof settings.dataType !== 'undefined' && ['binary', 'arraybuffer', 'blob'].indexOf(settings.dataType.toLowerCase()) > -1) {
-				settings.processData = false;
-				if (['arraybuffer', 'blob'].indexOf(settings.dataType.toLowerCase()) > -1) {
-					settings.responseType = settings.dataType;
-					settings.dataType = 'binary';
+			  for (let key in obj) {
+				if (obj.hasOwnProperty(key)) {
+				  if (arguments[0] == true && typeof obj[key] === 'object')
+					params[key] = posdk.utils.extend(params[key], obj[key]);
+				  else
+					params[key] = obj[key];
 				}
+			  }
 			}
 
-			return fetch(settings);
-		},
-		validation: {
-			number: function (fieldName, value) {
-				if (value === '') {
-					return null;
-				} else if (isNaN(Number(value))) {
-					console.log('The value of "' + fieldName + '" is not a number.');
-					return NaN;
-				} else return Number(value);
-			},
-			boolean: function (fieldName, value) {
-				if (value === null || value.trim() === '' || value.toLowerCase() === 'false' || value == '0' || value === 'off') return false;
-				else if (value.toLowerCase() === 'true' || value === '1' || value === 'on') return true;
-
-				else return null;
-			},
-			dateTime: function (fieldName, value) {
-				if (value.trim() === '') return null;
-				else if (value.match(/([0-9]{4})-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|(2[0-4])):([0-5][0-9]):([0-5][0-9])/)) return value;
-				else {
-					console.log('The value of "' + fieldName + '" is an invalid dateTime format.');
-					return 'Invalid Date';
-				}
-			}
+			return params;
 		}
 	},
 	extensions: {
@@ -381,11 +322,11 @@ window.posdk = {
 					str = str.split(';');
 					for (let e = 0; e < str.length; e++) {
 						let arr = str[e].split(':');
-						options[$.trim(arr[0])] = cleanValue($.trim(arr.slice(1).join(':')));
+						options[arr[0].trim()] = cleanValue(arr.slice(1).join(':').trim());
 					}
 				}else {
 					let arr = str.split(':');
-					options[$.trim(arr[0])] = cleanValue($.trim(arr.slice(1).join(':')));
+					options[arr[0].trim()] = cleanValue(arr.slice(1).join(':').trim());
 				}
 			}
 			return options;
@@ -393,7 +334,7 @@ window.posdk = {
 		settings: function (selector, options, settings) {
 			if (typeof settings.name === 'string' && settings.name.toLowerCase() !== 'engine' && settings.name.toLowerCase() !== 'settings') {
 				if (typeof settings.defaults === 'undefined') settings.defaults = {};
-				selector.data('posdk-' + settings.name.toLowerCase() + '-settings', $.extend({}, settings.defaults, options));
+				selector.data('posdk-' + settings.name.toLowerCase() + '-settings', posdk.utils.extend({}, settings.defaults, options));
 				posdk.active.tricks[settings.name] = settings.version;
 				return selector.data('posdk-' + settings.name.toLowerCase() + '-settings');
 			}
@@ -414,6 +355,6 @@ window.posdk = {
 };
 
 // Initialize tricks
-$(function() {
+$(document).ready(function($) {
 	posdk.extensions.engine();
 });
