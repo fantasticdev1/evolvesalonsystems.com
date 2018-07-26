@@ -9,17 +9,10 @@
 		{%- include 'layout/header' -%}
 	</header>
 	<section>
-		<div class="{{page.metadata.key}} container-fluid p-0">
+		<div class="{{page.metadata.key}}">
 			{% if page.metadata.title and page.metadata.title != '' -%}<h1>{{page.metadata.title}}</h1>{% endif -%}
 			{{content_for_layout}}
 		</div>
-		<aside id="aside" role="navigation" class="cell medium-4 hide-for-small-only">
-			<div class="grid-x grid-padding-x grid-padding-y">
-				<div class="cell">
-					{{aside | html_safe}}
-				</div>
-			</div>
-		</aside>
 	</section>
 	<footer role="contentinfo" id="pagefooter" class="cell shrink">
 		<div class="grid-x grid-padding-x grid-padding-y">

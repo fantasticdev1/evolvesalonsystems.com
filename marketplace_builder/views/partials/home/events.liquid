@@ -1,7 +1,7 @@
 
 {%- query_graph 'get_events', result_name: 'g', page: 1, per_page: 3 -%}
 
-<h1 class="flex-center">{{meta.title}}</h1>
+{% comment %} <h1 class="flex-center">{{meta.title}}</h1>
 <h2 class="flex-center">{{meta.description}}</h2>
 <br><br><br>
 <h2 class="flex-center">{{meta.tableHeading}}</h2>
@@ -20,4 +20,83 @@
 
 <h2 class="flex-center">
   <a href="/events">{{meta.viewAllEvents}}</a>
-</h2>
+</h2> {% endcomment %}
+<div class="homepage__events-section">
+  <div class="heading">
+    <h1>{{meta.title}}</h1>
+    <div class="description">
+      {{meta.description}}
+    </div>
+  </div>
+  <div class="container">
+    <div class="card-custom">
+      <div class="card-header">
+        {{meta.tableHeading}}
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for event in g.customizations.results %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="content">
+                <img src="{{properties.image_url}}">
+                <p>{{properties.start_date}}</p>
+                <p>{{properties.title}}</p>
+                <button> DETAILS </button>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+        <li class="list-group-item">
+          <div class="row">
+            <div class="view-all content">
+              <a href="/education.html"> {{meta.viewAllEvents}}</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      </div>
+    </div>
+    <div id="carouselExampleFade" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="header">
+              <p>{{meta.tableHeading}}</p>  
+            </div>
+            <div class="content col-sm-12">
+              <img src="{{properties.image_url}}">
+              <p class="date">{{properties.start_date}}</p>
+              <p class="event">{{properties.title}}</p>
+              <button> DETAILS </button>
+            </div>
+          </div>
+        </div>
+      {% for event in g.customizations.results%}  
+        <div class="carousel-item">
+            <div class="row">
+              <div class="header">
+                <p>{{meta.tableHeading}}</p>  
+              </div>
+              <div class="content col-sm-12">
+                <img src="{{properties.image_url}}">
+                <p class="date">{{properties.start_date}}</p>
+                <p class="event">{{properties.title}}</p>
+                <button> DETAILS </button>
+              </div>
+            </div>
+        </div>
+      {% endfor %}
+        <div class="view-all-mobile">
+          <a href="/education"> {{meta.viewAllEvents}} </a>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+</div>

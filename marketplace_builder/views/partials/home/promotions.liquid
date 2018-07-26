@@ -1,7 +1,7 @@
 {%- query_graph 'get_promotions', result_name: g, featured: "true" -%}
 {%- assign data = g.customizations.results[0].properties -%}
 
-<div class="homepage__promotions">
+{% comment %} <div class="homepage__promotions">
   <div>
     <h1>{{data.title}}</h1>
     <h2>{{data.date | date: "%b %d, %Y" }}</h2>
@@ -15,6 +15,25 @@
 
 <div class="flex-center">
   <a href="/promotions">{{meta.viewAllPromotions}}</a>
-</div>
+</div> {% endcomment %}
 
 {% comment %} {% render_form 'promotion', resource_type: 'promotion' %} {% endcomment %}
+<div class="homepage__promotion-section">
+  <div class="row">
+    <div class="promotion col-md-6 col-sm-12 col-lg-4">
+      <h1>{{data.title}}</h1>
+      <div class="date">
+        <div class="icon"><img src="{{'images/icons/calendar.svg' | asset_url}}"></div>
+        {{data.date | date: "%b %d, %Y"}}
+      </div>
+      <div class="description">
+        {{data.description}}
+      </div>
+      <button><a href="{{data.detail_link}}">MORE INFO</a></button>
+    </div>
+    <div class="image-wrapper col-lg-4 col-sm-12 col-md-6">
+      <div class="promotion-image"><img src="{{data.image_url}}"></div>
+    </div>
+  </div>
+    <a class="view-all" href="/promotions">{{meta.viewAllPromotions}}</a>
+</div>
