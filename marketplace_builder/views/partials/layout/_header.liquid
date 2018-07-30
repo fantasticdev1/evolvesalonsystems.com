@@ -1,71 +1,13 @@
-{% comment %} <nav id="primary">
-	<div class="title-bar" data-responsive-toggle="top-bar" data-hide-for="medium">
-		<div class="grid-container full">
-			<div class="grid-x">
-				<div class="cell shrink">
-					<a href="/" class="header-logo"><img src="{{'images/brand/logo.png' | asset_url}}" alt="ONE Creative home page"></a>
-				</div>
-				<div class="cell auto"></div>
-				<div class="cell shrink">
-					<button class="fas fa-bars menu-bars" type="button" data-toggle="top-bar"></button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="top-bar" class="top-bar">
-		<div class="container">
-			<div class="top-bar-left show-for-medium">
-				<ul class="menu">
-					<li class="menu-text"><a href="/" class="header-logo"><img src="{{'images/brand/logo.png' | asset_url}}" alt="ONE Creative home page"></a></li>
-				</ul>
-			</div>
-			<div class="top-bar-right">
-				<ul class="vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
-					<li class="{% if page.slug == 'products' -%}is-active{% endif -%}"><a href="/products">PRODUCTS</a></li>
-					<li class="{% if page.slug == 'promotions' -%}is-active{% endif -%}"><a href="/promotions">PROMOTIONS</a></li>
-					<li class="{% if page.slug == 'business-systems' -%}is-active{% endif -%}"><a href="/business-systems">BUSINESS SYSTEMS</a></li>
-					<li class="{% if page.slug == 'salon-software' -%}is-active{% endif -%}"><a href="/salon-software">SALON SOFTWARE</a></li>
-					<li class="{% if page.slug == 'education' -%}is-active{% endif -%}"><a href="/education">EDUCATION</a></li>
-					<li class="{% if page.slug == 'account' -%}is-active{% endif %}"><a href="/account" title="Account"><span class="fas fa-user-circle show-for-medium"></span><span class="hide-for-medium"> Account</span></a>
-						<ul class="menu vertical">
-							{% if user -%}
-								<li class="{% if page.slug == 'account/profile' -%}is-active{% endif -%}"><a href="/account/profile">Profile</a></li>
-								<li>{% render_form 'account_logout' %}</li>
-							{% else -%}
-								<li><a href="/account/profile" data-open="loginModal">Login</a>
-								<li><a href="/account/profile" data-open="createAccountModal">Create Account</a>
-							{% endif -%}
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</nav>
-{%- unless user -%}
-	<div class="reveal" id="loginModal" data-reveal>
-		<h3>Login</h3>
-		<p><small>Don't have an account? <a href="/account/profile" data-open="createAccountModal">Create one</a></small></p>
-		{% render_form 'login' %}
-		<button class="close-button" data-close aria-label="Close modal"><span aria-hidden="true" class="fal fa-times"></span></button>
-	</div>
-	<div class="reveal" id="createAccountModal" data-reveal>
-		<h3>Create Account</h3>
-		<p><small>Already have an account? <a href="/account/profile" data-open="loginModal">Login</a></small></p>
-		{% render_form 'profile' %}
-		<button class="close-button" data-close aria-label="Close modal" type="button"><span aria-hidden="true" class="fal fa-times"></span></button>
-	</div>
-{%- endunless -%} {% endcomment %}
 <div id="sideMenu" class="sidenav">
 	<a href="#sideclose" class="closebtn">&times;</a>
 	<a href="/">HOME</a>
-	<a href="/promotions.html">PROMOTIONS</a>
-	<a href="/products.html">PRODUCTS</a>
-	<a href="/business.html">BUSINESS SYSTEMS</a>
-	<a href="/videos.html">VIDEOS</a>
-	<a href="/education.html">EDUCATION</a>
-	<a href="/about.html">ABOUT US</a>
-	<a href="/contact.html">CONTACT US</a>
+	<a href="/promotions">PROMOTIONS</a>
+	<a href="/products">PRODUCTS</a>
+	<a href="/business">BUSINESS SYSTEMS</a>
+	<a href="/videos">VIDEOS</a>
+	<a href="/education">EDUCATION</a>
+	<a href="/about">ABOUT US</a>
+	<a href="/contact">CONTACT US</a>
 </div>
 	<nav class="navbar">
 		<a class="navbar-brand" href="/"><img src="{{'images/brand/logo.svg' | asset_url}}" ></a>

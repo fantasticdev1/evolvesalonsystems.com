@@ -546,14 +546,11 @@
   }
   @media (max-width: $tablet) {
     .container {
-      left: 5%;
       max-width: 325px;
     }
   }
   @media (max-width: $phone) {
-    .homepage__video-section {
-      height: fit-content;
-    }
+    height: fit-content;
     .container {
       top: 50%;
       left: 0;

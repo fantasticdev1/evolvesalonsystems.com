@@ -1379,7 +1379,6 @@ body {
     display: none !important; }
 
 .homepage__video-section {
-  background-image: url(../img/home-page-top-image.png);
   background-size: cover;
   background-position: center center;
   height: 600px;
@@ -1539,7 +1538,6 @@ body {
     border-top-left-radius: 50% 100vw;
     border-bottom-left-radius: 50% 100vw; }
     .homepage__social-section .right-section .image-wrapper {
-      background-image: url(../img/social-section-image.png);
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat;
@@ -3597,21 +3595,21 @@ html {
             color: #ffffff;
             letter-spacing: 0;
             text-align: center; }
-    .homepage__video-section .homepage__video-section {
+    .homepage__video-section {
       height: -webkit-fit-content;
       height: -moz-fit-content;
       height: fit-content; }
-    .homepage__video-section .container {
-      top: 50%;
-      left: 0;
-      max-width: 100%; }
-      .homepage__video-section .container .text-section {
-        width: 100%; }
-        .homepage__video-section .container .text-section button {
-          position: absolute;
-          top: -50%;
-          left: 40%;
-          right: 0; }
+      .homepage__video-section .container {
+        top: 50%;
+        left: 0;
+        max-width: 100%; }
+        .homepage__video-section .container .text-section {
+          width: 100%; }
+          .homepage__video-section .container .text-section button {
+            position: absolute;
+            top: -50%;
+            left: 40%;
+            right: 0; }
     .homepage__social-section {
       margin-top: 75%;
       padding-bottom: 80px;
@@ -3884,7 +3882,6 @@ html {
     .homepage__promotion-section .image-wrapper {
       max-width: 50%; }
     .homepage__video-section .container {
-      left: 5%;
       max-width: 325px; }
     .homepage__social-section .left-section .link-row button {
       margin: 10px; }
