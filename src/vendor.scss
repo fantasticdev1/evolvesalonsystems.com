@@ -7,3 +7,6 @@
 // @import 'scss/vendors/fontawesome/fa-brands';
 // @import 'scss/vendors/fontawesome/fa-regular';
 // @import 'scss/vendors/fontawesome/fa-solid';
+@import 'scss/overrides/bootstrap';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import 'scss/vendors/index';
