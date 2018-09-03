@@ -1,20 +1,22 @@
 <div class="sidebar" data-color="brown" data-active-color="danger">
 	<!-- Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow" -->
 	<div class="logo">
-		<a href="http://www.creative-tim.com" class="simple-text logo-mini">
+		<a href="/admin/dashboard" class="simple-text logo-mini">
 			<div class="logo-image-small">
 				<img src="{{'admin/images/logo-small.png' | asset_url}}">
 			</div>
 		</a>
 		<a href="/admin/dashboard" class="simple-text logo-normal">
 			Admin
-			{%- comment -%}<div class="logo-image-big">
+			{%- comment -%}
+			<div class="logo-image-big">
 				<img src="{{'admin/images/logo-big.png' | asset_url}}">
-			</div>{%- endcomment -%}
+			</div>
+			{%- endcomment -%}
 		</a>
 	</div>
 	<div class="sidebar-wrapper">
-		<div class="user">
+		{%- comment -%}<div class="user">
 			<div class="photo">
 				<img src="{{'admin/images/faces/ayo-ogunseinde-2.jpg' | asset_url}}" />
 			</div>
@@ -46,7 +48,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div>{%- endcomment -%}
 		<ul class="nav">
 			{% for page in admin.nav.items -%}
 				<li{% if page.slug == thisPage.slug %} class="active"{% endif -%}>

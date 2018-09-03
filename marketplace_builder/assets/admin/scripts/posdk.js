@@ -1,6 +1,9 @@
+// TODO: split into multiple files and manage through webpack
+// TODO: replace utils with lodash if possible
+
 window.posdk = {
 	active: {
-		sdk: '0.0.1',
+		sdk: '0.1.1',
 		tricks: {} // populated automatically
 	},
 	token: document.querySelector('meta[name="csrf-token"]').content || null,
@@ -35,6 +38,20 @@ window.posdk = {
 					url: '/api/user/customizations/'+params.id,
 					form: {properties:params.form}
 				});
+			}
+		},
+		schema: {
+			save: function(params) {
+				if (typeof params === 'undefined') params = {};
+				params = {
+
+				};
+			},
+			delete: function(params) {
+				if (typeof params === 'undefined') params = {};
+				params = {
+
+				};
 			}
 		}
 	},
@@ -75,7 +92,7 @@ window.posdk = {
 		}
 	},
 	session: {
-		create: function(params) {
+		save: function(params) {
 			if (typeof params === 'undefined') params = {};
 			params = {
 				form: params.form || null,
@@ -139,6 +156,10 @@ window.posdk = {
 		},
 		locationPathArray: function () {return location.pathname.toLowerCase().split(/(?=\/#?[a-zA-Z0-9])/g);},
 		locationParamArray: function () {return location.search.split(/(?=&#?[a-zA-Z0-9])/g);},
+		removeParams: function (obj, paramArray) {
+			for (let key in obj) if (paramArray.indexOf(obj[key]) > -1) delete obj[key];
+			return obj;
+		},
 		escape: function (str) {
 			const entityMap = {
 				'&': '&amp;',
@@ -152,11 +173,45 @@ window.posdk = {
 			};
 			return (typeof str === 'undefined') ? '' : String(str).replace(/[&<>"'`=\/]/g, function (s) {return entityMap[s];});
 		},
-		removeParams: function (obj, paramArray) {
-			for (let key in obj) if (paramArray.indexOf(obj[key]) > -1) delete obj[key];
-			return obj;
+		unescape: function (str) {
+			if (typeof str === 'undefined') return '';
+			else {
+				let temp = document.createElement('div');
+				temp.innerHTML = str;
+				return temp.childNodes[0].nodeValue;
+			}
 		},
-		unescape: function (str) {return (typeof str === 'undefined') ? '' : $('<div/>').html(str).text();},
+		encode: function (str) {
+			return encodeURIComponent(str).replace(/'/g, "%27").replace(/"/g, "%22");
+		},
+		decode: function (str) {
+			return decodeURIComponent(str.replace(/\+/g, " "));
+		},
+		makeSlug: function (string) {
+			let output = '',
+				valid = '-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+			string = string.replace(/\s/g, '-').replace().replace(/-{2,}/g, '-');
+
+			for (let i = 0; i < string.length; i++) {
+				if (valid.indexOf(string.charAt(i)) != -1) output += string.charAt(i);
+			}
+			return output.toLowerCase();
+		},
+		camelCase: function (string) {
+			// remove all characters that should not be in a variable name
+			// as well underscores an numbers from the beginning of the string
+			string = string.replace(/([^a-zA-Z0-9_\-\s])|^[_0-9]+/g, '').trim().substr(0, 1).toLowerCase() + string.substr(1);
+			// uppercase letters preceeded by a hyphen or a space
+			string = string.replace(/([ -]+)([a-zA-Z0-9])/g, function (a, b, c) {
+				return c.toUpperCase();
+			});
+			// uppercase letters following numbers
+			string = string.replace(/([0-9]+)([a-zA-Z])/g, function (a, b, c) {
+				return b + c.toUpperCase();
+			});
+			return string;
+		},
 		jsonify: function (str) {
 			posdk.utils.jsonify.brace = /^[{\[]/;
 			posdk.utils.jsonify.token = /[^,(:){}\[\]]+/g;
@@ -182,14 +237,9 @@ window.posdk = {
 				else return '"' + a.replace(posdk.utils.jsonify.quote, '$1').replace(posdk.utils.jsonify.escap, '\\$1') + '"';
 			});
 		},
-		encode: function (str) {
-			return encodeURIComponent(str).replace(/'/g, "%27").replace(/"/g, "%22");
-		},
-		decode: function (str) {
-			return decodeURIComponent(str.replace(/\+/g, " "));
-		},
 		serializeObject: function (object) {
 			let o = '', boolFalse, a, i;
+			if (typeof object === 'undefined') return object;
 			if (object instanceof jQuery) {
 				if (object.is('form')) a = object.serializeArray();
 				else if (object.is('select,textarea,input')) a = object.serializeArray(); // [{name:object.attr('name'),value:object.val()}];
@@ -200,9 +250,9 @@ window.posdk = {
 				}
 			}else if (Array.isArray(object) && typeof object[0].name !== 'undefined' && typeof object[0].value !== 'undefined') {
 				a = object;
-			}else if ($.isPlainObject(object) && typeof object.name !== 'undefined' && typeof object.value !== 'undefined') {
+			}else if (object != null && Object.prototype.toString.call(object) === '[object Object]' && typeof object.name !== 'undefined' && typeof object.value !== 'undefined') {
 				a = [object];
-			}else if ($.isPlainObject(object)) {
+			}else if (object != null && Object.prototype.toString.call(object) === '[object Object]') {
 				o = object;
 			}else {
 				console.log('Malformed object passed to posdk.utils.serializeObject method.');
@@ -234,31 +284,6 @@ window.posdk = {
 					object && typeof object === 'object' && object !== null && object.nodeType === 1 && typeof object.nodeName === 'string'
 			);
 		},
-		makeSlug: function (string) {
-			let output = '',
-				valid = '-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-			string = string.replace(/\s/g, '-').replace().replace(/-{2,}/g, "-");
-
-			for (let i = 0; i < string.length; i++) {
-				if (valid.indexOf(string.charAt(i)) != -1) output += string.charAt(i);
-			}
-			return output.toLowerCase();
-		},
-		camelCase: function (string) {
-			// remove all characters that should not be in a variable name
-			// as well underscores an numbers from the beginning of the string
-			string = string.replace(/([^a-zA-Z0-9_\-\s])|^[_0-9]+/g, "").trim().substr(0, 1).toLowerCase() + string.substr(1);
-			// uppercase letters preceeded by a hyphen or a space
-			string = string.replace(/([ -]+)([a-zA-Z0-9])/g, function (a, b, c) {
-				return c.toUpperCase();
-			});
-			// uppercase letters following numbers
-			string = string.replace(/([0-9]+)([a-zA-Z])/g, function (a, b, c) {
-				return b + c.toUpperCase();
-			});
-			return string;
-		},
 		date: function (params) {
 			if (typeof params === 'undefined') params = {};
 			if (typeof params.offset === 'undefined') params.offset = {};
@@ -278,7 +303,7 @@ window.posdk = {
 			myDate.setHours(params.offset.hour);
 			myDate.setMinutes(params.offset.minutes);
 			myDate.setSeconds(params.offset.second);
-			return myDate.toLocaleString('en-us', {
+			return myDate.toLocaleString('en-US', {
 				year: 'numeric',
 				month: 'numeric',
 				day: 'numeric'
@@ -333,21 +358,24 @@ window.posdk = {
 		},
 		settings: function (selector, options, settings) {
 			if (typeof settings.name === 'string' && settings.name.toLowerCase() !== 'engine' && settings.name.toLowerCase() !== 'settings') {
+				if (selector instanceof jQuery) selector = selector[0];
+				let dataString = posdk.utils.camelCase('posdk ' + settings.name.toLowerCase()) + 'Settings';
 				if (typeof settings.defaults === 'undefined') settings.defaults = {};
-				selector.data('posdk-' + settings.name.toLowerCase() + '-settings', posdk.utils.extend({}, settings.defaults, options));
+				let newSettings = posdk.utils.extend({}, settings.defaults, options);
+				selector.dataset[dataString] = JSON.stringify(newSettings);
 				posdk.active.tricks[settings.name] = settings.version;
-				return selector.data('posdk-' + settings.name.toLowerCase() + '-settings');
+				return newSettings;
 			}
 		},
 		engine: function (scope) {
-			if (typeof scope === 'undefined') scope = $(document);
+			if (typeof scope === 'undefined' || typeof scope.currentTarget !== 'undefined') scope = scope.currentTarget;
+			if (scope instanceof jQuery) scope = scope[0];
 			for (let trick in posdk.extensions.tricks) {
-				let instances = scope.find('[data-posdk-' + trick.toLowerCase() + ']');
-				for (let instance of instances) {
-					let str = $(instance).data('posdk-' + trick.toLowerCase());
+				scope.querySelectorAll('[data-posdk-' + trick.toLowerCase() + ']').forEach(instance => {
+					let str = instance.dataset[posdk.utils.camelCase('posdk ' + trick.toLowerCase())];
 					let options = posdk.extensions.parseOptions(str);
-					posdk.extensions.tricks[trick]($(instance), options);
-				}
+					posdk.extensions.tricks[trick](instance, options);
+				});
 			}
 		},
 		tricks: {} // populated automatically
@@ -355,6 +383,5 @@ window.posdk = {
 };
 
 // Initialize tricks
-$(document).ready(function($) {
-	posdk.extensions.engine();
-});
+if (document.attachEvent ? document.readyState === 'complete' : document.readyState !== 'loading') posdk.extensions.engine();
+else document.addEventListener('DOMContentLoaded', posdk.extensions.engine);

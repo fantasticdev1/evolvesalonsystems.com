@@ -5,7 +5,7 @@
 {% assign thisPageIndex = admin.nav.indexBy.slug[context.location.pathname] -%}
 {% if thisPageIndex != nil -%}
 	{% assign thisPage = admin.nav.items[thisPageIndex] -%}
-	{% if context.location.pathname != context.location.href -%}
+	{% if context.location.pathname != context.location.href and thisPage.nested.indexBy.slug[context.location.href] != nil -%}
 		{% assign thisPageIndex = thisPage.nested.indexBy.slug[context.location.href] -%}
 		{% assign thisPage = thisPage.nested.items[thisPageIndex] -%}
 	{% endif -%}

@@ -17,3 +17,31 @@ table.dataTable thead .sorting:after {
   top: 13px;
   right: 15px;
 }
+table.dataTable td:not(.row_actions),
+table.dataTable td.row_actions a {
+	cursor: pointer;
+}
+.nav-item .photo {
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	border: 1px solid #66615B;
+	border-radius: 50%;
+	float: left;
+	vertical-align: middle;
+}
+.nav-item .dropdown-toggle::after {
+	display: none;
+}
+/*.dropdown-toggle::after {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: .255em;
+	vertical-align: .255em;
+	content: "";
+	border-top: .3em solid;
+	border-right: .3em solid transparent;
+	border-bottom: 0;
+	border-left: .3em solid transparent;
+}*/
