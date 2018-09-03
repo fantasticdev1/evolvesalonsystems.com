@@ -1,0 +1,145 @@
+#business-description *,
+#business-description-2 *,
+#business-description-d * {
+  padding: 4%;
+  margin-bottom: 0;
+}
+#business-description,
+#business-description-2,
+#business-description-d {
+  overflow: hidden;
+  transition: all 1.5s;
+  padding-left: 0;
+  .business-title {
+    font-family: 'gothamLight';
+    font-size: 34px;
+    color: #616386;
+    letter-spacing: 0;
+  }
+  .text-section-1 {
+    padding: 0;
+    .title {
+      font-family: 'gothamMedium';
+      font-size: 18px;
+      color: #616386;
+      letter-spacing: 0;
+      padding-bottom: 2%;
+    }
+    p {
+      font-family: Helvetica;
+      font-size: 14px;
+      color: #9a9ab2;
+      letter-spacing: 0;
+      line-height: 26px;
+      padding-top: 0;
+    }
+    .image-wrapper {
+      padding-top: 0;
+      div {
+        background-size: contain;
+        background-position: center center;
+        padding-top: 50%;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  .text-section-2 {
+    padding: 0;
+    .title {
+      font-family: Helvetica;
+      font-size: 18px;
+      color: #616386;
+      letter-spacing: 0;
+      line-height: 30px;
+      text-align: center;
+      padding-right: 15%;
+      padding-left: 15%;
+    }
+
+    p {
+      font-family: Helvetica;
+      font-size: 14px;
+      color: #9a9ab2;
+      letter-spacing: 0;
+      line-height: 26px;
+    }
+    .big-card {
+      padding: 0;
+      margin: 4%;
+    }
+  }
+  .text-section-3 {
+    .middle-quote {
+      font-family: Helvetica;
+      font-size: 18px;
+      color: #616386;
+      letter-spacing: 0;
+      line-height: 30px;
+      text-align: center;
+      padding-right: 15%;
+      padding-left: 15%;
+    }
+    .image-wrapper {
+      padding-top: 0;
+      div {
+        background-size: contain;
+        background-position: center center;
+        padding-top: 50%;
+        background-repeat: no-repeat;
+      }
+    }
+    .list-title {
+      font-family: 'gothamMedium';
+      font-size: 18px;
+      color: #616386;
+      letter-spacing: 0;
+    }
+    .button-list {
+      list-style: none;
+      li {
+        /* One on One Coaching: */
+        font-family: 'gothamPro';
+        font-size: 14px;
+        color: #9a9ab2;
+        letter-spacing: 0;
+        line-height: 40px;
+      }
+    }
+  }
+  .text-section-4 {
+    .title {
+      font-family: 'gothamMedium';
+      font-size: 18px;
+      color: #616386;
+      letter-spacing: 0;
+    }
+    p {
+      /* Th?ese business deve: */
+      font-family: 'gothamPro';
+      font-size: 14px;
+      color: #9a9ab2;
+      letter-spacing: 0;
+      line-height: 26px;
+    }
+    .button-wide {
+      /* btn: */
+      border: 2px solid #4b4e75;
+      border-radius: 100px;
+      /* get in touch: */
+      font-family: 'gothamMedium';
+      font-size: 12px;
+      color: #4b4e75;
+      letter-spacing: 0;
+      text-align: center;
+      padding: 0;
+      outline: none;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        color: white;
+        background: #4b4e75;
+      }
+    }
+  }
+}

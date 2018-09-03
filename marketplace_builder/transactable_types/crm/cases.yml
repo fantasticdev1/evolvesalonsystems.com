@@ -4,7 +4,7 @@ custom_attributes:
 - name: subject
   attribute_type: string
 - name: description
-  attribute_type: string
+  attribute_type: text
 - name: tags
   attribute_type: array
 - name: status

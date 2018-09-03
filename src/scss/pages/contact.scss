@@ -1,0 +1,131 @@
+.contact__top-section {
+  background-image: url(../img/home-page-top-image.png);
+  background-size: cover;
+  background-position: center center;
+  height: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  .info-card {
+    position: relative;
+    top: 25%;
+    left: 15%;
+    margin: 0;
+    background: #ffffff;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 500px;
+    .h-title-1 {
+      font-size: 32px;
+    }
+    .bottom-link {
+      display: flex;
+      justify-content: center;
+      button {
+        margin: 2%;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background: rgba(97, 99, 134, 0.1);
+        border: none;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s;
+        .fab.fa-instagram {
+          color: #616386;
+        }
+      }
+    }
+  }
+  @media (max-width: $tablet) {
+    justify-content: center;
+    .info-card {
+      top: 50%;
+      width: 100%;
+      left: 0;
+      ul {
+        li {
+          float: none;
+        }
+      }
+    }
+  }
+  @media (max-width: $phone) {
+    .info-card {
+      top: 75%;
+      left: 0;
+      max-width: 100%;
+      .text-section {
+        width: 100%;
+      }
+    }
+  }
+}
+.contact__form {
+  padding: 5%;
+  .h-title-1 {
+    text-align: center;
+  }
+  .name-input {
+    margin-right: 3px;
+    height: 4%;
+    background: rgba(199, 197, 220, 0.5);
+    border: none;
+    &::placeholder {
+      color: $primary-heavy;
+      font-weight: bold;
+    }
+  }
+  .email-input {
+    height: 4%;
+    background: rgba(199, 197, 220, 0.5);
+
+    border: none;
+    &::placeholder {
+      color: $primary-heavy;
+      font-weight: bold;
+    }
+  }
+  .form-control {
+    height: 15%;
+    background: rgba(199, 197, 220, 0.5);
+    border: none;
+    &::placeholder {
+      color: $primary-heavy;
+      font-weight: bold;
+    }
+  }
+  .button-wide {
+    border: 1px solid $primary-heavy;
+    color: $primary-heavy;
+    background: none;
+    &:hover {
+      background: $primary-heavy;
+      color: #ffffff;
+    }
+  }
+  @media (max-width: $tablet) {
+    padding-top: 15%;
+  }
+  @media (max-width: $phone) {
+    padding-top: 45%;
+    height: fit-content;
+    .name-input {
+      margin-right: 0;
+      margin-bottom: 2%;
+      height: 30px;
+      text-align: center;
+    }
+    .email-input {
+      height: 30px;
+      text-align: center;
+    }
+    .form-control {
+      height: 80px;
+      text-align: center;
+    }
+  }
+}

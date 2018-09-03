@@ -1,11 +1,15 @@
 
 {%- query_graph 'get_video_by_id', result_name: 'g', id: meta.id -%}
 {%- assign properties = g.customizations.results[0].properties -%}
-
-<div style="background-image: url({{meta.bgImageUrl}}); height: 400px; padding: 100px;">
-  <div style="background:white;padding:50px;">
-    <h1>{{properties.title}}</h1>
-    <h2>{{properties.description}}</h2>
-    <a href="/videos">{{meta.viewAllFeaturedVideos}}</a>
+<div class="homepage__video-section" style="background-image: url({{meta.bgImageUrl}})">
+  <div class="container">
+    <div class="text-section">
+      <h1><p>{{properties.title}}</p></h1>
+      <div class="description">
+        <p>{{properties.description}}</p>
+      </div>
+      <div class="bottom-link"><a href="/videos">{{meta.viewAllFeaturedVideos}}</a></div>
+      <button><i class="fa fa-play"></i></button>
+    </div>
   </div>
 </div>

@@ -35,7 +35,7 @@ module.exports = env => {
       filename: '[name].js',
       chunkFilename: '[name].[chunkhash:3].js',
       publicPath: '',
-      path: BUILD_DIR
+      path: `${BUILD_DIR}/styles`
     },
     devtool: false,
     bail: true,
@@ -47,7 +47,7 @@ module.exports = env => {
     },
     externals: {
       jquery: 'window.jQuery',
-      $: 'window.jQuery'
+      $: 'window.jQuery',
     },
     module: {
       rules: [

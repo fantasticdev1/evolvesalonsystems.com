@@ -1,0 +1,214 @@
+.modal-body * {
+  padding: 2%;
+}
+.modal-header {
+  border: none;
+  .close {
+    font-size: 24px;
+  }
+}
+.modal-content {
+  border-radius: 5px;
+}
+.modal-body {
+  position: relative;
+  .long-text {
+    font-family: Helvetica;
+    font-size: 12px;
+    color: $primary-heavy;
+    overflow: scroll;
+  }
+  .title {
+    font-family: 'gothamMedium';
+    text-align: center;
+    color: $primary-heavy;
+  }
+  .instructions {
+    font-family: 'gothamMedium';
+    text-align: center;
+    color: $primary-heavy;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+    a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: $primary-extra-heavy;
+    }
+    input {
+      width: 100%;
+      margin: 3%;
+      border: none;
+      background: rgba(199, 197, 220, 0.5);
+      &::placeholder {
+        color: $primary-medium;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      input {
+        margin: 0;
+        padding-right: 15px;
+        width: 25px;
+        cursor: pointer;
+      }
+      a {
+        font-family: 'gothamPro';
+        font-size: 12px;
+        text-align: center;
+        padding: 0;
+        margin-left: 15px;
+      }
+    }
+    .button-wide {
+      color: white;
+      background: $primary-medium;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s;
+      &:hover {
+        color: $primary-heavy;
+        background: white;
+      }
+    }
+  }
+}
+.cart-span {
+  display: flex;
+  justify-content: center;
+  a {
+    text-decoration: underline;
+    font-size: 16px;
+    color: $primary-heavy;
+  }
+}
+.modal-footer {
+  span {
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      color: $primary-heavy;
+    }
+    .button-wide {
+      color: $primary-heavy;
+      border: 2px solid $primary-medium;
+      text-align: center;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: white;
+      &:hover {
+        color: white;
+        background: $primary-extra-heavy;
+        border: 2px solid white;
+      }
+    }
+  }
+  @media (max-width: $phone) {
+    display: flex;
+    justify-content: center;
+    span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+#cart-modal {
+  .row {
+    flex-wrap: nowrap;
+  }
+  .modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    .modal-title {
+      color: $primary-heavy;
+      font-size: 18px;
+    }
+  }
+  .modal-body {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    .product {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      margin: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      .remove-btn {
+        color: $primary-light;
+        font-size: 18px;
+      }
+      .image-wrapper {
+        img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+        }
+      }
+      .description {
+        .title {
+          text-align: start;
+        }
+        .name {
+          font-size: 14px;
+          color: $primary-heavy;
+        }
+      }
+      .price {
+        font-family: 'gothamProBold';
+        font-size: 14px;
+        color: $primary-heavy;
+      }
+    }
+    .total {
+      margin: 2%;
+      align-self: flex-end;
+      color: $primary-heavy;
+      font-family: 'gothamMedium';
+      font-size: 18px;
+    }
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      .button-wide {
+        color: $primary-extra-light;
+        background: $primary-heavy;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          color: $primary-heavy;
+          background: $primary-extra-light;
+        }
+      }
+    }
+  }
+}
+#return-shipping-policies {
+  .modal-content {
+    max-height: 85vh;
+    .button {
+      display: flex;
+      justify-content: center;
+      .button-wide {
+        display: flex;
+        justify-content: center;
+        color: $primary-light;
+        border: 2px solid $primary-light;
+        font-family: Helvetica;
+        background: $primary-extra-heavy;
+      }
+    }
+  }
+}

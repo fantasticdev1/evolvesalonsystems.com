@@ -1,0 +1,340 @@
+.account__page {
+  background-color: $primary-medium;
+  padding-top: $header-height;
+  min-height: 100vh;
+  .collapse-list {
+    display: none;
+    > ul {
+      list-style: none;
+      padding-left: 0;
+      width: 100%;
+      > li {
+        font-family: 'gothamMedium';
+        font-size: 14px;
+        color: #616386;
+        letter-spacing: 0;
+        padding: 10%;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+    .collapse,
+    .collapsing {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @media (max-width: $phone) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  #account-settings,
+  .account-settings {
+    overflow: auto;
+    @media (min-width: $phone) {
+      display: none;
+      &:target {
+        display: block;
+      }
+    }
+
+    .top-section {
+      justify-content: space-between;
+      .save-button {
+        margin: 0;
+        border-radius: 15px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: white;
+        background: $primary-heavy;
+        width: 80px;
+        height: 40px;
+      }
+    }
+    .save-button {
+      margin: 0;
+      border-radius: 15px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: white;
+      background: $primary-heavy;
+      width: 80px;
+      height: 40px;
+    }
+    .form-section {
+      h6 {
+        align-self: flex-start;
+        font-family: 'gothamProBold';
+        color: $primary-heavy;
+      }
+      input {
+        width: 100%;
+        margin: 5%;
+        height: 4em;
+        border: none;
+        outline: none;
+        background: $primary-light;
+        font-family: 'gothamProBold';
+        color: $primary-heavy;
+        &::placeholder {
+          font-family: 'gothamProBold';
+          color: $primary-heavy;
+        }
+      }
+      .left-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .right-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .bottom-right-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .bottom-left-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .section-title {
+        font-size: 20px;
+        font-family: 'gothamLight';
+        color: #626487;
+        margin-bottom: 5%;
+        margin-top: 5%;
+        padding-left: 15px;
+      }
+    }
+  }
+  #my-courses,
+  .my-courses {
+    overflow: auto;
+    @media (min-width: $phone) {
+      display: none;
+      &:target {
+        display: block;
+      }
+    }
+
+    .course-list {
+      list-style: none;
+      display: flex;
+      .course {
+        display: flex;
+        align-items: center;
+        .image-wrapper {
+          img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+          }
+        }
+        .description {
+          list-style: none;
+          .title {
+            font-family: 'gothamMedium';
+            font-size: 10px;
+            color: $primary-light;
+            letter-spacing: 7px;
+          }
+          .name {
+            font-size: 18px;
+            font-family: 'gothamMedium';
+            color: $primary-heavy;
+          }
+        }
+      }
+    }
+    @media (max-width: $phone) {
+      .course-list {
+        .course {
+          .image-wrapper {
+            img {
+              height: 80px;
+              width: 80px;
+            }
+          }
+          .description {
+            padding-left: 15px;
+            .title {
+              padding-bottom: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+  #orders,
+  .orders {
+    overflow: auto;
+    @media (min-width: $phone) {
+      display: none;
+      &:target {
+        display: block;
+      }
+    }
+
+    .top-section {
+      justify-content: flex-start;
+      .item-title {
+        text-align: start;
+        font-size: 28px;
+        color: #626487;
+        letter-spacing: 0;
+        line-height: 40px;
+        font-weight: lighter;
+      }
+    }
+    .button-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 0;
+      .list-item {
+        width: 100%;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.07);
+        a {
+          .anchor-button {
+            background: none;
+            border-radius: 3px;
+            width: 100%;
+            margin: 0;
+            padding-bottom: 0;
+            box-shadow: none;
+            &:focus {
+              background: none;
+              color: #4b4e75;
+              outline: none;
+            }
+            .button-overlay {
+              display: flex;
+              justify-content: space-between;
+              padding-right: 30px;
+              padding-left: 30px;
+              list-style: none;
+              @media (max-width: $phone) {
+                flex-direction: row;
+                padding: 0;
+              }
+              .order-id {
+                font-family: 'gothamLight';
+                font-size: 16px;
+                color: #4b4e75;
+                letter-spacing: 0;
+              }
+              .order-status-processing {
+                color: #94dc91;
+                font-size: 10px;
+                &::before {
+                  content: '•';
+                  font-size: 20px;
+                  vertical-align: middle;
+                  line-height: 20px;
+                  border-radius: 50%;
+                }
+              }
+              .order-status-delivered {
+                color: #505379;
+                font-size: 10px;
+                &::before {
+                  content: '•';
+                  font-size: 20px;
+                  vertical-align: middle;
+                  line-height: 20px;
+                  border-radius: 50%;
+                }
+              }
+            }
+          }
+        }
+        #order-description-1,
+        #order-description-2,
+        #order-description-3 {
+          list-style: none;
+          padding-left: 0;
+          box-shadow: none;
+          li {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+          }
+        }
+      }
+    }
+  }
+  #payment,
+  .payment {
+    overflow: auto;
+    @media (min-width: $phone) {
+      display: none;
+      &:target {
+        display: block;
+      }
+    }
+    label {
+      /* Card Number: */
+      font-family: 'gothamProBold';
+      font-size: 10px;
+      color: #616386;
+      letter-spacing: 0;
+    }
+    .form-2 {
+      .form-control {
+        height: 50px;
+        background: #eeedf4;
+        outline: none;
+        border: none;
+        text-align: start;
+        font-family: 'gothamMedium';
+        font-size: 12px;
+        color: #616386;
+        letter-spacing: 0;
+      }
+    }
+    .credit-card {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .dropdown {
+      .form-button {
+        height: 50px;
+        width: 100%;
+        background: #eeedf4;
+        outline: none;
+        border: none;
+        text-align: start;
+        font-family: 'gothamMedium';
+        font-size: 12px;
+        color: #616386;
+        letter-spacing: 0;
+      }
+      .dropdown-menu {
+        width: 220px;
+        max-height: 200px;
+        overflow: auto;
+        font-family: 'gothamMedium';
+        font-size: 12px;
+        color: #616386;
+        padding-left: 3px;
+      }
+    }
+    @media (max-width: $phone) {
+      .credit-card {
+        padding: 0px 5px;
+      }
+    }
+  }
+  @media (max-width: $tablet) {
+    height: 100vh;
+  }
+  @media (max-width: $phone) {
+    height: auto;
+  }
+}

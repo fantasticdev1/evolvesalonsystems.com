@@ -1,12 +1,12 @@
+// @import 'scss/overrides/bootstrap';
+// @import 'scss/vendors/index';
+
+// @import 'scss/vendors/font-face';
+
+// @import 'scss/vendors/fontawesome/fontawesome';
+// @import 'scss/vendors/fontawesome/fa-brands';
+// @import 'scss/vendors/fontawesome/fa-regular';
+// @import 'scss/vendors/fontawesome/fa-solid';
 @import 'scss/overrides/bootstrap';
-@import 'scss/vendors/bootstrap';
-
-@import 'scss/vendors/font-face';
-@import 'scss/vendors/icomoon';
-
-$fa-font-path: 'fonts';
-
-@import 'scss/vendors/fontawesome/fontawesome';
-@import 'scss/vendors/fontawesome/fa-brands';
-@import 'scss/vendors/fontawesome/fa-regular';
-@import 'scss/vendors/fontawesome/fa-solid';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import 'scss/vendors/index';

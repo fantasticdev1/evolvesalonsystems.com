@@ -1,0 +1,146 @@
+.top-gallery {
+  background-color: $primary-light;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  width: 100%;
+  padding-top: $header-height;
+  .left-section {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    z-index: 1;
+    margin-left: 12%;
+    padding-right: 5%;
+    .text-section {
+      max-width: 420px;
+      color: white;
+      font-family: 'gothamLight';
+    }
+    .index {
+      opacity: 0.25;
+      font-size: 5rem;
+      line-height: 1;
+    }
+    .title {
+      font-size: 3.6em;
+      line-height: 1.2;
+      text-align: start;
+    }
+    .description {
+      margin-top: 15px;
+      font-size: 1.6rem;
+    }
+    .details {
+      margin-top: 50px;
+      a {
+        font-family: 'gothamLight';
+        font-size: 12px;
+        color: #ffffff;
+        letter-spacing: 0;
+        text-align: center;
+        text-decoration: underline;
+        opacity: 0.4;
+      }
+      button {
+        background-color: #4b4e75;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          background: white;
+          color: #4b4e75;
+        }
+      }
+    }
+  }
+  .right-section {
+    flex: 1 1 25%;
+    position: relative;
+    width: 40%;
+    height: 100%;
+    .bg-circle {
+      position: absolute;
+      top: -320px;
+      right: -400px;
+      width: 1127px;
+      height: 1127px;
+      border-radius: 50%;
+      background-color: $primary-medium;
+      opacity: 0.07;
+      /* Oval 2: */
+      background: rgba(108, 110, 142, 1);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 1), inset 0 1px 3px 3px rgba(0, 0, 0, 1);
+      transform: skew(5deg);
+    }
+    .image-wrapper {
+      position: absolute;
+      bottom: -280px;
+      right: -35px;
+      width: 680px;
+      height: 680px;
+      overflow: hidden;
+      border-radius: 50%;
+      background: rgba(108, 110, 142, 1);
+      box-shadow: 0 0 1px 0px white inset, 0 0 1px 0px white;
+      object-fit: cover;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  @media (min-width: $desktop) {
+    height: 600px;
+    .right-section {
+      flex: 1 1 20%;
+      .bg-circle {
+        transform: scale(1.4);
+        top: -300px;
+        right: -200px;
+        transform: skew(0);
+      }
+      .image-wrapper {
+        transform: scale(1.3);
+        right: 35px;
+      }
+    }
+  }
+  @media (max-width: $tablet) {
+    .right-section {
+      flex: 1 1 15%;
+      .bg-circle {
+        right: -1000px;
+        top: -400px;
+        width: 1350px;
+        height: 1350px;
+        transform: skew(15deg);
+      }
+      .image-wrapper {
+        right: -100px;
+        width: 450px;
+        height: 450px;
+        top: 15px;
+      }
+    }
+    .left-section {
+      margin-left: 5%;
+    }
+    .text-section {
+      max-width: initial !important;
+    }
+    .button-row {
+      margin-top: 80px;
+      text-align: center;
+    }
+  }
+  @media (max-width: $phone) {
+    .right-section {
+      display: none !important;
+    }
+  }
+}

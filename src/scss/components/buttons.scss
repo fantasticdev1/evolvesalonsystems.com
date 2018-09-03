@@ -1,15 +1,67 @@
-button {
+.button-wide {
+  /* btn: background color, borders are changed on the scss file where the button 
+  is used. If its being used in another component it should be updated there instead
+  of the page's file*/
+  border-radius: 100px;
+  width: 180px;
+  max-width: 190px;
+  height: 52px;
+  margin: 30px;
+  color: #ffffff;
+  outline: none;
   cursor: pointer;
-
-  &.medium {
-    width: 177px;
-    height: 52px;
-    border-radius: 1000px;
-    background-color: $primary-heavy;
+  transition: all 0.3s;
+  border: none;
+  a {
+    text-decoration: none;
+    font-family: 'gothamMedium';
+    font-size: 12px;
+    letter-spacing: 0;
+    text-align: center;
+  }
+}
+.link-button-medium {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
+  a {
+    text-decoration: underline; /* view all featured vi: */
+    font-family: 'gothamMedium';
+    font-size: 12px;
+    color: #4b4e75;
+    letter-spacing: 0;
+    text-align: center;
+  }
+}
+.anchor-button {
+  background: #ffffff;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.07);
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: 'gothamMedium';
+  font-size: 16px;
+  color: #4b4e75;
+  letter-spacing: 0;
+  width: 250px;
+  height: 70px;
+  margin: 3%;
+  transition: all 0.3s;
+  border: none;
+  outline: none;
+  &:focus {
+    background: #4a4d75;
     color: white;
-    font-size: 1.2rem;
-    display: inline-flex;
-    justify-content: center;
-    align-content: center;
+  }
+}
+.button-list {
+  list-style: none;
+  li {
+    /* One on One Coaching: */
+    font-family: 'gothamPro';
+    font-size: 14px;
+    color: #9a9ab2;
+    letter-spacing: 0;
+    line-height: 40px;
   }
 }
