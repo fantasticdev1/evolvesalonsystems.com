@@ -188,8 +188,6 @@ body {
       opacity: 0.07;
       /* Oval 2: */
       background: #6c6e8e;
-      -webkit-box-shadow: 0 2px 2px 0 black, inset 0 1px 3px 3px black;
-              box-shadow: 0 2px 2px 0 black, inset 0 1px 3px 3px black;
       -webkit-transform: skew(5deg);
               transform: skew(5deg); }
     .top-gallery .right-section .image-wrapper {
@@ -372,8 +370,8 @@ body {
   .card .card-img-top {
     height: 200px; }
   .card:hover, .card:focus {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
 
@@ -1030,8 +1028,6 @@ body {
       opacity: 0.07;
       /* Oval 2: */
       background: #6c6e8e;
-      -webkit-box-shadow: 0 2px 2px 0 black, inset 0 1px 3px 3px black;
-              box-shadow: 0 2px 2px 0 black, inset 0 1px 3px 3px black;
       -webkit-transform: skew(15deg);
               transform: skew(15deg); }
     .homepage__top-gallery .left-section .img-wrapper {
@@ -1782,9 +1778,6 @@ body {
       padding-left: 0; }
 
 .promotions__page .cards-section.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
   padding: 40px; }
   .promotions__page .cards-section.container .row {
     position: relative;
@@ -1816,7 +1809,7 @@ body {
                   align-self: center; }
 
 .promotions__page .order-section.container {
-  background-color: #616386;
+  background-color: #4b4e75;
   max-width: 100%;
   height: 600px;
   padding: 0; }
@@ -1847,37 +1840,36 @@ body {
         text-align: start;
         width: 300px;
         margin-bottom: 5%; }
-      .promotions__page .order-section.container .row .left-section h1 {
-        font-family: 'gothamLight';
-        font-size: 34px;
-        color: #c0bfd6;
-        letter-spacing: 0; }
-      .promotions__page .order-section.container .row .left-section p {
-        font-family: 'gothamPro';
-        font-size: 14px;
-        color: #9a9ab2;
-        letter-spacing: 0;
-        line-height: 26px;
-        margin: auto; }
-      .promotions__page .order-section.container .row .left-section button {
-        background-color: #616386;
-        border: 2px solid #ffffff;
-        outline: none;
-        cursor: pointer;
-        -webkit-transition: all 0.3s;
-        transition: all 0.3s; }
-        .promotions__page .order-section.container .row .left-section button:hover, .promotions__page .order-section.container .row .left-section button:focus {
-          background: #ffffff;
-          color: #616386; }
+        .promotions__page .order-section.container .row .left-section .text-section h1 {
+          font-family: 'gothamLight';
+          font-size: 34px;
+          color: #c0bfd6;
+          letter-spacing: 0; }
+        .promotions__page .order-section.container .row .left-section .text-section .description {
+          font-family: 'gothamPro';
+          font-size: 14px;
+          color: #9a9ab2;
+          letter-spacing: 0;
+          line-height: 26px;
+          margin: auto; }
+        .promotions__page .order-section.container .row .left-section .text-section button {
+          background-color: #616386;
+          border: 2px solid #ffffff;
+          outline: none;
+          cursor: pointer;
+          -webkit-transition: all 0.3s;
+          transition: all 0.3s; }
+          .promotions__page .order-section.container .row .left-section .text-section button:hover, .promotions__page .order-section.container .row .left-section .text-section button:focus {
+            background: #ffffff;
+            color: #616386; }
     .promotions__page .order-section.container .row .right-section {
+      position: relative;
       width: 50%;
       height: 100%;
       background-size: cover;
       background-position: center center;
       -webkit-transform: scaleX(-1);
               transform: scaleX(-1);
-      border-top-right-radius: 50% 150vw;
-      border-bottom-right-radius: 50% 150vw;
       margin-left: 0;
       padding-left: 0; }
 

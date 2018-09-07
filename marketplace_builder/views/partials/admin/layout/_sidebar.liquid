@@ -59,6 +59,12 @@
 						</a>
 						<div class="collapse{% if page.slug == context.location.pathname %} show{% endif -%}" id="{{page.name}}_nav">
 							<ul class="nav">
+								<li{% if nested.slug == thisPage.slug %} class="active" {% endif -%}>
+									<a href="/admin/brands">
+										<span class="sidebar-mini-icon"><i class="fal fa-angle-right"></i></span>
+										<span class="sidebar-normal">Brands</span>
+									</a>
+								</li>
 								{% for nested in page.nested.items -%}
 									<li{% if nested.slug == thisPage.slug %} class="active"{% endif -%}>
 										<a href="{{nested.slug}}">

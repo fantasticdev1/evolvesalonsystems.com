@@ -3,10 +3,57 @@
 
 {% for event in g.customizations.results %}
   {%- assign properties = event.properties  -%}
-  <div>
-    <img src="{{properties.image_url}}" style="width:100px;height:100px;">
-    <h2>{{properties.title}}</h2>
-    <h2>{{properties.date}}</h2>
-    <button class="medium">View</button>
-  </div>
+  
 {% endfor %}
+<div class="cards-section container">
+  <div class="row">
+    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+          <div class="card-img-top" style="background-image: url(./img/promotion-1.png)" alt="Card image cap"></div>
+        <div class="card-body">
+          <h3 class="card-title">Elven March-April Promotion</h3>
+          <a href="#" class="btn btn-primary">VIEW</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+          <div class="card-img-top" style="background-image: url(./img/promotion-2.png)" alt="Card image cap"></div>
+          <div class="card-body">
+            <h3 class="card-title">Elven March-April Promotion</h3>
+            <a href="#" class="btn btn-primary">VIEW</a>
+          </div>
+      </div>
+    </div>
+    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+          <div class="card-img-top" style="background-image: url(./img/promotion-3.png)" alt="Card image cap"></div>
+        <div class="card-body">
+          <h3 class="card-title">Elven March-April Promotion</h3>
+          
+          <a href="#" class="btn btn-primary">VIEW</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-img-top" style="background-image: url(./img/promotion-4.png)" alt="Card image cap"></div>
+        <div class="card-body">
+          <h3 class="card-title">Elven March-April Promotion</h3>
+          
+          <a href="#" class="btn btn-primary">VIEW</a>
+        </div>
+      </div> 
+    </div>
+    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12 col-12">
+      <div class="card">
+          <div class="card-img-top" style="background-image: url(./img/promotion-5.png)" alt="Card image cap"></div>
+        <div class="card-body">
+          <h3 class="card-title">Elven March-April Promotion</h3>
+          
+          <a href="#" class="btn btn-primary">VIEW</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

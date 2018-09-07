@@ -1,4 +1,4 @@
-{%- include 'layout/constants' -%}
+{% comment %} {%- include 'layout/constants' -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +21,22 @@
 			</div>
 		</div>
 	</footer>
+	{%- include 'layout/foot' -%}
+</body>
+</html> {% endcomment %}
+{% include 'layout/constants' -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%- include 'layout/head' -%}
+</head>
+<body>
+	{%- include 'layout/header'-%}
+	<div class="{{page.metadata.key}}">
+		{% if page.metadata.title and page.metadata.title != '' -%}<h1>{{page.metadata.title}}</h1>{% endif -%}
+		{{content_for_layout}}
+	</div>
+	{%- include 'layout/footer' -%}
 	{%- include 'layout/foot' -%}
 </body>
 </html>
