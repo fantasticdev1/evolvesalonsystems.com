@@ -4,18 +4,18 @@
 <div class="homepage__promotion-section">
   <div class="row">
     <div class="promotion col-md-6 col-sm-12 col-lg-4">
-      <h1>{{data.title}}</h1>
+      <h1>{{meta.title}}</h1>
       <div class="date">
         <div class="icon"><img src="{{'images/icons/calendar.svg' | asset_url}}"></div>
-        {{data.date | date: "%b %d, %Y"}}
+        {{meta.date}}
       </div>
       <div class="description">
-        {{data.description}}
+        {{meta.description}}
       </div>
       <button><a href="{{data.detail_link}}">MORE INFO</a></button>
     </div>
     <div class="image-wrapper col-lg-4 col-sm-12 col-md-6">
-      <div class="promotion-image"><img src="{{data.image_url}}"></div>
+      <img src="{{meta.imageUrl}}">
     </div>
   </div>
     <a class="view-all" href="/promotions">{{meta.viewAllPromotions}}</a>

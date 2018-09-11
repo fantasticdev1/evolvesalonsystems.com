@@ -1222,6 +1222,12 @@ body {
           color: white;
           background-color: #616386;
           border: 2px solid white; }
+  .homepage__promotion-section .image-wrapper {
+    max-width: 450px;
+    height: 350px; }
+    .homepage__promotion-section .image-wrapper img {
+      -o-object-fit: cover;
+         object-fit: cover; }
   .homepage__promotion-section a {
     text-decoration: underline;
     color: black;
