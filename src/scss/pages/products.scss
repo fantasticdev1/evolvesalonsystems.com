@@ -1,15 +1,17 @@
-.products__page > .cards-section.container {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
+.brands__page > .cards-section.container {
+  // display: flex;
+  // justify-content: center;
+  padding: 100px;
+  padding-right: 15%;
+  padding-left: 15%;
   /* bg: */
   background: rgba(75, 78, 117, 0.03);
   max-width: 100%;
   .row {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
     .card-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .card {
         max-width: 100%;
         &:hover {
@@ -19,7 +21,7 @@
     }
   }
 }
-.products__page > .description.container {
+.brands__page > .description.container {
   padding: 20px;
   max-width: 100%;
   .row {
@@ -59,7 +61,7 @@
     }
   }
 }
-.products__page {
+.brands__page {
   .order-section.container {
     background-color: $primary-heavy;
     max-width: 100%;

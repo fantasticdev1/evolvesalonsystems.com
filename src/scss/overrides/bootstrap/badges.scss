@@ -1,0 +1,11 @@
+.badge {
+  padding: 40px;
+  font-size: 8px !important;
+  &.badge-secondary {
+    background: #eeedf4;
+    color: #5c5f83;
+  }
+  &.badge-pill {
+    padding: 15px;
+  }
+}

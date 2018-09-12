@@ -4,10 +4,14 @@
   padding: 4%;
   margin-bottom: 0;
 }
+#business-description {
+  background: white;
+}
 #business-description,
 #business-description-2,
 #business-description-d {
-  overflow: hidden;
+  padding-top: 0;
+  overflow: visible;
   transition: all 1.5s;
   padding-left: 0;
   .business-title {
@@ -35,11 +39,12 @@
     }
     .image-wrapper {
       padding-top: 0;
+      background-size: contain;
+      background-position: center center;
+      padding-top: 50%;
+      background-repeat: no-repeat;
       div {
         background-size: contain;
-        background-position: center center;
-        padding-top: 50%;
-        background-repeat: no-repeat;
       }
     }
   }
@@ -81,11 +86,11 @@
     }
     .image-wrapper {
       padding-top: 0;
+      background-size: contain;
+      background-position: center center;
+      padding-top: 50%;
+      background-repeat: no-repeat;
       div {
-        background-size: contain;
-        background-position: center center;
-        padding-top: 50%;
-        background-repeat: no-repeat;
       }
     }
     .list-title {
@@ -94,7 +99,7 @@
       color: #616386;
       letter-spacing: 0;
     }
-    .button-list {
+    ul {
       list-style: none;
       li {
         /* One on One Coaching: */
