@@ -1,25 +1,36 @@
-.products__page > .cards-section.container {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
+.brands__page > .cards-section.container {
+  // display: flex;
+  // justify-content: center;
+  padding: 100px;
+  padding-right: 15%;
+  padding-left: 15%;
   /* bg: */
   background: rgba(75, 78, 117, 0.03);
   max-width: 100%;
   .row {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
     .card-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .card {
+        padding-top: 45px;
         max-width: 100%;
+        max-height: 220px;
         &:hover {
           transform: none;
+        }
+        .card-body {
+          padding: 20px;
+          .card-title {
+            font-family: 'gothamPro';
+            font-size: 15px;
+          }
         }
       }
     }
   }
 }
-.products__page > .description.container {
+.brands__page > .description.container {
   padding: 20px;
   max-width: 100%;
   .row {
@@ -29,14 +40,14 @@
     .text-section {
       width: 100%;
       h2 {
-        font-family: Helvetica;
+        font-family: 'gothamLight';
         font-size: 28px;
         color: #000000;
         letter-spacing: 0;
         line-height: 40px;
       }
       p {
-        font-family: Helvetica;
+        font-family: 'gothamPro';
         font-size: 14px;
         color: #9a9ab2;
         letter-spacing: 0;
@@ -55,82 +66,6 @@
         border-radius: 50%;
         width: 230px;
         height: 230px;
-      }
-    }
-  }
-}
-.products__page {
-  .order-section.container {
-    background-color: $primary-heavy;
-    max-width: 100%;
-    height: 600px;
-    padding: 0;
-    .row {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      .left-section {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .text-section {
-          text-align: start;
-          width: 300px;
-          margin-bottom: 5%;
-        }
-        h1 {
-          font-family: 'gothamLight';
-          font-size: 34px;
-          color: $primary-medium;
-          letter-spacing: 0;
-        }
-        p {
-          font-family: 'gothamPro';
-          font-size: 14px;
-          color: #9a9ab2;
-          letter-spacing: 0;
-          line-height: 26px;
-          margin: auto;
-        }
-        button {
-          background-color: $primary-heavy;
-          border: 2px solid #ffffff;
-          outline: none;
-          cursor: pointer;
-          transition: all 0.3s;
-          &:hover {
-            background: #ffffff;
-            color: $primary-heavy;
-          }
-        }
-      }
-      .right-section {
-        width: 50%;
-        height: 100%;
-        background-size: cover;
-        background-position: center center;
-        transform: scaleX(-1);
-        border-top-right-radius: 50% 150vw;
-        border-bottom-right-radius: 50% 150vw;
-        margin-left: 0;
-        padding-left: 0;
-      }
-    }
-  }
-  @media (max-width: $phone) {
-    .order-section.container {
-      .row {
-        .left-section {
-          width: 100%;
-          .text-section {
-            text-align: center;
-          }
-        }
-      }
-      .right-section {
-        display: none !important;
       }
     }
   }

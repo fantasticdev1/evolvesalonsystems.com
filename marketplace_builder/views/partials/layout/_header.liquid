@@ -2,8 +2,8 @@
 	<a href="#sideclose" class="closebtn">&times;</a>
 	<a href="/">HOME</a>
 	<a href="/promotions">PROMOTIONS</a>
-	<a href="/products">PRODUCTS</a>
-	<a href="/business">BUSINESS SYSTEMS</a>
+	<a href="/brands">BRANDS</a>
+	<a href="/business-systems">BUSINESS SYSTEMS</a>
 	<a href="/videos">VIDEOS</a>
 	<a href="/education">EDUCATION</a>
 	<a href="/about">ABOUT US</a>
@@ -12,6 +12,7 @@
 	<nav class="navbar">
 		<a class="navbar-brand" href="/"><img src="{{'images/brand/logo.svg' | asset_url}}" ></a>
 		<div class="right-section">
+			<a href="#">Order</a>
 			{% if user -%} 
 				<a href="/account">
 					userName
@@ -22,7 +23,7 @@
 				</a>
 			{% endif -%}
 			<a data-toggle="modal" data-target="#cart-modal">Cart (2)</a>
-			<a class="button-collapse" href="#sideMenu"><i class="fas fa-bars"></i></a>
+			<a class="button-collapse ml-5 mr-5" href="#sideMenu">MENU<i class="fas fa-bars ml-3"></i></a>
 		</div>
 	</nav>
 {% unless user -%}

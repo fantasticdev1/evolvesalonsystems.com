@@ -1,8 +1,7 @@
-.contact__top-section {
-  background-image: url(../img/home-page-top-image.png);
+.top-section {
   background-size: cover;
   background-position: center center;
-  height: 600px;
+  height: 630px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -17,9 +16,11 @@
     background: #ffffff;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    max-width: 500px;
+    max-width: 430px;
+    max-height: 450px;
     .h-title-1 {
       font-size: 32px;
+      text-align: start;
     }
     .bottom-link {
       display: flex;
@@ -45,7 +46,7 @@
     .info-card {
       top: 50%;
       width: 100%;
-      left: 0;
+      left: -25%;
       ul {
         li {
           float: none;
@@ -66,66 +67,57 @@
 }
 .contact__form {
   padding: 5%;
+  display: flex;
+  justify-content: center;
   .h-title-1 {
     text-align: center;
   }
-  .name-input {
-    margin-right: 3px;
-    height: 4%;
-    background: rgba(199, 197, 220, 0.5);
-    border: none;
-    &::placeholder {
-      color: $primary-heavy;
-      font-weight: bold;
-    }
-  }
-  .email-input {
-    height: 4%;
-    background: rgba(199, 197, 220, 0.5);
-
-    border: none;
-    &::placeholder {
-      color: $primary-heavy;
-      font-weight: bold;
-    }
+  .form-row {
+    display: flex;
+    justify-content: center;
   }
   .form-control {
-    height: 15%;
     background: rgba(199, 197, 220, 0.5);
     border: none;
+    height: 50px;
+    /* name: */
+    font-family: 'gothamProBold';
+    font-size: 14px;
+    color: #616386;
+    letter-spacing: 0;
     &::placeholder {
       color: $primary-heavy;
       font-weight: bold;
     }
   }
+  textarea {
+    border: none;
+    background: rgba(199, 197, 220, 0.5);
+    height: 120px;
+    font-size: 14px;
+    font-family: 'gothamProBold';
+    /* Your message: */
+    color: #616386;
+    letter-spacing: 0;
+  }
   .button-wide {
-    border: 1px solid $primary-heavy;
+    border: 2px solid $primary-heavy;
     color: $primary-heavy;
     background: none;
+    font-size: 12px;
+    font-family: 'gothamMedium';
     &:hover {
       background: $primary-heavy;
       color: #ffffff;
     }
   }
   @media (max-width: $tablet) {
-    padding-top: 15%;
+    padding-top: 25%;
   }
   @media (max-width: $phone) {
     padding-top: 45%;
     height: fit-content;
-    .name-input {
-      margin-right: 0;
-      margin-bottom: 2%;
-      height: 30px;
-      text-align: center;
-    }
-    .email-input {
-      height: 30px;
-      text-align: center;
-    }
     .form-control {
-      height: 80px;
-      text-align: center;
     }
   }
 }

@@ -1,0 +1,17 @@
+---
+slug: brands
+layout_name: 2col
+metadata:
+  key: brands__page
+  topSection:
+  promotionsSection:
+    title: Elven Promotions
+    date: MARCH-APRIL 2018
+    description: There is a strategic reason for each product line we carry. We look for lines to have new and exciting technology
+    viewAllPromotions: VIEW ALL PROMOTIONS 
+    imageUrl: http://dogwood.photography/images/photography-school.jpg 
+---
+{%- include 'brands/top-section', meta: page.metadata.topSection -%}
+{%- include 'brands/content' meta: page.metadata.contentSection -%}
+{%- include 'brands/promotions' meta: page.metadata.promotionsSection -%}
+{%- include 'brands/features' meta: page.metadata.featuresSection -%}

@@ -1,9 +1,16 @@
-<div class="flex-center" style="padding-top:100px;">
-  <div style="width: 50%">
-    <h1>{{meta.title}}</h1>
-    <h2>{{meta.description}}</h2>
+<div class="top-gallery">
+  <div class="left-section">
+    <div class="text-section mb-5">
+      <div class="title">{{meta.title}}</div>
+      <div class="description">
+        {{meta.description}}
+      </div>
+    </div>
   </div>
-  <div style="width: 50%">
-    <img src="{{meta.imageUrl}}" style="width:500px;">
+  <div class="right-section">
+    <div class="bg-circle"></div>
+    <div class="image-wrapper">
+      <img src="{{meta.imageUrl}}">
+    </div>
   </div>
 </div>

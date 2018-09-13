@@ -2,69 +2,9 @@
 slug: contact
 layout_name: 2col
 metadata:
-  title: Contact Us
+  key: contact__page
+  topSection:
+   imageUrl: http://dogwood.photography/images/photography-school.jpg
 ---
-{%- content_for 'aside' -%}
-	<div class="card">
-		<h1 class="home">I'm Adam Cook,<br><small>and I am ONE Creative.</small></h1>
-		<img class="home-bio-pic" src="{{'images/people/adam-cook.jpg' | asset_url}}" alt="Adam Cook" width="200">
-		<p>Though that sounds like an AA introduction or like I just admitted to being <a data-open="ironman">Iron Man</a>, alas, neither are true.</p>
-		<p>ONE is just a symbol of simplicity and clarity in my focus. I have an open agenda. You get the real me, and the real me loves to make a difference.</p>
-		<h3>My Focus</h3>
-		<p>If you are a current Business Catalyst partner, and you want to move to your sites to <a href="//platform-os.com" target="_blank">PlatformOS</a>, right now you are my focus. I'm driven to help partners succeed.</p>
-		<p>Feel free to hit me up for solutions to your perplexing Business Catalyst or PlatformOS problems. I'm happy to help.</p>
-		<a class="read-recommendations" href="#recommendations">Read Recommendations</a>
-	</div>
-{%- endcontent_for -%}
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YqrlLFhB3lY?rel=0&amp;start=1950&amp;end=2210" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div id="ironman" class="reveal" data-reveal>
-	<div class="responsive-embed">
-		<iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/tjTrFo-bITU?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-	</div>
-	<button class="close-button" data-close aria-label="Close modal" type="button"><span aria-hidden="true" class="fal fa-times"></span></button>
-</div>
-
-<div class="grid-x">
-	<div class="medium-5 medium-centered cell">
-		<h2>Reach out! I'll reach back!</h2>
-		<div class="callout panel">
-			<form>
-				<input placeholder="First Name" type="text" name="FirstName" />
-				<input placeholder="Last Name" type="text" name="LastName" />
-				<input placeholder="Company" type="text" name="Company" />
-				<input placeholder="Email Address" type="email" name="EmailAddress" />
-				<label for="why" class="radio-title">Why do you seek an audience with the ONE?</label>
-				<small class="note"><em>(Yeah, that was a reference to The Matrix ;)</em></small>
-				<label>
-					<input type="radio" name="why" value="to obtain support for an existing website" />
-					To obtain help with an existing website
-				</label>
-				<label>
-					<input type="radio" name="why" value="to seek a development partner to create new websites" />
-					To seek a development partner to create new websites
-				</label>
-				<label>
-					<input type="radio" name="why" value="because you have questions about a product you purchased" />
-					Because you have questions about a product you purchased from us
-				</label>
-				<label>
-					<input type="radio" name="why" value="because cool people should hangout" />
-					Because cool people should hangout
-				</label>
-				<label>
-					<input type="radio" name="why" value="other" />
-					Other
-				</label>
-				<textarea placeholder="Message" name="message" cols="10" rows="4"></textarea>
-				<label>
-					<input type="checkbox" name="CampaignList_68747" checked="checked" />
-					May I send you updates and promotions via email?
-				</label>
-				<input type="submit" value="Submit" class="full button radius alert" />
-			</form>
-		</div>
-	</div>
-</div>
-
-
-{% render_form 'case' %}
+{%- include 'contact/top-section' meta: page.metadata.topSection -%}
+{%- include 'contact/get-in-touch' -%}
