@@ -3,11 +3,16 @@ slug: /
 layout_name: 2col
 metadata:
   key: home
+  topSection:
+    index: 01
+    title: TEST
+    description: This is a test
+    image_url: https://i.imgur.com/PtIR0Ix.png
   promotionsSection:
     title: Elven Promotions
     date: MARCH-APRIL 2018
     description: There is a strategic reason for each product line we carry. We look for lines to have new and exciting technology
-    viewAllPromotions: View All Promotions 
+    viewAllPromotions: VIEW ALL PROMOTIONS
     imageUrl: http://dogwood.photography/images/photography-school.jpg 
   eventsSection:
     title: Education and Events
@@ -17,7 +22,7 @@ metadata:
   videosSection:
     id: 5789
     bgImageUrl: http://dogwood.photography/images/photography-school.jpg
-    viewAllFeaturedVideos: View All Featured Videos
+    viewAllFeaturedVideos: VIEW ALL FEATURED VIDEOS
   socialSection:
     title: Follow Us!
     description: Connect with us on social media to keep us with the latest news, offers and updates
@@ -28,7 +33,7 @@ metadata:
     videoLink: https://youtube.com
 ---
 
-{% include 'home/top-gallery' %}
+{% include 'home/top-gallery' meta: page.metadata.topSection %}
 {% include 'home/promotions', meta: page.metadata.promotionsSection %}
 {% include 'home/events', meta: page.metadata.eventsSection %}
 {% include 'home/videos', meta: page.metadata.videosSection %}

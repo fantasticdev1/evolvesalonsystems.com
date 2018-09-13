@@ -127,10 +127,10 @@
   padding: 40px;
   font-size: 8px !important; }
   .badge.badge-secondary {
-    background: #EEEDF4;
-    color: #5C5F83; }
+    background: #eeedf4;
+    color: #5c5f83; }
   .badge.badge-pill {
-    padding: 15px; }
+    padding: 10px !important; }
 
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)

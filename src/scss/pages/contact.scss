@@ -101,9 +101,11 @@
     letter-spacing: 0;
   }
   .button-wide {
-    border: 1px solid $primary-heavy;
+    border: 2px solid $primary-heavy;
     color: $primary-heavy;
     background: none;
+    font-size: 12px;
+    font-family: 'gothamMedium';
     &:hover {
       background: $primary-heavy;
       color: #ffffff;
