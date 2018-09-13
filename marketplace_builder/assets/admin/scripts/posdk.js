@@ -36,7 +36,7 @@ window.posdk = {
 				return posdk.utils.fetch({
 					method: 'DELETE',
 					url: '/api/user/customizations/'+params.id,
-					form: {properties:params.form}
+					form: params.form
 				});
 			}
 		},

@@ -1,11 +1,52 @@
 {% assign unique = 'today' | date: '%N' -%}
-<label for="{{field.name}}{{unique}}" class="validation-group{% if field.validation.errors.size > 0 %} error{% endif %}">{{label}}
+<div class="form-group validation-group{% if field.validation.errors.size > 0 %} error{% endif %}">
+	<label for="{{field.name}}{{unique}}">{{label}}</label>
 	{% if type == 'textarea' -%}
-		<textarea id="{{field.name}}{{unique}}" name="{{field.name}}">{{value | default: field.value}}</textarea>
+		<textarea id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control">{{value | default: field.value}}</textarea>
 	{% elsif type == 'select' -%}
-		<select id="{{field.name}}{{unique}}" name="{{field.name}}"></select>
+		<select id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control"></select>
+	{% elsif type == 'photo' -%}
+		<div class="form-control">
+			<div class="fileinput fileinput-new text-center" data-provides="fileinput">
+				<div class="fileinput-new thumbnail img-raised">
+					<img src="{{value | default: field.value}}">
+				</div>
+				<div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+				<div>
+					<span class="btn btn-raised btn-round btn-default btn-file">
+						<span class="fileinput-new">Select image</span>
+						<span class="fileinput-exists">Change</span>
+						<input type="file" id="{{field.name}}{{unique}}" name="{{field.name}}" />
+					</span>
+					<a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput">
+					<i class="fa fa-times"></i> Remove</a>
+				</div>
+			</div>
+		</div>
+	{% elsif type == 'file' -%}
+		<div class="form-control">
+			<div class="fileinput fileinput-new text-center" data-provides="fileinput">
+				<div class="fileinput-new thumbnail img-raised">
+					<img src="{{value | default: field.value}}">
+				</div>
+				<div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+				<div>
+					<span class="btn btn-raised btn-round btn-default btn-file">
+						<span class="fileinput-new">Select image</span>
+						<span class="fileinput-exists">Change</span>
+						<input type="file" id="{{field.name}}{{unique}}" name="{{field.name}}" />
+					</span>
+					<a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput">
+					<i class="fa fa-times"></i> Remove</a>
+				</div>
+			</div>
+		</div>
+	{% elsif type == 'date' -%}
+		<input type="text" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control datepicker" value="{{value | default: field.value}}">
+	{% elsif type == 'datetime' -%}
+		<input type="text" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control datetimepicker" value="{{value | default: field.value}}">
 	{% else -%}
-		<input type="{{type}}" id="{{field.name}}{{unique}}" name="{{field.name}}" value="{{value | default: field.value}}">
+		<input type="{{type}}" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control" value="{{value | default: field.value}}">
 	{% endif -%}
 	{% include 'forms/validation', errors: field.validation.errors -%}
-</label>
+</div>

@@ -1,13 +1,14 @@
-{%- query_graph 'fields', type:'CustomModelType', result_name: g -%}
-{%- assign models = g.cms_items.results -%}
+{%- comment -%}Product Types{%- endcomment -%}
+{%- query_graph 'model_records', name:'product_type', result_name: g -%}
+{%- assign models = g.customizations.results -%}
 {%- for model in models -%}
 	{%- capture modelIndexBy -%}{{modelIndexBy}}
-			"/admin/models?name={{model.data.name}}":{{forloop.index0}}{%- unless forloop.last -%},{%- endunless -%}
+			"/admin/products?type={{model.id}}":{{forloop.index0}}{%- unless forloop.last -%},{%- endunless -%}
 	{%- endcapture -%}
 	{%- capture modelItems -%}{{modelItems}}
 		{
-			"name": "{{model.data.name}}",
-			"slug": "/admin/models?name={{model.data.name}}"
+			"name": "{{model.properties.name}}",
+			"slug": "/admin/products?type={{model.id}}"
 		}{%- unless forloop.last -%},{%- endunless -%}
 	{%- endcapture -%}
 {%- endfor -%}
@@ -19,8 +20,10 @@
 				"/admin/dashboard": 0,
 				"/admin/pages": 1,
 				"/admin/crm": 2,
-				"/admin/models": 3,
-				"/admin/orders": 4
+				"/admin/certificates": 3,
+				"/admin/brands": 4,
+				"/admin/products": 5,
+				"/admin/orders": 6
 			}
 		},
 		"items": [{
@@ -36,9 +39,17 @@
 			"icon": "fal fa-address-card fa-fw",
 			"slug": "/admin/crm"
 		}, {
-			"name": "models",
-			"icon": "fal fa-box-full fa-fw",
-			"slug": "/admin/models",
+			"name": "certificates",
+			"icon": "fal fa-file-certificate fa-fw",
+			"slug": "/admin/certificates"
+		}, {
+			"name": "brands",
+			"icon": "fal fa-stamp fa-fw",
+			"slug": "/admin/brands"
+		}, {
+			"name": "products",
+			"icon": "fal fa-cut fa-fw",
+			"slug": "/admin/products",
 			"nested": {
 				"indexBy": {
 					"slug": {
@@ -50,15 +61,7 @@
 		}, {
 			"name": "orders",
 			"icon": "fal fa-shopping-cart fa-fw",
-			"slug": "/admin/orders",
-			"nested": {
-				"indexBy": {
-					"slug": {
-						{{orderIndexBy}}
-					}
-				},
-				"items": [{{orderItems}}]
-			}
+			"slug": "/admin/orders"
 		}]
 	}
 }

@@ -1,5 +1,0 @@
-# mutation debug($type: LogEntryType = debug, $message: String!) {
-#   log(type: $type, message: $message) {
-#     id
-#   }
-# }

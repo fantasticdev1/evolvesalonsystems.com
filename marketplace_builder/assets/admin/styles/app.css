@@ -1,3 +1,5 @@
+.validation-group.error .validation-message {color: red;}
+
 table.dataTable th,td {white-space: nowrap;}
 table.dataTable tbody>tr.selected,
 table.dataTable tbody>tr>.selected {background-color: #66615b;}

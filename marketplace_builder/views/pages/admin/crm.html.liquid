@@ -32,7 +32,6 @@ layout_name: admin/panel
 							<option value="{{profileType.resource_name}}">{{profileType.resource_name}}</option>
 						{% endfor -%}
 					</select>
-
 				</div>
 			</div>
 		</div>
@@ -53,7 +52,7 @@ layout_name: admin/panel
 			</div>
 		</div>
 		<div class="card-body">
-			<table class="table table-striped table-bordered" cellspacing="0" width="100%" data-posdk-admintables="resource:user; parent:{{context.location.search.name}}; records:/admin/crm/records.json; form:/admin/crm/form.json?name=user; container:.card; buttonContainer:.toolbar; detail:true;">
+			<table class="table table-striped table-bordered" cellspacing="0" width="100%" data-posdk-admintables="resource:user; parent:{{context.location.search.name}}; records:/admin/ajax/crm_records.json; form:/admin/ajax/form_config.json?name=user; container:.card; buttonContainer:.toolbar; detail:true;">
 				<thead></thead>
 				<tbody></tbody>
 			</table>
