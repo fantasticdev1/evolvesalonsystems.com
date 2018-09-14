@@ -152,8 +152,6 @@
   max-width: 100%;
   padding: 50px;
   .row {
-    display: flex;
-    justify-content: center;
     .promotion {
       display: flex;
       line-height: 2.5rem;
@@ -211,10 +209,12 @@
     }
   }
   .image-wrapper {
+    display: flex;
+    justify-content: center;
     img {
       max-width: 450px;
       height: 350px;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
   .view-all {
@@ -226,42 +226,6 @@
     font-size: 12px;
     width: fit-content;
     align-self: center;
-  }
-  @media (max-width: $tablet) {
-    .promotion {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-    }
-    .homepage__promotion-section {
-      padding: 20px;
-    }
-    .image-wrapper {
-      display: flex;
-      justify-content: center;
-    }
-  }
-  @media (max-width: $phone) {
-    .homepage__promotion-section.container {
-      display: flex;
-      flex-direction: column-reverse;
-      .promotion {
-        align-items: center;
-      }
-    }
-    button {
-      align-self: center;
-      margin: auto;
-    }
-    .image-wrapper {
-      margin: 0;
-      margin-top: 10px;
-      height: fit-content;
-      display: flex;
-      justify-content: center;
-      img {
-      }
-    }
   }
 }
 
