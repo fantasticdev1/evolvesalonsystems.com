@@ -1241,15 +1241,16 @@ body {
           text-decoration: none;
           color: #4b4e75; }
         .homepage__promotion-section .row .promotion button:hover, .homepage__promotion-section .row .promotion button:focus {
-          color: white;
           background-color: #616386;
           border: 2px solid white; }
+          .homepage__promotion-section .row .promotion button:hover a, .homepage__promotion-section .row .promotion button:focus a {
+            color: white; }
   .homepage__promotion-section .image-wrapper img {
     max-width: 450px;
     height: 350px;
     -o-object-fit: cover;
        object-fit: cover; }
-  .homepage__promotion-section a {
+  .homepage__promotion-section .view-all {
     border-bottom: 1px solid #4b4e75;
     padding-bottom: 3px;
     color: #4b4e75;
@@ -3416,12 +3417,11 @@ body {
             -ms-flex-align: center;
                 align-items: center; }
     .homepage__promotion-section button {
-      padding: 15px;
       -webkit-align-self: center;
           -ms-flex-item-align: center;
               align-self: center;
       margin: auto; }
-    .homepage__promotion-section .promotion-image {
+    .homepage__promotion-section .image-wrapper {
       margin: 0;
       margin-top: 10px;
       height: -webkit-fit-content;
@@ -3435,9 +3435,6 @@ body {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      .homepage__promotion-section .promotion-image img {
-        width: 262px;
-        height: 200px; }
     .homepage__events-section {
       padding: 0; }
       .homepage__events-section .heading {
@@ -3831,7 +3828,14 @@ body {
     .homepage__promotion-section .homepage__promotion-section {
       padding: 20px; }
     .homepage__promotion-section .image-wrapper {
-      max-width: 50%; }
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
     .homepage__video-section .container {
       left: 5%;
       max-width: 325px; }
