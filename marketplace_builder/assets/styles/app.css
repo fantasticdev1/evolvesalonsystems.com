@@ -52,7 +52,7 @@ body {
   display: block;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  font-family: "gothamMedium"; }
+  font-family: 'gothamMedium'; }
 
 .sidenav a:hover, .sidenav a:focus {
   color: #f1f1f1; }
@@ -109,7 +109,7 @@ body {
       text-align: center;
       white-space: nowrap;
       cursor: pointer;
-      font-family: "gothamMedium";
+      font-family: 'gothamMedium';
       color: white; }
 
 .top-gallery {
@@ -1687,7 +1687,7 @@ body {
       .brands__page > .cards-section.container .row .card-wrapper .card .card-body {
         padding: 20px; }
         .brands__page > .cards-section.container .row .card-wrapper .card .card-body .card-title {
-          font-family: "gothamPro";
+          font-family: 'gothamPro';
           font-size: 15px; }
 
 .brands__page > .description.container {
@@ -1701,13 +1701,13 @@ body {
     .brands__page > .description.container .row .text-section {
       width: 100%; }
       .brands__page > .description.container .row .text-section h2 {
-        font-family: "gothamLight";
+        font-family: 'gothamLight';
         font-size: 28px;
         color: #000000;
         letter-spacing: 0;
         line-height: 40px; }
       .brands__page > .description.container .row .text-section p {
-        font-family: "gothamPro";
+        font-family: 'gothamPro';
         font-size: 14px;
         color: #9a9ab2;
         letter-spacing: 0;
@@ -1733,6 +1733,35 @@ body {
 
 .promotions__page .cards-section.container {
   padding: 40px; }
+  .promotions__page .cards-section.container .filter-row .filter {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+    .promotions__page .cards-section.container .filter-row .filter label {
+      text-align: center;
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+              align-self: center;
+      font-size: 14px;
+      color: #4b4e75;
+      letter-spacing: 0;
+      font-family: "gothamMedium"; }
+    .promotions__page .cards-section.container .filter-row .filter .dropdown button {
+      width: 220px;
+      height: 40px;
+      color: #4b4e75;
+      background: rgba(199, 197, 220, 0.7);
+      font-family: "gothamMedium";
+      border: none;
+      font-size: 12px;
+      text-align: left; }
+      .promotions__page .cards-section.container .filter-row .filter .dropdown button:after {
+        position: absolute;
+        top: 48%;
+        right: 15px;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        opacity: 0.5; }
   .promotions__page .cards-section.container .row {
     position: relative;
     width: 100%;
@@ -1761,13 +1790,13 @@ body {
           -webkit-align-self: center;
               -ms-flex-item-align: center;
                   align-self: center;
-          font-family: "gothamPro"; }
+          font-family: 'gothamPro'; }
         .promotions__page .cards-section.container .row .card-wrapper .card .card-body .expire-date {
-          font-family: "gothamPro";
+          font-family: 'gothamPro';
           color: #c0bfd6;
           font-size: 12px; }
         .promotions__page .cards-section.container .row .card-wrapper .card .card-body a {
-          font-family: "gothamMedium"; }
+          font-family: 'gothamMedium'; }
           .promotions__page .cards-section.container .row .card-wrapper .card .card-body a:hover, .promotions__page .cards-section.container .row .card-wrapper .card .card-body a:focus {
             background: #4b4e75;
             color: white; }
@@ -2742,7 +2771,7 @@ body {
     color: #616386;
     background: none;
     font-size: 12px;
-    font-family: "gothamMedium"; }
+    font-family: 'gothamMedium'; }
     .contact__form .button-wide:hover, .contact__form .button-wide:focus {
       background: #616386;
       color: #ffffff; }
@@ -3885,6 +3914,9 @@ body {
         @media (max-width: 1441px) {
       .main-card .side-bar-item {
         display: none; } }
+        @media (max-width: 992px) {
+    .promotions__page .cards-section.container .filter-row {
+      display: none; } }
         @media (min-width: 568px) {
       .account__page #account-settings,
       .account__page .account-settings {
