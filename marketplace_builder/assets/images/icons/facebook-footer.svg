@@ -1,0 +1,18 @@
+
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="homepage_desktop" transform="translate(-597.000000, -4147.000000)">
+            <g id="footer" transform="translate(0.000000, 4048.000000)">
+                <g id="social" transform="translate(598.000000, 100.000000)">
+                    <g id="facebook">
+                        <circle id="Oval" stroke="#C7C5DC" opacity="0.2" cx="25" cy="25" r="25"></circle>
+                        <path d="M23.513013,19.9050224 C23.513013,20.2830286 23.513013,21.9702287 23.513013,21.9702287 L22,21.9702287 L22,24.4955709 L23.513013,24.4955709 L23.513013,32 L26.621063,32 L26.621063,24.4957802 L28.7067088,24.4957802 C28.7067088,24.4957802 28.9020386,23.2848979 28.9967218,21.9609172 C28.7252618,21.9609172 26.6328155,21.9609172 26.6328155,21.9609172 C26.6328155,21.9609172 26.6328155,20.4917533 26.6328155,20.234239 C26.6328155,19.9761667 26.9716872,19.6290245 27.3066181,19.6290245 C27.6409213,19.6290245 28.3464942,19.6290245 29,19.6290245 C29,19.2851955 29,18.097191 29,17 C28.1275894,17 27.1350724,17 26.6975767,17 C23.4361854,16.9998256 23.513013,19.5276788 23.513013,19.9050224 Z" id="fb" fill="#C7C5DC" fill-rule="nonzero" opacity="0.7"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

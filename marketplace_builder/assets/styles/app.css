@@ -229,6 +229,23 @@ body {
   max-width: 100%;
   padding: 0;
   margin: 0; }
+  .footer > .container .social-media {
+    background: #626487; }
+    .footer > .container .social-media .images {
+      padding: 2%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      .footer > .container .social-media .images img {
+        margin: 12.5px;
+        margin: 1.25rem;
+        margin-top: 0;
+        margin-bottom: 0; }
   .footer > .container .links {
     background: #626487;
     display: -webkit-box;
