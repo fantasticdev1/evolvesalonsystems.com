@@ -52,7 +52,8 @@ body {
   display: block;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  font-family: "gothamMedium"; }
+  font-family: 'gothamMedium';
+  white-space: nowrap; }
 
 .sidenav a:hover, .sidenav a:focus {
   color: #f1f1f1; }
@@ -60,7 +61,7 @@ body {
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
+  right: 15px;
   font-size: 36px;
   margin-left: 50px; }
 
@@ -95,21 +96,22 @@ body {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: space-evenly;
-    -webkit-justify-content: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly; }
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 50%; }
     .navbar .right-section .button-collapse {
       padding-left: 5%; }
     .navbar .right-section a {
-      margin-right: 10%;
+      margin-right: 7%;
       text-decoration: none;
       color: #616386;
       font-size: 14px;
       text-align: center;
       white-space: nowrap;
       cursor: pointer;
-      font-family: "gothamMedium";
+      font-family: 'gothamMedium';
       color: white; }
 
 .top-gallery {
@@ -1687,7 +1689,7 @@ body {
       .brands__page > .cards-section.container .row .card-wrapper .card .card-body {
         padding: 20px; }
         .brands__page > .cards-section.container .row .card-wrapper .card .card-body .card-title {
-          font-family: "gothamPro";
+          font-family: 'gothamPro';
           font-size: 15px; }
 
 .brands__page > .description.container {
@@ -1701,13 +1703,13 @@ body {
     .brands__page > .description.container .row .text-section {
       width: 100%; }
       .brands__page > .description.container .row .text-section h2 {
-        font-family: "gothamLight";
+        font-family: 'gothamLight';
         font-size: 28px;
         color: #000000;
         letter-spacing: 0;
         line-height: 40px; }
       .brands__page > .description.container .row .text-section p {
-        font-family: "gothamPro";
+        font-family: 'gothamPro';
         font-size: 14px;
         color: #9a9ab2;
         letter-spacing: 0;
@@ -1761,13 +1763,13 @@ body {
           -webkit-align-self: center;
               -ms-flex-item-align: center;
                   align-self: center;
-          font-family: "gothamPro"; }
+          font-family: 'gothamPro'; }
         .promotions__page .cards-section.container .row .card-wrapper .card .card-body .expire-date {
-          font-family: "gothamPro";
+          font-family: 'gothamPro';
           color: #c0bfd6;
           font-size: 12px; }
         .promotions__page .cards-section.container .row .card-wrapper .card .card-body a {
-          font-family: "gothamMedium"; }
+          font-family: 'gothamMedium'; }
           .promotions__page .cards-section.container .row .card-wrapper .card .card-body a:hover, .promotions__page .cards-section.container .row .card-wrapper .card .card-body a:focus {
             background: #4b4e75;
             color: white; }
@@ -2742,7 +2744,7 @@ body {
     color: #616386;
     background: none;
     font-size: 12px;
-    font-family: "gothamMedium"; }
+    font-family: 'gothamMedium'; }
     .contact__form .button-wide:hover, .contact__form .button-wide:focus {
       background: #616386;
       color: #ffffff; }
