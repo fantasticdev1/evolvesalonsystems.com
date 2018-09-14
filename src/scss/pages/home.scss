@@ -201,9 +201,11 @@
           color: $primary-extra-heavy;
         }
         &:hover {
-          color: white;
           background-color: $primary-heavy;
           border: 2px solid white;
+          a {
+            color: white;
+          }
         }
       }
     }
@@ -215,7 +217,7 @@
       object-fit: cover;
     }
   }
-  a {
+  .view-all {
     border-bottom: 1px solid $primary-extra-heavy;
     padding-bottom: 3px;
     color: $primary-extra-heavy;
@@ -235,7 +237,8 @@
       padding: 20px;
     }
     .image-wrapper {
-      max-width: 50%;
+      display: flex;
+      justify-content: center;
     }
   }
   @media (max-width: $phone) {
@@ -247,19 +250,16 @@
       }
     }
     button {
-      padding: 15px;
       align-self: center;
       margin: auto;
     }
-    .promotion-image {
+    .image-wrapper {
       margin: 0;
       margin-top: 10px;
       height: fit-content;
       display: flex;
       justify-content: center;
       img {
-        width: 262px;
-        height: 200px;
       }
     }
   }

@@ -52,7 +52,7 @@ body {
   display: block;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  font-family: "gothamMedium"; }
+  font-family: 'gothamMedium'; }
 
 .sidenav a:hover, .sidenav a:focus {
   color: #f1f1f1; }
@@ -109,7 +109,7 @@ body {
       text-align: center;
       white-space: nowrap;
       cursor: pointer;
-      font-family: "gothamMedium";
+      font-family: 'gothamMedium';
       color: white; }
 
 .top-gallery {
@@ -1222,15 +1222,16 @@ body {
           text-decoration: none;
           color: #4b4e75; }
         .homepage__promotion-section .row .promotion button:hover, .homepage__promotion-section .row .promotion button:focus {
-          color: white;
           background-color: #616386;
           border: 2px solid white; }
+          .homepage__promotion-section .row .promotion button:hover a, .homepage__promotion-section .row .promotion button:focus a {
+            color: white; }
   .homepage__promotion-section .image-wrapper img {
     max-width: 450px;
     height: 350px;
     -o-object-fit: cover;
        object-fit: cover; }
-  .homepage__promotion-section a {
+  .homepage__promotion-section .view-all {
     border-bottom: 1px solid #4b4e75;
     padding-bottom: 3px;
     color: #4b4e75;
@@ -1687,7 +1688,7 @@ body {
       .brands__page > .cards-section.container .row .card-wrapper .card .card-body {
         padding: 20px; }
         .brands__page > .cards-section.container .row .card-wrapper .card .card-body .card-title {
-          font-family: "gothamPro";
+          font-family: 'gothamPro';
           font-size: 15px; }
 
 .brands__page > .description.container {
@@ -1701,13 +1702,13 @@ body {
     .brands__page > .description.container .row .text-section {
       width: 100%; }
       .brands__page > .description.container .row .text-section h2 {
-        font-family: "gothamLight";
+        font-family: 'gothamLight';
         font-size: 28px;
         color: #000000;
         letter-spacing: 0;
         line-height: 40px; }
       .brands__page > .description.container .row .text-section p {
-        font-family: "gothamPro";
+        font-family: 'gothamPro';
         font-size: 14px;
         color: #9a9ab2;
         letter-spacing: 0;
@@ -1761,13 +1762,13 @@ body {
           -webkit-align-self: center;
               -ms-flex-item-align: center;
                   align-self: center;
-          font-family: "gothamPro"; }
+          font-family: 'gothamPro'; }
         .promotions__page .cards-section.container .row .card-wrapper .card .card-body .expire-date {
-          font-family: "gothamPro";
+          font-family: 'gothamPro';
           color: #c0bfd6;
           font-size: 12px; }
         .promotions__page .cards-section.container .row .card-wrapper .card .card-body a {
-          font-family: "gothamMedium"; }
+          font-family: 'gothamMedium'; }
           .promotions__page .cards-section.container .row .card-wrapper .card .card-body a:hover, .promotions__page .cards-section.container .row .card-wrapper .card .card-body a:focus {
             background: #4b4e75;
             color: white; }
@@ -2742,7 +2743,7 @@ body {
     color: #616386;
     background: none;
     font-size: 12px;
-    font-family: "gothamMedium"; }
+    font-family: 'gothamMedium'; }
     .contact__form .button-wide:hover, .contact__form .button-wide:focus {
       background: #616386;
       color: #ffffff; }
@@ -3397,12 +3398,11 @@ body {
             -ms-flex-align: center;
                 align-items: center; }
     .homepage__promotion-section button {
-      padding: 15px;
       -webkit-align-self: center;
           -ms-flex-item-align: center;
               align-self: center;
       margin: auto; }
-    .homepage__promotion-section .promotion-image {
+    .homepage__promotion-section .image-wrapper {
       margin: 0;
       margin-top: 10px;
       height: -webkit-fit-content;
@@ -3416,9 +3416,6 @@ body {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      .homepage__promotion-section .promotion-image img {
-        width: 262px;
-        height: 200px; }
     .homepage__events-section {
       padding: 0; }
       .homepage__events-section .heading {
@@ -3812,7 +3809,14 @@ body {
     .homepage__promotion-section .homepage__promotion-section {
       padding: 20px; }
     .homepage__promotion-section .image-wrapper {
-      max-width: 50%; }
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
     .homepage__video-section .container {
       left: 5%;
       max-width: 325px; }
