@@ -1,6 +1,40 @@
 .promotions__page {
   .cards-section.container {
     padding: 40px;
+    .filter-row {
+      @media (max-width: 992px) {
+        display: none;
+      }
+      .filter {
+        display: flex;
+        label {
+          text-align: center;
+          align-self: center;
+          font-size: 14px;
+          color: $primary-extra-heavy;
+          letter-spacing: 0;
+          font-family: 'gothamMedium';
+        }
+        .dropdown {
+          button {
+            width: 220px;
+            height: 40px;
+            color: $primary-extra-heavy;
+            background: rgba(199, 197, 220, 0.7);
+            font-family: 'gothamMedium';
+            border: none;
+            font-size: 12px;
+            text-align: left;
+            &::after {
+              position: absolute;
+              top: 48%;
+              right: 15px;
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
     .row {
       position: relative;
       width: 100%;
