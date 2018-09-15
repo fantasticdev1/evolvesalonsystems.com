@@ -35,6 +35,9 @@ table.dataTable td.row_actions a {
 .nav-item .dropdown-toggle::after {
 	display: none;
 }
+.sidebar .nav li.active-parent > a {
+	opacity: 1;
+}
 /*.dropdown-toggle::after {
 	display: inline-block;
 	width: 0;

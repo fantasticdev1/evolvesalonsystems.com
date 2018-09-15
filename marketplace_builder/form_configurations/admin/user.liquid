@@ -14,8 +14,8 @@ flash_alert: Whoah! Slow down a little. Let's go back and fix those errors.
 {% elsif flash.notice -%}<div class="alert alert-success alert-dismissible fade show"><span class="fas fa-thumbs-up fa-2x"></span>&nbsp;&nbsp;<b>{{flash.notice}}</b><button type="button" class="close" aria-label="Close" aria-hidden="true" type="button" data-dismiss="alert"><span class="fal fa-times fa-sm"></span></button></div>
 {% endif -%}
 {% form html-data-posdk-submit: 'submitMode:reload; success:showSaved;' -%}
-	{% include 'admin/forms/fieldGroup', field: f.fields.email, type: 'text', label: 'Email' -%}
+	{% include 'admin/forms/fieldGroup', field: f.fields.email, type: 'text', label: 'Email', attr:'data-title="name"' -%}
 	{% include 'admin/forms/fieldGroup', field: f.fields.first_name, type: 'text', label: 'First Name' -%}
 	{% include 'admin/forms/fieldGroup', field: f.fields.last_name, type: 'textarea', label: 'Last Name' -%}
-	<input type="submit" class="btn btn-info" value="update">
+	<input type="submit" class="btn btn-primary" value="Save">
 {% endform -%}

@@ -1,17 +1,17 @@
 {%- comment -%}Product Types{%- endcomment -%}
-{%- query_graph 'model_records', name:'product_type', result_name: g -%}
+{%- comment -%}{%- query_graph 'model_records', name:'product_type', result_name: g -%}
 {%- assign models = g.customizations.results -%}
 {%- for model in models -%}
 	{%- capture modelIndexBy -%}{{modelIndexBy}}
-			"/admin/products?type={{model.id}}":{{forloop.index0}}{%- unless forloop.last -%},{%- endunless -%}
+			"/admin/products?model={{model.id}}":{{forloop.index0}}{%- unless forloop.last -%},{%- endunless -%}
 	{%- endcapture -%}
 	{%- capture modelItems -%}{{modelItems}}
 		{
 			"name": "{{model.properties.name}}",
-			"slug": "/admin/products?type={{model.id}}"
+			"slug": "/admin/products?model={{model.id}}"
 		}{%- unless forloop.last -%},{%- endunless -%}
 	{%- endcapture -%}
-{%- endfor -%}
+{%- endfor -%}{%- endcomment -%}
 {
 	"name": "Admin",
 	"nav": {
@@ -45,7 +45,26 @@
 		}, {
 			"name": "brands",
 			"icon": "fal fa-stamp fa-fw",
-			"slug": "/admin/brands"
+			"slug": "/admin/brands",
+			"nested": {
+				"indexBy": {
+					"slug": {
+						"/admin/brands?model=brand": 0,
+						"/admin/brands?model=promotion": 1,
+						"/admin/brands?model=video": 2
+					}
+				},
+				"items": [{
+					"name": "brands",
+					"slug": "/admin/brands?model=brand"
+				}, {
+					"name": "promotions",
+					"slug": "/admin/brands?model=promotion"
+				}, {
+					"name": "featured videos",
+					"slug": "/admin/brands?model=video"
+				}]
+			}
 		}, {
 			"name": "products",
 			"icon": "fal fa-cut fa-fw",
@@ -53,10 +72,21 @@
 			"nested": {
 				"indexBy": {
 					"slug": {
-						{{modelIndexBy}}
+						"/admin/products?model=course": 0,
+						"/admin/products?model=scissors": 1,
+						"/admin/products?model=event": 2
 					}
 				},
-				"items": [{{modelItems}}]
+				"items": [{
+					"name": "courses",
+					"slug": "/admin/products?model=course"
+				}, {
+					"name": "scissors",
+					"slug": "/admin/products?model=scissors"
+				}, {
+					"name": "events",
+					"slug": "/admin/products?model=event"
+				}]
 			}
 		}, {
 			"name": "orders",

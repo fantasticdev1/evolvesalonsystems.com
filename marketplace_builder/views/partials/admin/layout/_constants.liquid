@@ -5,8 +5,10 @@
 {% assign thisPageIndex = admin.nav.indexBy.slug[context.location.pathname] -%}
 {% if thisPageIndex != nil -%}
 	{% assign thisPage = admin.nav.items[thisPageIndex] -%}
-	{% if context.location.pathname != context.location.href and thisPage.nested.indexBy.slug[context.location.href] != nil -%}
-		{% assign thisPageIndex = thisPage.nested.indexBy.slug[context.location.href] -%}
+	{% assign nestedPath = thisPage.slug | append: '?model=' | append: context.location.search.model -%}
+	{% if thisPage.nested.indexBy.slug[nestedPath] != nil -%}
+		{% assign thisParent = thisPage -%}
+		{% assign thisPageIndex = thisPage.nested.indexBy.slug[nestedPath] -%}
 		{% assign thisPage = thisPage.nested.items[thisPageIndex] -%}
 	{% endif -%}
 {% endif -%}

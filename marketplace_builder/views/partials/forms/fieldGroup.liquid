@@ -2,9 +2,9 @@
 <div class="form-group validation-group{% if field.validation.errors.size > 0 %} error{% endif %}">
 	<label for="{{field.name}}{{unique}}">{{label}}</label>
 	{% if type == 'textarea' -%}
-		<textarea id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control">{{value | default: field.value}}</textarea>
+		<textarea id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control" {{attr}}>{{value | default: field.value}}</textarea>
 	{% elsif type == 'select' -%}
-		<select id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control"></select>
+		<select id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control" {{attr}}></select>
 	{% elsif type == 'photo' -%}
 		<div class="form-control">
 			<div class="fileinput fileinput-new text-center" data-provides="fileinput">
@@ -16,7 +16,7 @@
 					<span class="btn btn-raised btn-round btn-default btn-file">
 						<span class="fileinput-new">Select image</span>
 						<span class="fileinput-exists">Change</span>
-						<input type="file" id="{{field.name}}{{unique}}" name="{{field.name}}" />
+						<input type="file" id="{{field.name}}{{unique}}" name="{{field.name}}" {{attr}} />
 					</span>
 					<a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput">
 					<i class="fa fa-times"></i> Remove</a>
@@ -34,7 +34,7 @@
 					<span class="btn btn-raised btn-round btn-default btn-file">
 						<span class="fileinput-new">Select image</span>
 						<span class="fileinput-exists">Change</span>
-						<input type="file" id="{{field.name}}{{unique}}" name="{{field.name}}" />
+						<input type="file" id="{{field.name}}{{unique}}" name="{{field.name}}" {{attr}} />
 					</span>
 					<a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput">
 					<i class="fa fa-times"></i> Remove</a>
@@ -42,11 +42,11 @@
 			</div>
 		</div>
 	{% elsif type == 'date' -%}
-		<input type="text" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control datepicker" value="{{value | default: field.value}}">
+		<input type="text" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control datepicker" value="{{value | default: field.value}}" {{attr}}>
 	{% elsif type == 'datetime' -%}
-		<input type="text" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control datetimepicker" value="{{value | default: field.value}}">
+		<input type="text" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control datetimepicker" value="{{value | default: field.value}}" {{attr}}>
 	{% else -%}
-		<input type="{{type}}" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control" value="{{value | default: field.value}}">
+		<input type="{{type}}" id="{{field.name}}{{unique}}" name="{{field.name}}" class="form-control" value="{{value | default: field.value}}" {{attr}}>
 	{% endif -%}
 	{% include 'forms/validation', errors: field.validation.errors -%}
 </div>

@@ -1,5 +1,5 @@
-query model_records($name: String!, $id: ID = null) {
-  customizations(name: $name, id: $id) {
+query model_records($model: String!, $record: ID = null) {
+  customizations(name: $model, id: $record) {
     results {
       id
       properties

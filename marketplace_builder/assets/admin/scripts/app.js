@@ -13,6 +13,10 @@ function showSaved() {
 	});
 }
 
+$('[data-toggle="tab"]').on( 'shown.bs.tab', function (e) {
+    $.fn.dataTable.tables( {visible: true, api: true} ).columns.adjust();
+});
+
 
 type = ['primary', 'info', 'success', 'warning', 'danger'];
 
@@ -2147,5 +2151,4 @@ demo = {
 		var viewsChart = new Chart(e, a);
 
 	}
-
 };
