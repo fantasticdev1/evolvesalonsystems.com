@@ -1,18 +1,20 @@
 <div class="homepage__promotion-section">
-  <div class="row">
-    <div class="promotion col-md-6 col-sm-12 col-lg-4">
-      <h1>{{meta.title}}</h1>
-      <div class="date mt-3">
-        <div class="icon"><img src="{{'images/icons/calendar.svg' | asset_url}}"></div>
-        {{meta.date}}
+  <div class="container">
+    <div class="row">
+      <div class="promotion col-md-6 col-sm-12 col-xl-6 col-lg-6">
+        <h1>{{meta.title}}</h1>
+        <div class="date mt-3">
+          <div class="icon"><img src="{{'images/icons/calendar.svg' | asset_url}}"></div>
+          {{meta.date}}
+        </div>
+        <div class="description">
+          {{meta.description}}
+        </div>
+        <button class="button-wide ml-0 mt-0"><a href="{{meta.detail_link}}">MORE INFO</a></button>
       </div>
-      <div class="description">
-        {{meta.description}}
+      <div class="image-wrapper col-lg-6 col-sm-12 col-md-6">
+        <img class="col-12" src="{{meta.imageUrl}}">
       </div>
-      <button class="button-wide ml-0 mt-0"><a href="{{meta.detail_link}}">MORE INFO</a></button>
-    </div>
-    <div class="image-wrapper col-lg-4 col-sm-12 col-md-6">
-      <img src="{{meta.imageUrl}}">
     </div>
   </div>
     <a class="view-all" href="/promotions">{{meta.viewAllPromotions}}</a>
