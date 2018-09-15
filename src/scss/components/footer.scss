@@ -3,6 +3,19 @@
   max-width: 100%;
   padding: 0;
   margin: 0;
+  .social-media {
+    background: #626487;
+    .images {
+      padding: 2%;
+      display: flex;
+      justify-content: center;
+      img {
+        margin: 1.25rem;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
   .links {
     background: #626487;
     display: flex;
