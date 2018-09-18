@@ -32,6 +32,20 @@
               opacity: 0.5;
             }
           }
+          .dropdown-menu {
+            width: 100%;
+            background: $primary-extra-light;
+            .dropdown-item {
+              padding: 15px;
+              font-family: 'gothamMedium';
+              font-size: 12px;
+              color: $primary-heavy;
+              &:hover {
+                cursor: pointer;
+                background: $primary-medium;
+              }
+            }
+          }
         }
       }
     }

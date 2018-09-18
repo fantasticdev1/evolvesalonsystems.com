@@ -1,9 +1,8 @@
-document.addEventListener('click', function(event) {
-	let target = event.target;
-
-	if (target) {
-		if (typeof target.dataset.open !== 'undefined') {
-			event.preventDefault();
-		}
-	}
+$('.dropdown-item').on('click', function(){
+  var value = $(this).prop('id');
+  var toRemove = '.' + value;
+  $('.card-wrapper').not(toRemove).toggle();
+  var selText = $(this).text();
+  $(this).parents('.dropdown').find('.dropdown-toggle').html(selText);
+  $(this).remove();
 });

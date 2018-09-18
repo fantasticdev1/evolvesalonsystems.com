@@ -28,7 +28,6 @@ module.exports = env => {
 
   return {
     entry: {
-      app: './src/app',
       vendor: './src/vendor'
     },
     output: {
