@@ -6,7 +6,7 @@
   
 {% endfor %}
 <div class="cards-section container">
-  <div class=" filter-row row mb-4 justify-content-center justify-content-md-start">
+  <div class="filter-row row mb-4 justify-content-center justify-content-md-start">
     <div class="filter pl-md-3 col-xl-12 col-12 ml-md-4">
       <label class="mb-0 pr-3">BRAND FILTER:</label>
       <div class="dropdown">
@@ -22,57 +22,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12">
-      <div class="card">
-          <div class="card-img-top" style="background-image: url()" alt="Card image cap"></div>
-        <div class="card-body">
-          <h3 class="card-title">Elven March-April Promotion</h3>
-          <p class="expire-date">EXP 25 SEP 2018</p>
-          <a href="#" class="btn btn-primary">VIEW</a>
-        </div>
-      </div>
-    </div>
-    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12">
-      <div class="card">
-          <div class="card-img-top" style="background-image: url()" alt="Card image cap"></div>
-          <div class="card-body">
-            <h3 class="card-title">Elven March-April Promotion</h3>
-            <p class="expire-date">EXP 25 SEP 2018</p>
-            <a href="#" class="btn btn-primary">VIEW</a>
-          </div>
-      </div>
-    </div>
-    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12">
-      <div class="card">
-          <div class="card-img-top" style="background-image: url()" alt="Card image cap"></div>
-        <div class="card-body">
-          <h3 class="card-title">Elven March-April Promotion</h3>
-          <p class="expire-date">EXP 25 SEP 2018</p>
-          <a href="#" class="btn btn-primary">VIEW</a>
-        </div>
-      </div>
-    </div>
-    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12">
-      <div class="card">
-        <div class="card-img-top" style="background-image: url()" alt="Card image cap"></div>
-        <div class="card-body">
-          <h3 class="card-title">Elven March-April Promotion</h3>
-          <p class="expire-date">EXP 25 SEP 2018</p>
-          
-          <a href="#" class="btn btn-primary">VIEW</a>
-        </div>
-      </div> 
-    </div>
-    <div class="card-wrapper col-lg-4 col-md-6 col-sm-12 col-12">
-      <div class="card">
-          <div class="card-img-top" style="background-image: url()" alt="Card image cap"></div>
-        <div class="card-body">
-          <h3 class="card-title">Elven March-April Promotion</h3>
-          <p class="expire-date">EXP 25 SEP 2018</p>
-          
-          <a href="#" class="btn btn-primary">VIEW</a>
-        </div>
-      </div>
-    </div>
+    {% for i in (1..5) -%}
+      {% include 'promotions/cards' -%}
+    {% endfor -%}
   </div>
 </div>
