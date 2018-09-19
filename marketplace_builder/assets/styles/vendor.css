@@ -7196,6 +7196,18 @@ body {
         width: 230px;
         height: 230px; }
 
+.select2-dropdown {
+  background: #f6f6f8; }
+  .select2-dropdown .select2-results__option {
+    padding: 15px;
+    font-family: 'gothamMedium';
+    font-size: 12px;
+    color: #616386; }
+    .select2-dropdown .select2-results__option:hover, .select2-dropdown .select2-results__option:focus {
+      cursor: pointer;
+      background: #c0bfd6;
+      color: #616386; }
+
 .promotions__page .cards-section.container {
   padding: 40px; }
   .promotions__page .cards-section.container .filter-row .filter {
@@ -7212,32 +7224,31 @@ body {
       color: #4b4e75;
       letter-spacing: 0;
       font-family: 'gothamMedium'; }
-    .promotions__page .cards-section.container .filter-row .filter .dropdown button {
-      width: 220px;
+    .promotions__page .cards-section.container .filter-row .filter .brand-filter {
+      width: 220px; }
+    .promotions__page .cards-section.container .filter-row .filter .select2-selection {
+      outline: none;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-content: center;
+          -ms-flex-line-pack: center;
+              align-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
       height: 40px;
       color: #4b4e75;
       background: rgba(199, 197, 220, 0.7);
       font-family: 'gothamMedium';
       border: none;
-      font-size: 12px;
-      text-align: left; }
-      .promotions__page .cards-section.container .filter-row .filter .dropdown button:after {
-        position: absolute;
-        top: 48%;
-        right: 15px;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-        opacity: 0.5; }
-    .promotions__page .cards-section.container .filter-row .filter .dropdown .dropdown-menu {
-      width: 100%;
-      background: #f6f6f8; }
-      .promotions__page .cards-section.container .filter-row .filter .dropdown .dropdown-menu .dropdown-item {
-        padding: 15px;
-        font-family: "gothamMedium";
-        font-size: 12px;
-        color: #616386; }
-        .promotions__page .cards-section.container .filter-row .filter .dropdown .dropdown-menu .dropdown-item:hover, .promotions__page .cards-section.container .filter-row .filter .dropdown .dropdown-menu .dropdown-item:focus {
-          cursor: pointer;
-          background: #c0bfd6; }
+      font-size: 12px; }
+      .promotions__page .cards-section.container .filter-row .filter .select2-selection .select2-selection__arrow {
+        top: 5px; }
+      .promotions__page .cards-section.container .filter-row .filter .select2-selection a {
+        text-decoration: none; }
   .promotions__page .cards-section.container .row {
     position: relative;
     width: 100%;
