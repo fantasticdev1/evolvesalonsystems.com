@@ -9,21 +9,29 @@
   <div class="filter-row row mb-4 justify-content-center justify-content-md-start">
     <div class="filter pl-md-3 col-xl-12 col-12 ml-md-4">
       <label class="mb-0 pr-3">BRAND FILTER:</label>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        See all
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
+      <select id="top-filter" class="brand-filter" name="brand">
+        <option value="select-all">Select all</option>
+        <option value="eufora">Eufora</option>
+        <option value="jbeverley">J Beverley</option>
+        <option value="kevinmurphy">Kevin Murphy</option>
+      </select>
     </div>
   </div>
   <div class="row">
     {% for i in (1..5) -%}
       {% include 'promotions/cards' -%}
     {% endfor -%}
+    {% comment %} to remove bellow when data is connected {% endcomment %}
+    <div id="kevinmurphy" class="card-wrapper col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-img-top" style="background-image: url()" alt="Card image cap"></div>
+        <div class="card-body">
+          <h3 class="card-title">Elven March-April Promotion</h3>
+          <p class="expire-date">EXP 25 SEP 2018</p>
+          <a href="#" class="btn btn-primary">VIEW</a>
+        </div>
+      </div>
+    </div>
   </div>
+  
 </div>
