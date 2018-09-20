@@ -7268,7 +7268,8 @@ body {
           color: #c0bfd6;
           font-size: 12px; }
         .promotions__page .cards-section.container .row .card-wrapper .card .card-body a {
-          font-family: 'gothamMedium'; }
+          font-family: 'gothamMedium';
+          background: rgba(199, 197, 220, 0.3); }
           .promotions__page .cards-section.container .row .card-wrapper .card .card-body a:hover, .promotions__page .cards-section.container .row .card-wrapper .card .card-body a:focus {
             background: #4b4e75;
             color: white; }
@@ -8855,13 +8856,14 @@ body {
         -webkit-align-self: center;
             -ms-flex-item-align: center;
                 align-self: center;
-        font-family: 'gothamPro'; }
+        font-family: 'gothamLight'; }
       .cards-section.brand .card-wrapper .card .card-body .expire-date {
         font-family: 'gothamPro';
         color: #c0bfd6;
         font-size: 12px; }
       .cards-section.brand .card-wrapper .card .card-body a {
-        font-family: 'gothamMedium'; }
+        font-family: 'gothamMedium';
+        background: rgba(199, 197, 220, 0.3); }
         .cards-section.brand .card-wrapper .card .card-body a:hover, .cards-section.brand .card-wrapper .card .card-body a:focus {
           background: #4b4e75;
           color: white; }

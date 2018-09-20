@@ -33,6 +33,8 @@
         }
         a {
           font-family: 'gothamMedium';
+          background: rgba(199, 197, 220, 0.3);
+
           &:hover {
             background: $primary-extra-heavy;
             color: white;
