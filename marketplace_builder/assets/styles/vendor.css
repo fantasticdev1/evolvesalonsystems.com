@@ -5786,10 +5786,10 @@ body {
       -webkit-box-shadow: 0 0 2px black;
               box-shadow: 0 0 2px black; }
     .brand-info .brand-card .content h3 {
-      font-size: 24px;
+      font-size: 30px;
       font-family: 'gothamPro'; }
     .brand-info .brand-card .content p {
-      font-size: 16px;
+      font-size: 14px;
       font-family: 'gothamLight';
       color: #616386; }
     .brand-info .brand-card .content a {
@@ -5801,7 +5801,7 @@ body {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center;
-      font-size: 16px;
+      font-size: 11px;
       font-family: 'gothamPro';
       text-decoration: none;
       color: #4b4e75; }
@@ -8845,24 +8845,26 @@ body {
   .cards-section.brand .included {
     font-size: 24px;
     color: #4b4e75; }
-  .cards-section.brand .card {
-    max-width: 300px;
-    margin-bottom: 0; }
-    .cards-section.brand .card .card-body .card-title {
-      max-width: 171px;
-      -webkit-align-self: center;
-          -ms-flex-item-align: center;
-              align-self: center;
-      font-family: 'gothamPro'; }
-    .cards-section.brand .card .card-body .expire-date {
-      font-family: 'gothamPro';
-      color: #c0bfd6;
-      font-size: 12px; }
-    .cards-section.brand .card .card-body a {
-      font-family: 'gothamMedium'; }
-      .cards-section.brand .card .card-body a:hover, .cards-section.brand .card .card-body a:focus {
-        background: #4b4e75;
-        color: white; }
+  .cards-section.brand .card-wrapper {
+    height: 400px; }
+    .cards-section.brand .card-wrapper .card {
+      max-width: 300px;
+      margin-bottom: 0; }
+      .cards-section.brand .card-wrapper .card .card-body .card-title {
+        max-width: 171px;
+        -webkit-align-self: center;
+            -ms-flex-item-align: center;
+                align-self: center;
+        font-family: 'gothamPro'; }
+      .cards-section.brand .card-wrapper .card .card-body .expire-date {
+        font-family: 'gothamPro';
+        color: #c0bfd6;
+        font-size: 12px; }
+      .cards-section.brand .card-wrapper .card .card-body a {
+        font-family: 'gothamMedium'; }
+        .cards-section.brand .card-wrapper .card .card-body a:hover, .cards-section.brand .card-wrapper .card .card-body a:focus {
+          background: #4b4e75;
+          color: white; }
   .cards-section.brand .card-wrapper {
     display: -webkit-box;
     display: -webkit-flex;
