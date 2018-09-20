@@ -15,33 +15,39 @@
     font-size: 24px;
     color: $primary-extra-heavy;
   }
+  .card-wrapper {
+    height: 400px;
+    .card {
+      max-width: 300px;
+      margin-bottom: 0;
+      .card-body {
+        .card-title {
+          max-width: 171px;
+          align-self: center;
+          font-family: 'gothamLight';
+        }
+        .expire-date {
+          font-family: 'gothamPro';
+          color: $primary-medium;
+          font-size: 12px;
+        }
+        a {
+          font-family: 'gothamMedium';
+          background: rgba(199, 197, 220, 0.3);
 
-  .card {
-    max-width: 300px;
-    margin-bottom: 0;
-    .card-body {
-      .card-title {
-        max-width: 171px;
-        align-self: center;
-        font-family: 'gothamPro';
-      }
-      .expire-date {
-        font-family: 'gothamPro';
-        color: $primary-medium;
-        font-size: 12px;
-      }
-      a {
-        font-family: 'gothamMedium';
-        &:hover {
-          background: $primary-extra-heavy;
-          color: white;
+          &:hover {
+            background: $primary-extra-heavy;
+            color: white;
+          }
         }
       }
     }
   }
-
   @media (max-width: 992px) {
     margin-top: 175px;
+  }
+  @media (max-width: 370px) {
+    margin-top: 210px;
   }
   .card-wrapper {
     display: flex;
