@@ -42,9 +42,15 @@
     @media (max-width: 992px) {
       padding-top: 17%;
     }
+    @media (max-width: 576px) {
+      padding-top: 125px;
+    }
   }
   @media (max-width: 992px) {
-    margin-top: calc(116px + 200px);
+    margin-top: 316px;
+  }
+  @media (max-width: 576px) {
+    margin-top: 450px;
   }
 }
 .card {

@@ -1,8 +1,5 @@
-.footer > .container {
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
-  margin: 0;
+.footer {
+  background: #626487;
   .social-media {
     background: #626487;
     .images {
@@ -19,21 +16,17 @@
   .links {
     background: #626487;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    ul {
+    justify-content: space-evenly;
+    li {
       list-style: none;
-      display: flex;
-      justify-content: center;
-      li {
-        margin: 30px;
-        a {
-          font-family: 'gothamPro';
-          font-size: 11px;
-          color: #ffffff;
-          letter-spacing: 0;
-          text-align: center;
-        }
+      margin-top: 20px;
+      margin-bottom: 20px;
+      a {
+        font-family: 'gothamPro';
+        font-size: 11px;
+        color: #ffffff;
+        letter-spacing: 0;
+        text-align: center;
       }
     }
     &.row {
@@ -56,11 +49,5 @@
     &.row {
       margin: 0;
     }
-  }
-}
-@media (max-width: $phone) {
-  ul {
-    flex-direction: column;
-    align-items: center;
   }
 }
