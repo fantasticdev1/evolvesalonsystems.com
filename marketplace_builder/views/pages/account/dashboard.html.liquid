@@ -1,0 +1,19 @@
+---
+slug: account/dashboard
+layout_name: account
+metadata:
+  key: account__page
+  loginsecurity:
+    title: Login & Security
+---
+
+{%- include 'layout/constants' -%}
+
+<div class="main-board d-flex flex-wrap justify-content-between">
+  <div class="left-board d-flex">
+    {%- include 'account/sidemenu' %}
+  </div>
+  <div class="right-board d-flex justify-content-center align-items-start">
+    {%- include 'account/loginsecurity', meta: page.metadata.loginsecurity %}
+  </div>
+</div>

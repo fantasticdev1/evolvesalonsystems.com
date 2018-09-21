@@ -1,0 +1,25 @@
+{%- include 'layout/constants' -%} <!-- includes are relative to partials folder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%- include 'layout/head' -%}
+</head>
+<body class="grid-y d-flex justify-content-between flex-column" id="account-body">
+	<header role="banner" id="account-header">
+		{%- include 'layout/header' -%}
+	</header>
+	<main role="main" class="d-flex py-5 justify-content-center align-items-center">
+    <div class="{{page.metadata.key}}">
+      {{content_for_layout}}
+    </div>
+	</main>
+	<footer role="contentinfo" id="account-footer" class="cell shrink">
+		<div class="grid-x grid-padding-x grid-padding-y">
+			<div class="cell">
+				{%- include 'layout/footer' -%}
+			</div>
+		</div>
+	</footer>
+	{%- include 'layout/foot' -%}
+</body>
+</html>

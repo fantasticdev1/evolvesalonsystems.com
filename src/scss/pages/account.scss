@@ -1,7 +1,156 @@
+#account-body {
+  background-color: $primary-light;
+}
+#account-header {
+  height: 100px;
+}
+
 .account__page {
-  background-color: $primary-medium;
-  padding-top: $header-height;
-  min-height: 100vh;
+  font-family: 'gothamMedium';
+  .main-board {
+    width: 940px;
+    height: 600px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    .left-board {
+      width: 30%;
+      ul {
+        padding: 0;
+        li {
+          font-size: 20px;
+          list-style-type: none;
+          color: $primary-extra-heavy;
+          a {
+            color: $primary-extra-heavy;
+            font-size: 16px;
+            line-height: 4;
+            &:hover {
+              text-decoration: none;
+            }
+            &.account-menu-link-1 {
+              font-size: 13px;
+              line-height: 3.5;
+              color: $primary-light;
+              &.active {
+                color: $primary-extra-heavy;
+              }
+            }
+            &.account-menu-link {
+              &.active {
+                padding-bottom: 5px;
+                border-bottom: solid 2px $primary-extra-heavy;
+              }
+            }
+          }
+        }
+      }
+    }
+    .right-board {
+      width: 60%;
+      .title {
+        font-size: 30px;
+        line-height: 2.5;
+        font-weight: 100;
+        color: $primary-extra-heavy;
+      }
+      .form-group {
+        display: flex;
+        height: 50px !important;
+        width: 460px !important;
+        justify-content: space-between;
+        align-items: center;
+        label {
+          font-size: 12px !important;
+          margin-bottom: 0 !important;
+          color: $primary-extra-heavy;
+        }
+        input {
+          height: 50px;
+          width: 300px;
+          outline: none;
+          border: none;
+          background-color: $secondary-light;
+          font-size: 12px;
+          font-family: 'gothamProBold';
+          color: $primary-heavy;
+          &::placeholder {
+            font-family: 'gothamProBold';
+            color: $primary-heavy;
+          }
+        }
+      }
+      button {
+        &.save-button {
+          height: 40px;
+          width: 120px;
+          border-radius: 28px;
+          font-family: 'gothamMedium';
+          font-size: 12px;
+          border: none;
+          outline: none;
+          background-color: $secondary-light;
+          color: $primary-extra-heavy;
+        }
+      }
+    }
+    @media (max-width: $size-col-lg) {
+      width: 75vw;
+      height: auto;
+      flex-direction: column;
+      .left-board {
+        width: 100%;
+        justify-content: center;
+      }
+      .right-board {
+        width: 100%;
+        .title {
+          text-align: center;
+        }
+      }
+    }
+    @media (max-width: $size-col-md) {
+      .right-board {
+        .title {
+          font-size: 24px;
+        }
+        .form-group {
+          flex-direction: column;
+          height: 80px !important;
+          width: 300px !important;
+          justify-content: space-around;
+          align-items: start;
+          input {
+            height: 50%;
+            width: 100%;
+          }
+        }
+      }
+    }
+    @media (max-width: $size-col-sm) {
+      padding: 40px;
+      width: 85vw;
+      .right-board {
+        .title {
+          font-size: 18px;
+        }
+        .form-group {
+          flex-direction: column;
+          height: 80px !important;
+          width: 100% !important;
+          justify-content: space-around;
+          align-items: start;
+        }
+        #login {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
   .collapse-list {
     display: none;
     > ul {
@@ -332,7 +481,6 @@
     }
   }
   @media (max-width: $tablet) {
-    height: 100vh;
   }
   @media (max-width: $phone) {
     height: auto;
