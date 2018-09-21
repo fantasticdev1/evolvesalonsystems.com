@@ -1,6 +1,49 @@
 ---
 slug: education
-layout_name: 1col
+layout_name: 2col
 metadata:
-  title: Education
+  key: education__page
+  topSection:
+    title: Education
+    description: Being "Focused on your Future", we take very seriously the process we go through to decide which manufacturers we do business with and the ones we are going to represent in the future.
+    imageUrl: https://i.imgur.com/LvPdPvQ.png
 ---
+{%- include 'top-section/top-section-pages' meta: page.metadata.topSection -%}
+{% comment %} {%- include 'education/content' -%} {% endcomment %}
+<div class="cards-section container p-5">
+  <div class="row p-5">
+    <div class="col-12">
+      <h3 class="included text-center font-gothamPro">E-learning courses</h3>
+    </div>
+  </div>
+  <div class="row p-5">
+    {% for i in (1..3)-%}
+      {% include 'scissor/cards' -%}
+    {% endfor -%}
+  </div>
+  <div class="row p-5">
+    <div class="show-more">
+      <button class="button-wide">BROWSE ALL EVENTS</button>
+    </div> 
+  </div>
+  <hr>
+  <div class="row p-5">
+    <div class="col-12">
+      <h3 class="included text-center font-gothamPro">Upcoming Events</h3>
+    </div>
+  </div>
+  <div class="row p-5">
+  {% for i in (1..3) -%}
+    {% include 'events/cards'-%}
+  {% endfor -%}
+  </div>
+  <div class="row p-5">
+    <div class="show-more">
+      <button class="button-wide">BROWSE ALL EVENTS</button>
+    </div> 
+  </div>
+</div>
+
+
+
+

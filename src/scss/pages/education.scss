@@ -3,13 +3,55 @@
     position: relative;
     padding: 3%;
     margin-bottom: 5%;
-    .row {
-      .anchor-wrapper {
-        text-decoration: none;
-        &:hover {
+    .card {
+      height: 500px;
+      .card-body {
+        display: block;
+        .card-title {
+          font-family: 'gothamMedium';
+          font-size: 18px;
+          color: #5c5f83;
+          letter-spacing: 0;
+          line-height: 24px;
+        }
+        .more-details {
+          display: flex;
+          justify-content: center;
           text-decoration: none;
+          font-family: 'gothamMedium';
+        }
+        .location {
+          font-family: 'gothamMedium';
+          font-size: 11px;
+          color: #5c5f83;
+          letter-spacing: 0;
+          line-height: 24px;
+          .address {
+            opacity: 0.5;
+            font-family: 'gothamLight';
+            font-size: 11px;
+            color: #4b4e75;
+            letter-spacing: 0;
+            line-height: 16px;
+          }
+        }
+        .time {
+          font-family: 'gothamMedium';
+          font-size: 11px;
+          color: #4b4e75;
+          letter-spacing: 0;
+        }
+        .seats {
+          font-family: 'gothamMedium';
+          font-size: 11px;
+          color: #4b4e75;
+          letter-spacing: 0;
         }
       }
+    }
+    .included {
+      font-size: 24px;
+      color: $primary-extra-heavy;
     }
     .show-more {
       width: 100%;
@@ -26,142 +68,12 @@
         &:hover {
           background-color: $primary-medium;
           color: white;
+          border: none;
         }
-      }
-    }
-    .show-details {
-      width: 100%;
-      height: 98%;
-      overflow-x: auto;
-      overflow-y: hidden;
-      border-radius: 15px;
-      left: -150%;
-      top: 15px;
-      position: absolute;
-      box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.6);
-      z-index: 2;
-      -webkit-transition: all 0.8s ease-in-out;
-      -moz-transition: all 0.8s ease-in-out;
-      -o-transition: all 0.8s ease-in-out;
-      transition: all 0.8s ease-in-out;
-      background-color: #f6f6f8;
-      .close-btn {
-        padding: 10px;
-        font-size: 32px;
-        text-decoration: none;
-        color: $primary-heavy;
-      }
-      .description {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h1 {
-          font-family: 'gothamLight';
-          font-size: 34px;
-          color: $primary-heavy;
-          letter-spacing: 0;
-          padding-bottom: 15px;
-          align-self: flex-start;
-        }
-        p {
-          font-family: Helvetica;
-          font-size: 14px;
-          color: #9a9ab2;
-          letter-spacing: 0;
-          line-height: 26px;
-          padding-bottom: 3%;
-        }
-        .button-wide {
-          color: $primary-medium;
-          border: 2px solid $primary-medium;
-          background-color: white;
-          &:hover {
-            background-color: $primary-heavy;
-            color: $primary-light;
-            border: 2px solid $primary-light;
-          }
-        }
-      }
-      &:target {
-        left: 0;
-        background: #f6f6f8;
       }
     }
   }
-  .order-section.container {
-    background-color: $primary-heavy;
-    max-width: 100%;
-    height: 600px;
-    padding: 0;
-    .row {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      .left-section {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .text-section {
-          text-align: start;
-          width: 300px;
-          margin-bottom: 5%;
-        }
-        h1 {
-          font-family: 'gothamLight';
-          font-size: 34px;
-          color: $primary-medium;
-          letter-spacing: 0;
-        }
-        p {
-          font-family: 'gothamPro';
-          font-size: 14px;
-          color: #9a9ab2;
-          letter-spacing: 0;
-          line-height: 26px;
-          margin: auto;
-        }
-        button {
-          background-color: $primary-heavy;
-          border: 2px solid #ffffff;
-          outline: none;
-          cursor: pointer;
-          transition: all 0.3s;
-          &:hover {
-            background: #ffffff;
-            color: $primary-heavy;
-          }
-        }
-      }
-      .right-section {
-        width: 50%;
-        height: 100%;
-        background-size: cover;
-        background-position: center center;
-        transform: scaleX(-1);
-        border-top-right-radius: 50% 150vw;
-        border-bottom-right-radius: 50% 150vw;
-        margin-left: 0;
-        padding-left: 0;
-      }
-    }
-  }
-  @media (max-width: $phone) {
-    .order-section.container {
-      .row {
-        .left-section {
-          width: 100%;
-          .text-section {
-            text-align: center;
-          }
-        }
-      }
-      .right-section {
-        display: none !important;
-      }
-    }
-  }
+
   .ending-section {
     width: 100%;
     padding: 5%;

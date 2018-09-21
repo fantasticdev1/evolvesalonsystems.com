@@ -33,9 +33,171 @@ metadata:
     videoLink: https://youtube.com
 ---
 
-{% include 'home/top-gallery' meta: page.metadata.topSection %}
+{% comment %} {% include 'home/top-gallery' meta: page.metadata.topSection %}
 {% include 'home/promotions', meta: page.metadata.promotionsSection %}
 {% include 'home/events', meta: page.metadata.eventsSection %}
 {% include 'home/videos', meta: page.metadata.videosSection %}
 {% include 'home/social', meta: page.metadata.socialSection %}
-{% include 'home/ending', meta: page.metadata.endingSection %}
+{% include 'home/ending', meta: page.metadata.endingSection %} {% endcomment %}
+{% comment %} {%- query_graph 'get_events', result_name: 'g', page: 1, per_page: 3 -%}
+{%- query_graph 'get_gallery_items', result_name: g -%}
+{%- assign data = g.customizations.results[0].properties -%}
+{%- query_graph 'get_video_by_id', result_name: 'g', id: meta.id -%}
+{%- assign properties = g.customizations.results[0].properties -%} {% endcomment %}
+
+<div class="homepage__top-gallery">
+  <div class="left-section">
+    <div class="bg-circle"></div>
+    <div class="img-wrapper">
+      <img src="{{meta.image_url}}">
+    </div>
+  </div>
+  <div class="right-section">
+    <div class="text-section">
+      <div class="index">{{meta.index}}</div>
+      <div class="title">{{meta.title}}</div>
+      <div class="description">{{meta.description}}</div>
+      <div class="details">
+        <button>Details</button>
+      </div>
+    </div>
+    <div class="dots">
+      {%- for page in (1..4) -%}
+        <div class="dot" onclick="dosomething();"></div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% include 'home/promotions', meta: page.metadata.promotionsSection %}
+<div class="homepage__events-section">
+  <div class="heading">
+    <h1>{{meta.title}}</h1>
+    <div class="description">
+      {{meta.description}}
+    </div>
+  </div>
+  <div class="container">
+    <div class="card-custom">
+      <div class="card-header">
+        {{meta.tableHeading}}
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for event in g.customizations.results %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="content">
+                <img src="{{properties.image_url}}">
+                <p>{{properties.start_date}}</p>
+                <p>{{properties.title}}</p>
+                <button> DETAILS </button>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+        <li class="list-group-item">
+          <div class="row">
+            <div class="view-all content">
+              <a href="/education.html"> {{meta.viewAllEvents}}</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      </div>
+    </div>
+    <div id="eventsCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="header">
+              <p>{{meta.tableHeading}}</p>  
+            </div>
+            <div class="content col-sm-12">
+              <img src="{{properties.image_url}}">
+              <p class="date">{{properties.start_date}}</p>
+              <p class="event">{{properties.title}}</p>
+              <button> DETAILS </button>
+            </div>
+          </div>
+        </div>
+      {% for event in g.customizations.results%}  
+        <div class="carousel-item">
+            <div class="row">
+              <div class="header">
+                <p>{{meta.tableHeading}}</p>  
+              </div>
+              <div class="content col-sm-12">
+                <img src="{{properties.image_url}}">
+                <p class="date">{{properties.start_date}}</p>
+                <p class="event">{{properties.title}}</p>
+                <button> DETAILS </button>
+              </div>
+            </div>
+        </div>
+      {% endfor %}
+        <div class="view-all-mobile">
+          <a href="/education"> {{meta.viewAllEvents}} </a>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#previousEvent" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#nextEvent" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+</div>
+<div class="homepage__video-section" style="background-image: url({{meta.bgImageUrl}})">
+  <div class="container">
+    <div class="text-section">
+      <h1><p>{{properties.title}}</p></h1>
+      <div class="description">
+        <p>{{properties.description}}</p>
+      </div>
+      <div class="bottom-link"><a href="/videos">{{meta.viewAllFeaturedVideos}}</a></div>
+      <button><i class="fa fa-play"></i></button>
+    </div>
+  </div>
+</div>
+<div class="homepage__social-section">
+  <div class="left-section">
+    <div class="text-section">
+      <h1>{{meta.title}}</h1>
+      <p>{{meta.description}}</p>
+    </div>
+    <div class="link-row">
+      <a href="https://www.facebook.com/evolvesalonsystems"><button><img src="{{'images/icons/facebook.svg' | asset_url}}"></button></a>
+      <a href="https://www.instagram.com/evolvesalonsystems/"><button><i class="fab fa-instagram"></i></button></a>
+      <a href="https://www.snapchat.com/add/evolve_ss"><button><img src="{{'images/icons/snapchat.svg' | asset_url}}"></button></a>
+      <a href="https://plus.google.com/113177942398414855417"><button><img src="{{'images/icons/gplus.svg' | asset_url}}"></button></a>
+    </div>
+  </div>
+  <div class="right-section">
+    <div class="background"></div>
+    <div class="image-wrapper" style="background-image: url({{meta.imageUrl}})">
+
+    </div>
+  </div>
+</div>
+<div class="homepage__ending-section">
+  <div class="container">
+    <div class="row">
+      <div class="columns col-lg-12 col-md-12 col-sm-12">
+        <div class="image-wrapper">
+            <img src="{{page.metadata.endingSection.imageUrl}}">
+        </div>
+        <div class="description-section">
+          <p>{{page.metadata.endingSection.description}}</p>
+          <h1> Q&A WITH {{page.metadata.endingSection.qaName}}</h1>
+          <div class="button row">
+            <div class="col-md-6 col-sm-12 col-lg">
+              <button class="YT-btn"><img src="{{'images/icons/youtube.svg' | asset_url}}" ><a href="/videos.html">WATCH VIDEO</a></button>
+              <button class="link-btn">GOT IT!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

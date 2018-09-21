@@ -42,44 +42,6 @@
       text-align: center;
       line-height: 24px;
     }
-    .location {
-      width: 100%;
-      h5 {
-        font-family: Helvetica;
-        font-size: 11px;
-        color: #5c5f83;
-        letter-spacing: 0;
-        line-height: 24px;
-
-        .fas.fa-map-marker {
-          color: #c7c5dc;
-          padding-right: 5px;
-        }
-      }
-      .address {
-        opacity: 0.5;
-        font-family: Helvetica;
-        font-size: 11px;
-        color: #4b4e75;
-        letter-spacing: 0;
-        line-height: 16px;
-        text-align: start;
-        padding-left: 11px;
-      }
-    }
-    .time {
-      width: 100%;
-      p {
-        font-family: 'gothamMedium';
-        font-size: 11px;
-        color: #4b4e75;
-        letter-spacing: 0;
-        text-align: start;
-      }
-      .far.fa-clock {
-        padding-right: 5px;
-      }
-    }
     .more-details {
       font-family: 'gothamProBold';
       font-size: 10px;

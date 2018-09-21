@@ -8,4 +8,21 @@
   &.badge-pill {
     padding: 10px !important;
   }
+  &.badge-primary {
+    height: 50px;
+    width: 50px;
+    background-color: rgba(75, 78, 117, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: right;
+    .day {
+      font-size: 16px;
+      font-family: 'gothamLight';
+    }
+    .month {
+      font-size: 8px;
+      font-family: 'gothamLight';
+    }
+  }
 }
