@@ -5,8 +5,8 @@
 {% if meta.title and meta.title != '' -%}<div class="title"><span>{{meta.title}}</span></div>{% endif -%}
 	{% include 'forms/fieldGroup', field: f.fields.full_name, type: 'text', label: 'Full Name', value: user.full_name -%}
 	{% include 'forms/fieldGroup', field: f.fields.email, type: 'email', label: 'Email', value: user.email -%}
-	{% include 'forms/fieldGroup', field: f.fields.main_phone_number, type: 'text', label: 'Main Phone Number', value: user.profile.main_phone_number -%}
-	{% include 'forms/fieldGroup', field: f.fields.mobile_phone_number, type: 'text', label: 'Mobile Phone Number', value: user.profile.mobile_phone_number -%}
+	{% include 'forms/fieldGroup', field: f.fields.main_phone_number, type: 'tel', label: 'Main Phone Number', value: user.profile.main_phone_number -%}
+	{% include 'forms/fieldGroup', field: f.fields.mobile_phone_number, type: 'tel', label: 'Mobile Phone Number', value: user.profile.mobile_phone_number -%}
   {% include 'forms/fieldGroup', field: f.fields.password, type: 'password', label: 'Password', value: user.password -%}
   {% include 'forms/fieldGroup', field: f.fields.confirm_password, type: 'password', label: 'Confirm Password', value: user.confirm_password -%}
 	<button type="submit" class="save-button">{% if method == 'put' -%}Done{% else -%}Create{% endif -%}</button>
